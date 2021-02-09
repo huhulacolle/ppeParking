@@ -17,7 +17,7 @@
         <h1> <strong> page de connexion </strong> </h1>
     </center>
     <br> <br>
-    <form action="PageUtilisateur" method="get">
+    <form action="PageUtilisateur" method="post">
         <div class="mx-auto" style="width: 300px;">
             <table class="table table-borderless">
                 <tr>
