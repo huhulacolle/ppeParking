@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\test;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pageconnexion');
 });
+
+Route::get('testinscription', function () {
+    return view ('testinscriptionform');
+});
+
+Route::post('testinscriptionresultat', [test::class, 'testinscription']);
 
 // Route::get('/', function () {
 //     return view('welcome');
