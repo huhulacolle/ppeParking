@@ -11,35 +11,54 @@
 </head>
 
 <body>
-
-    <br><br><br>
-    <center>
-        <h1> <strong> page de connexion </strong> </h1>
-    </center>
-    <br> <br>
-    <form action="PageUtilisateur" method="post">
-        <div class="mx-auto" style="width: 300px;">
-            <table class="table table-borderless">
-                <tr>
-                    <td>
-                        Utilisateur : <input type='text' class="form-control" name='user' required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Mot de passe : <input type="password" class="form-control" name="password" required>
-                </tr>
-            </table>
-        </div>
-        <div class="mx-auto" style="width: 500px;">
-            <table class="table table-borderless">
-                <thead>
-                    <tr class='ligneTabNonQuad'>
-                        <td width='85%'></td>
-                        <td><button type="submit" value="Valider" class="btn btn-primary mb-2">Valider</button></td>
-                    </tr>
-            </table>
-        </div>
-    </form>
+    <style>
+        .login-form {
+            width: 340px;
+            margin: 50px auto;
+              font-size: 15px;
+        }
+        .login-form form {
+            margin-bottom: 15px;
+            background: #f7f7f7;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+        }
+        .login-form h2 {
+            margin: 0 0 15px;
+        }
+        .form-control, .btn {
+            min-height: 38px;
+            border-radius: 2px;
+        }
+        .btn {
+            font-size: 15px;
+            font-weight: bold;
+        }
+        </style>
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-text">
+          Reservation Parking
+        </span>
+      </nav>
+    <br>
+    <div class="login-form">
+        <form action="PageUtilisateur" method="post">
+            <h2 class="text-center">Connexion</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Utilisateur" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Mot de passe" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Connexion</button>
+            </div>
+            <div class="clearfix">
+                <label class="float-left form-check-label"><input type="checkbox"> Se Souvenir de moi</label>
+                <a href="#" class="float-right">Mot de passe oublié ?</a>
+            </div>
+        </form>
+    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
