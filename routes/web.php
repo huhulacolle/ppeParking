@@ -19,6 +19,14 @@ Route::get('/', function () {
     return view('pageconnexion');
 });
 
+Route::get('testadmin', function () {
+    return view('admin.testadmin');
+});
+
+Route::get('testuser', function () {
+    return view('user.testuser');
+});
+
 Route::get('testinscription', function () {
     return view ('testinscriptionform');
 });
