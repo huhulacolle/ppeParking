@@ -50,6 +50,25 @@
     </style>
     <nav class="navbar navbar-light bg-light">
         <span class="navbar-brand mb-0 h1">Reservation Parking</span>
+        <span class="navbar-text">
+            <?php
+            $adresse = $_SERVER['PHP_SELF'];
+            $adresse = explode('/', $adresse);
+            if (isset($adresse[2])) {
+                $adresse = $adresse[2];
+            }
+            else {
+                $adresse = $adresse[1];
+            }
+            Log::debug($adresse);
+            if ($adresse == "Inscription") {
+                echo '<a href="/"> Connexion </a>';
+            }
+            else {
+                echo '<a href="Inscription"> Inscription </a>';
+            }
+            ?>
+          </span>
     </nav>
     <br>
     @yield('content')
