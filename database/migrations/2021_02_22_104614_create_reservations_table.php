@@ -17,7 +17,7 @@ class CreateReservationsTable extends Migration
             $table->engine = 'InnoDb';
             $table->integer('idReservation');
             $table->integer("positionFileAttente");
-            $table->foreign('numeroPlace')->references('numeroPlace')->on('Parking');
+            $table->foreign('numeroPlace')->references('numeroPlace')->on('parkings');
             $table->foreign('idUtilisateur')->references('idUtilisateur')->on('utilisateurs');
             $table->primary('idReservation');
         });
