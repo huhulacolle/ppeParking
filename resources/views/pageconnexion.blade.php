@@ -7,7 +7,20 @@
             <input type="text" class="form-control" placeholder="Utilisateur" required>
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" placeholder="Mot de passe" required>
+            <input type="password" id="mdp" class="form-control" placeholder="Mot de passe" required>
+            <input type="checkbox" onclick="myFunction()">Montrer mot de passe
+          
+            <script>
+function myFunction() {
+  var x = document.getElementById("mdp");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+            
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">Connexion</button>
