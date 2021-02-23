@@ -17,6 +17,7 @@ class CreateDateReservationsTable extends Migration
             $table->engine = 'InnoDb';
             $table->date('dateReservation');
             $table->primary('dateReservation');
+            $table->timestamps();
         });
     }
 

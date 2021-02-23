@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUtilisateursTable extends Migration
+class CreateParkingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateUtilisateursTable extends Migration
      */
     public function up()
     {
-        Schema::create('utilisateurs', function (Blueprint $table) {
+        Schema::create('parkings', function (Blueprint $table) {
             $table->engine = 'InnoDb';
-            $table->integer('idUtilisateur');
-            $table->char('nomUtilisateur', 50);
-            $table->char('motDePasseUtilisateur', 30);
-            $table->boolean('isAdministrateur');
-            $table->primary('idUtilisateur');
+            $table->integer('numeroPlace')->default(0);
+            $table->integer('nbPlaces');
+            $table->primary('numeroPlace');
+            $table->timestamps();
         });
     }
 
@@ -30,6 +29,6 @@ class CreateUtilisateursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('utilisateurs');
+        Schema::dropIfExists('parkings');
     }
 }
