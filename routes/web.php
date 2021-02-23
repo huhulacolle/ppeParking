@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\test;
+use App\Http\Controllers\connexion;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,8 @@ use App\Http\Controllers\test;
 Route::get('/', function () {
     return view('pageconnexion');
 });
+
+Route::post('/', [connexion::class, 'connexion']);
 
 Route::get('Inscription', function () {
     return view('pageinscription');
