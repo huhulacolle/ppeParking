@@ -16,6 +16,7 @@ class CreateUtilisateursTable extends Migration
         Schema::create('utilisateurs', function (Blueprint $table) {
             $table->engine = 'InnoDb';
             $table->integer('idUtilisateur');
+            $table->date('DateInscrit');
             $table->char('nomUtilisateur', 50);
             $table->char('motDePasseUtilisateur', 30);
             $table->boolean('isAdministrateur');
