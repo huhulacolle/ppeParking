@@ -25,15 +25,21 @@ class connexion extends Controller
         }
         if ($utilisateur != null && $motdepasse == $pswd) {
             if ($admin == 0) {
-                return view('user.acceuiluser');
+                return view('user.acceuiluser', compact('utilisateur'));
             }
             else {
-                return view('admin.acceuiladmin');
+                return view('admin.acceuiladmin', compact('utilisateur'));
             }
         }
         else {
             $error = 1;
         }
         return view('pageconnexion', compact('error'));
+    }
+
+    public function user_reservation()
+    {
+        $utilisateur = $_POST['utilisateur'];
+        return view('user.reservation', compact('utilisateur'));
     }
 }

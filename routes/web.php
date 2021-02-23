@@ -26,6 +26,8 @@ Route::get('Inscription', function () {
     return view('pageinscription');
 });
 
+Route::post('VosReservation', [connexion::class, 'user_reservation']);
+
 Route::get('testadmin', function () {
     return view('admin.testadmin');
 });
