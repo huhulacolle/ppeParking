@@ -13,11 +13,10 @@ class CreateParkingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('parkings', function (Blueprint $table) {
+        Schema::create('parking', function (Blueprint $table) {
             $table->engine = 'InnoDb';
-            $table->integer('numeroPlace')->default(0);
+            $table->increments('idParking');
             $table->integer('nbPlaces');
-            $table->primary('numeroPlace');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateParkingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('parkings');
+        Schema::dropIfExists('parking');
     }
 }

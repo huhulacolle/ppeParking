@@ -13,7 +13,7 @@ class CreateDateReservationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('date_reservations', function (Blueprint $table) {
+        Schema::create('dateReservation', function (Blueprint $table) {
             $table->engine = 'InnoDb';
             $table->date('dateReservation');
             $table->primary('dateReservation');
@@ -28,6 +28,6 @@ class CreateDateReservationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('date_reservations');
+        Schema::dropIfExists('dateReservation');
     }
 }

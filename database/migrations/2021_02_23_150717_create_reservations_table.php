@@ -13,27 +13,23 @@ class CreateReservationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reservations', function (Blueprint $table) {
+        Schema::create('reservation', function (Blueprint $table) {
             $table->engine = 'InnoDb';
             $table->integer('idReservation');
             $table->integer("positionFileAttente")->nullable();
-            $table->integer('numeroPlace')->nullable();
-            $table->integer('idUtilisateur')->nullable();
+            $table->integer('numeroPlace')->unsigned()->index();
+            $table->integer('utilisateur')->unsigned()->index();
             $table->primary('idReservation');
             $table->timestamps();
         });
 
-        Schema::table('reservations', function (Blueprint $table) {
+        Schema::table('reservation', function (Blueprint $table) {
             $table->foreign('numeroPlace')
-                  ->references('numeroPlace')
-                  ->on('parkings')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreign('idUtilisateur')
+                  ->references('idParking')
+                  ->on('parking');
+            $table->foreign('utilisateur')
                   ->references('idUtilisateur')
-                  ->on('utilisateurs')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+                  ->on('utilisateur');
         });
     }
 
@@ -44,6 +40,6 @@ class CreateReservationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reservations');
+        Schema::dropIfExists('reservation');
     }
 }

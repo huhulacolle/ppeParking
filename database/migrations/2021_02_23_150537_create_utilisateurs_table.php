@@ -13,13 +13,12 @@ class CreateUtilisateursTable extends Migration
      */
     public function up()
     {
-        Schema::create('utilisateurs', function (Blueprint $table) {
+        Schema::create('utilisateur', function (Blueprint $table) {
             $table->engine = 'InnoDb';
-            $table->integer('idUtilisateur');
+            $table->increments('idUtilisateur');
             $table->char('nomUtilisateur', 50)->unique();
             $table->char('motDePasseUtilisateur', 30);
             $table->boolean('isAdministrateur');
-            $table->primary('idUtilisateur');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateUtilisateursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('utilisateurs');
+        Schema::dropIfExists('utilisateur');
     }
 }
