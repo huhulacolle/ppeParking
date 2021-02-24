@@ -18,6 +18,12 @@
 </head>
 
 <body>
+    <?php
+    $adresse = $_SERVER['PHP_SELF'];
+    $adresse = explode("/", $adresse);
+    $adresse = $adresse[2];
+    Log::debug($adresse);
+    ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand mb-0 h1">Administrateur {{$utilisateur}}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
