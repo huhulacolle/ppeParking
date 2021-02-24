@@ -36,16 +36,4 @@ class connexion extends Controller
         }
         return view('pageconnexion', compact('error'));
     }
-
-    public function user_reservation()
-    {
-        $utilisateur = $_POST['utilisateur'];
-        return view('user.reservation', compact('utilisateur'));
-    }
-
-    public function admin_listeattente()
-    {
-        $utilisateur = $_POST['utilisateur'];
-        return view('admin.listeattente', compact('utilisateur'));
-    }
 }

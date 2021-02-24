@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\test;
 use App\Http\Controllers\connexion;
+use App\Http\Controllers\admin;
+use App\Http\Controllers\user;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,13 +33,13 @@ Route::get('testadmin', function () {
     return view('admin.testadmin');
 });
 
-Route::post('ListeAttente', [connexion::class, 'admin_listeattente']);
+Route::post('ListeAttente', [admin::class, 'listeattente']);
 
 Route::get('testuser', function () {
     return view('user.testuser');
 });
 
-Route::post('VosReservation', [connexion::class, 'user_reservation']);
+Route::post('VosReservation', [user::class, 'reservation']);
 
 Route::get('testinscription', function () {
     return view ('testinscriptionform');
