@@ -105,7 +105,7 @@ class DatabaseSeeder extends Seeder
         ));
         DB::table('reservation')->insert(array(
             array(
-                'idReservation' => 1, 'positionFileAttente' => 0 ,'numeroPlace' => DB::table('parking')->select('idParking')->where('idParking','=',1)->get(), 'utilisateur' => 1 ,
+                'idReservation' => 1, 'positionFileAttente' => 0 ,'numeroPlace' => 0, 'utilisateur' => 1 ,
             ),
             array(
                 'idReservation' => 2, 'positionFileAttente' => 0 , 'numeroPlace' => 0, 'utilisateur' => 2,

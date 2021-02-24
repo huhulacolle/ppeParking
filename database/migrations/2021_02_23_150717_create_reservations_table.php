@@ -23,14 +23,16 @@ class CreateReservationsTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('reservation', function (Blueprint $table) {
-            $table->foreign('numeroPlace')
-                  ->references('idParking')
-                  ->on('parking');
-            $table->foreign('utilisateur')
-                  ->references('idUtilisateur')
-                  ->on('utilisateur');
-        });
+        /**
+         * Schema::table('reservation', function (Blueprint $table) {
+         *   $table->foreign('numeroPlace')
+         *         ->references('idParking')
+         *         ->on('parking');
+         *   $table->foreign('utilisateur')
+         *         ->references('idUtilisateur')
+         *         ->on('utilisateur');
+         *   });
+        */
     }
 
     /**
