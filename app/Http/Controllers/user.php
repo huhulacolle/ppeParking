@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\reservation;
 
 class user extends Controller
 {
@@ -20,7 +21,24 @@ class user extends Controller
             0 => $id,
             1 => $nom,
             2 => $prenom,
-         );
-        return view('user.reservation', compact('info'));
+        );
+
+        $reservation = DB::select('SELECT count(idReservation) AS id FROM `reservations` where utilisateur = "'.$info[0].'"');
+
+        $dbreserv = array(
+            0 => 0,
+            1 => null,
+        );
+
+        foreach ($reservation as $reservationdata) {
+            $id = $reservationdata -> id;
+        }
+        if ($id == 0) {
+            $dbreserv[0] = 1;
+        }
+
+        $dbreserv[1] = reservation::select('*')->where('utilisateur','=',$info[0])->get();
+
+        return view('user.reservation', compact('info'), compact('dbreserv'));
     }
 }
