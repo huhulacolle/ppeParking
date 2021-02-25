@@ -12,6 +12,7 @@ class connexion extends Controller
     public function connexion()
     {
         $utilisateur = null;
+        $id = null;
         $motdepasse = null;
         $admin = null;
         $error = 0;
@@ -20,12 +21,13 @@ class connexion extends Controller
         $connect = DB::select('select * from utilisateurs where nomUtilisateur = "'.$user.'"');
         foreach ($connect as $connectdata) {
             $utilisateur = $connectdata -> nomUtilisateur;
+            $id = $connectdata -> idUtilisateur;
             $motdepasse = $connectdata -> motDePasseUtilisateur;
             $admin = $connectdata -> isAdministrateur;
         }
         if ($utilisateur != null && $motdepasse == $pswd) {
             if ($admin == 0) {
-                return view('user.acceuiluser', compact('utilisateur'));
+                return view('user.acceuiluser', compact('id'));
             }
             else {
                 return view('admin.acceuiladmin', compact('utilisateur'));

@@ -25,7 +25,7 @@
     Log::debug($adresse);
     ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand mb-0 h1">{{$utilisateur}}</a>
+        <a class="navbar-brand mb-0 h1">{{$info[1]}} {{$info[2]}}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -37,7 +37,7 @@
                   ?>
                 <form action="VosReservation" method="post">
                     @csrf
-                    <input type="hidden" name="utilisateur" value={{$utilisateur}}>
+                    <input type="hidden" name="id" value={{$info[0]}}>
                     <li class="nav-item active">
                         <button type="submit" class="nav-link">Vos réservations</button>
                     </li>
@@ -48,7 +48,7 @@
                   ?>
                 <form action="VosReservation" method="post">
                     @csrf
-                    <input type="hidden" name="utilisateur" value={{$utilisateur}}>
+                    <input type="hidden" name="id" value={{$info[0]}}>
                     <li class="nav-item">
                         <button type="submit" class="nav-link">Vos réservations</button>
                     </li>

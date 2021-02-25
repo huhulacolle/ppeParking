@@ -43,7 +43,7 @@
 
 <form action="VosReservation" name="form" method="post">
     @csrf
-    <input type="hidden" name='utilisateur' value={{$utilisateur}}>
+    <input type="hidden" name='id' value={{$id}}>
 </form>
 <script type="text/javascript">
     document.forms["form"].submit();
