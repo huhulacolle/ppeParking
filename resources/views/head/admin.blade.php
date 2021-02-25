@@ -99,13 +99,13 @@
               <?php
             }
             ?>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a class="nav-link" href="#">Liste des utilisateurs</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Historique attribution des places</a>
               </li>
-          </ul>
+          </ul> --}}
           <span class="navbar-text">
             <a href="/">
                 Deconnexion
