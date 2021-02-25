@@ -17,7 +17,7 @@ class connexion extends Controller
         $error = 0;
         $user = $_POST['user'];
         $pswd = $_POST['pswd'];
-        $connect = DB::select('select * from utilisateur where nomUtilisateur = "'.$user.'"');
+        $connect = DB::select('select * from utilisateurs where nomUtilisateur = "'.$user.'"');
         foreach ($connect as $connectdata) {
             $utilisateur = $connectdata -> nomUtilisateur;
             $motdepasse = $connectdata -> motDePasseUtilisateur;
