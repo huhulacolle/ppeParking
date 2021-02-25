@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        DB::table('dateReservation')->insert(array(
+        DB::table('dateReservations')->insert(array(
             array(
                 'dateReservation' => '2020/08/10',
             ),
@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
                 'dateReservation' => '2020/08/16',
             ),
         ));
-        DB::table('parking')->insert(array(
+        DB::table('parkings')->insert(array(
             array(
                 'idParking' => 1,
                 'nbPlaces' => 10,
@@ -89,7 +89,7 @@ class DatabaseSeeder extends Seeder
                 'nbPlaces' => 10,
             ),
         ));
-        DB::table('utilisateur')->insert(array(
+        DB::table('utilisateurs')->insert(array(
             array(
                 'idUtilisateur' => 1, 'nomUtilisateur' => 'HugoAraujooooo', 'motDePasseUtilisateur' => 'huhuLaColle', 'motDePasseValide' => 1, 'isAdministrateur' => true ,
             ),
@@ -103,7 +103,7 @@ class DatabaseSeeder extends Seeder
                 'idUtilisateur' => 10, 'nomUtilisateur' => 'inconnu', 'motDePasseUtilisateur' => 'mdpInconnu', 'motDePasseValide'=> 0 ,'isAdministrateur' => false ,
             ),
         ));
-        DB::table('reservation')->insert(array(
+        DB::table('reservations')->insert(array(
             array(
                 'idReservation' => 1, 'positionFileAttente' => 0 ,'numeroPlace' => 0, 'utilisateur' => 1 ,
             ),
@@ -114,7 +114,7 @@ class DatabaseSeeder extends Seeder
                 'idReservation' => 3, 'positionFileAttente' => 0 , 'numeroPlace' => 0, 'utilisateur' => 3 ,
             ),
             array(
-                'idReservation' => 4, 'positionFileAttente' => 0 , 'numeroPlace' => 1, 'utilisateur' => 4 ,
+                'idReservation' => 4, 'positionFileAttente' => 1 , 'numeroPlace' => 1, 'utilisateur' => 10 ,
             ),
         ));
     }

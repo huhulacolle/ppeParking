@@ -13,7 +13,7 @@ class CreateReservationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reservation', function (Blueprint $table) {
+        Schema::create('reservations', function (Blueprint $table) {
             $table->engine = 'InnoDb';
             $table->integer('idReservation');
             $table->integer("positionFileAttente")->nullable();
@@ -24,7 +24,7 @@ class CreateReservationsTable extends Migration
         });
 
         /**
-         * Schema::table('reservation', function (Blueprint $table) {
+         * Schema::table('reservations', function (Blueprint $table) {
          *   $table->foreign('numeroPlace')
          *         ->references('idParking')
          *         ->on('parking');
@@ -42,6 +42,6 @@ class CreateReservationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reservation');
+        Schema::dropIfExists('reservations');
     }
 }

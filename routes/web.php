@@ -35,6 +35,8 @@ Route::get('testadmin', function () {
 
 Route::post('ListeAttente', [admin::class, 'listeattente']);
 
+Route::post('ListeUtilisateur', [admin::class, 'listeutilisateur']);
+
 Route::get('testuser', function () {
     return view('user.testuser');
 });

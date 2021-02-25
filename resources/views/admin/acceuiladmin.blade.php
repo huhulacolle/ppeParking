@@ -33,6 +33,9 @@
         border: 1px solid black;
         margin: 10px;
     }
+    .aligner {
+        text-align: center;
+    }
 </style>
 <div class="loader">
     <div class="spinner-border text-primary" role="status">
