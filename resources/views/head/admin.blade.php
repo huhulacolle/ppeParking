@@ -54,6 +54,50 @@
               </form>
               <?php
             }
+            if ($adresse = "ListeUtilisateur") {
+                ?>
+              <form action="ListeUtilisateur" method="post">
+                  @csrf
+                  <input type="hidden" name="utilisateur" value={{$utilisateur}}>
+                  <li class="nav-item active">
+                      <button type="submit" class="nav-link">Liste des utilisateurs</button>
+                  </li>
+              </form>
+              <?php
+            }
+            else {
+                ?>
+              <form action="ListeUtilisateur" method="post">
+                  @csrf
+                  <input type="hidden" name="utilisateur" value={{$utilisateur}}>
+                  <li class="nav-item">
+                      <button type="submit" class="nav-link">Liste des utilisateurs</button>
+                  </li>
+              </form>
+              <?php
+            }
+            if ($adresse = "HistoAttributionPlace") {
+                ?>
+              <form action="HistoAttributionPlace" method="post">
+                  @csrf
+                  <input type="hidden" name="utilisateur" value={{$utilisateur}}>
+                  <li class="nav-item active">
+                      <button type="submit" class="nav-link">Historique attribution des places</button>
+                  </li>
+              </form>
+              <?php
+            }
+            else {
+                ?>
+              <form action="HistoAttributionPlace" method="post">
+                  @csrf
+                  <input type="hidden" name="utilisateur" value={{$utilisateur}}>
+                  <li class="nav-item">
+                      <button type="submit" class="nav-link">Historique attribution des places</button>
+                  </li>
+              </form>
+              <?php
+            }
             ?>
             <li class="nav-item">
               <a class="nav-link" href="#">Liste des utilisateurs</a>

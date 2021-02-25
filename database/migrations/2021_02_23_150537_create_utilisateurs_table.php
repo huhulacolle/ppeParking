@@ -16,7 +16,10 @@ class CreateUtilisateursTable extends Migration
         Schema::create('utilisateurs', function (Blueprint $table) {
             $table->engine = 'InnoDb';
             $table->increments('idUtilisateur');
-            $table->char('nomUtilisateur', 50)->unique();
+            $table->string('nomUtilisateur')->unique();
+            $table->char('nom', 50)->unique();
+            $table->char('prenom', 50)->unique();
+            $table->char('mail', 50)->unique();
             $table->char('motDePasseUtilisateur', 30);
             $table->integer('motDePasseValide')->default(0); // 0 : attente de validation , 1 : refusé, 2 : validé
             $table->boolean('isAdministrateur');

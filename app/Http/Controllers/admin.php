@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\reservation;
+use App\Models\utilisateur;
 
 class admin extends Controller
 {
@@ -18,6 +19,8 @@ class admin extends Controller
 
     public function listeUtilisateur()
     {
+        $utilisateur = $_POST['utilisateur'];
+        $listeNom = utilisateur::select('idUtilisateur','nomUtilisateur')->where('isAdministrateur', '=', false)->get();
         return view('admin.listeUtilisateur', compact('utilisateur','listeNom'));
     }
 }
