@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\utilisateur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Stmt\Else_;
@@ -18,7 +19,7 @@ class connexion extends Controller
         $error = 0;
         $user = $_POST['user'];
         $pswd = $_POST['pswd'];
-        $connect = DB::select('select * from utilisateurs where nomUtilisateur = "'.$user.'"');
+        $connect = utilisateur::select('*')->where('nomUtilisateur', '=', $user)->get();
         foreach ($connect as $connectdata) {
             $utilisateur = $connectdata -> nomUtilisateur;
             $id = $connectdata -> idUtilisateur;

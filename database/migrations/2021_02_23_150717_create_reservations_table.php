@@ -17,7 +17,7 @@ class CreateReservationsTable extends Migration
             $table->engine = 'InnoDb';
             $table->integer('idReservation');
             $table->integer("positionFileAttente")->nullable();
-            $table->integer('numeroPlace')->unsigned()->index();
+            $table->string('numeroPlace');
             $table->integer('utilisateur')->unsigned()->index();
             $table->string("etatReservation");
             $table->date('dateDebut')->nullable();
