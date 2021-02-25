@@ -4,19 +4,29 @@
     <table border="1">
         <thead>
             <tr>
-                <th colspan="2" >Histo </th>
+                <th colspan="7" >Historique des reservations </th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Id de l'utilisateur</td>
-                <td>nom de l'utilisateur</td>
+                <td>Id de la réservation</td>
+                <td>position dans la file d'attente</td>
+                <td>Numero de la place attribuée</td>
+                <td>utilisateur</td>
+                <td>Etat de la réservation</td>
+                <td>Date début de la réservation</td>
+                <td>Date fin de la réservation</td>
             </tr>
             <?php
-                foreach ($listeNom as $key => $value) {
+                foreach ($listeHistoReservation as $key => $value) {
                     echo '<tr>
-                            <td>'.$value->idUtilisateur.'</td>
+                            <td>'.$value->idReservation.'</td>
+                            <td>'.$value->positionFileAttente.'</td>
+                            <td>'.$value->numeroPlace.'</td>
                             <td>'.$value->nomUtilisateur.'</td>
+                            <td>'.$value->etatReservation.'</td>
+                            <td>'.$value->dateDebut.'</td>
+                            <td>'.$value->dateFin.'</td>
                         </tr>';
                 }
             ?>
