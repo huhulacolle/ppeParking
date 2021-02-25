@@ -91,16 +91,16 @@ class DatabaseSeeder extends Seeder
         ));
         DB::table('utilisateur')->insert(array(
             array(
-                'idUtilisateur' => 1, 'nomUtilisateur' => 'HugoAraujooooo', 'motDePasseUtilisateur' => 'huhuLaColle', 'isAdministrateur' => true ,
+                'idUtilisateur' => 1, 'nomUtilisateur' => 'HugoAraujooooo', 'motDePasseUtilisateur' => 'huhuLaColle', 'motDePasseValide' => 1, 'isAdministrateur' => true ,
             ),
             array(
-                'idUtilisateur' => 2, 'nomUtilisateur' => 'RomainTh', 'motDePasseUtilisateur' => 'AyaRomain', 'isAdministrateur' => false ,
+                'idUtilisateur' => 2, 'nomUtilisateur' => 'RomainTh', 'motDePasseUtilisateur' => 'AyaRomain', 'motDePasseValide' => 1, 'isAdministrateur' => false ,
             ),
             array(
-                'idUtilisateur' => 3, 'nomUtilisateur' => 'BoaJulien', 'motDePasseUtilisateur' => 'julien1234', 'isAdministrateur' => false ,
+                'idUtilisateur' => 3, 'nomUtilisateur' => 'BoaJulien', 'motDePasseUtilisateur' => 'julien1234', 'motDePasseValide' => 1 , 'isAdministrateur' => false ,
             ),
             array(
-                'idUtilisateur' => 10, 'nomUtilisateur' => 'inconnu', 'motDePasseUtilisateur' => 'mdpInconnu', 'isAdministrateur' => false ,
+                'idUtilisateur' => 10, 'nomUtilisateur' => 'inconnu', 'motDePasseUtilisateur' => 'mdpInconnu', 'motDePasseValide'=> 0 ,'isAdministrateur' => false ,
             ),
         ));
         DB::table('reservation')->insert(array(

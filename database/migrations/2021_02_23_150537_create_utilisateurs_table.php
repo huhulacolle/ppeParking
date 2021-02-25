@@ -18,6 +18,7 @@ class CreateUtilisateursTable extends Migration
             $table->increments('idUtilisateur');
             $table->char('nomUtilisateur', 50)->unique();
             $table->char('motDePasseUtilisateur', 30);
+            $table->integer('motDePasseValide')->default(0); // 0 : attente de validation , 1 : refusé, 2 : validé
             $table->boolean('isAdministrateur');
             $table->timestamps();
         });
