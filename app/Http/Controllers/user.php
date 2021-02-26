@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\reservation;
+use App\Models\utilisateur;
 
 class user extends Controller
 {
     public function reservation()
     {
-        $requete = DB::select('select * from utilisateurs where idUtilisateur = "'.$_POST['id'].'"');
+        $requete = utilisateur::select('*')->where('idUtilisateur', '=',$_POST['id'])->get();
         foreach ($requete as $requetedata) {
             $id = $requetedata -> idUtilisateur;
             $nom = $requetedata -> nom;
@@ -23,17 +24,14 @@ class user extends Controller
             2 => $prenom,
         );
 
-        $reservation = DB::select('SELECT count(idReservation) AS id FROM `reservations` where utilisateur = "'.$info[0].'"');
+        $reservation = reservation::select('idReservation')->where('utilisateur', '=', $info[0])->count();
 
         $dbreserv = array(
             0 => 0,
             1 => null,
         );
 
-        foreach ($reservation as $reservationdata) {
-            $id = $reservationdata -> id;
-        }
-        if ($id == 0) {
+        if ($reservation == 0) {
             $dbreserv[0] = 1;
         }
 
