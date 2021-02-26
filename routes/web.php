@@ -39,6 +39,8 @@ Route::post('ListeUtilisateur', [admin::class, 'listeutilisateur']);
 
 Route::post('HistoAttributionPlace', [admin::class, 'histoattributionplace']);
 
+Route::get('modificationFileAttente/{idReservation}', [admin::class, 'show']);
+
 Route::get('testuser', function () {
     return view('user.testuser');
 });

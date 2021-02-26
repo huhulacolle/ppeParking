@@ -118,31 +118,79 @@ class DatabaseSeeder extends Seeder
             array(
                 'idUtilisateur' => 5, 'nomUtilisateur' => 'Escriva','nom' =>'Escriva', 'Prenom' => 'gOublié','mail'=>'escrivaSafari@safari.com', 'motDePasseUtilisateur' => 'JeKiffeLesParkings', 'motDePasseValide'=> 0 ,'isAdministrateur' => false ,
             ),
+            array(
+                'idUtilisateur' => 6, 'nomUtilisateur' => 'bruney','nom' =>'faitesNousDesOrdisQuiMarchent', 'Prenom' => 'DIDIER','mail'=>'jeNeComprendspas@bloodyHell.com', 'motDePasseUtilisateur' => 'onTheFly', 'motDePasseValide'=> 0 ,'isAdministrateur' => false ,
+            ),
+            array(
+                'idUtilisateur' => 7, 'nomUtilisateur' => 'titli','nom' =>'fastFood', 'Prenom' => 'vintage','mail'=>'çaMarcheComment@huawei.com', 'motDePasseUtilisateur' => 'lesTrains', 'motDePasseValide'=> 0 ,'isAdministrateur' => false ,
+            ),
+            array(
+                'idUtilisateur' => 8, 'nomUtilisateur' => 'InèsMGG','nom' =>'Maganga', 'Prenom' => 'Inès','mail'=>'wtfmgg@iSpeakEngish.com', 'motDePasseUtilisateur' => 'holyShit', 'motDePasseValide'=> 0 ,'isAdministrateur' => false ,
+            ),
+            array(
+                'idUtilisateur' => 9, 'nomUtilisateur' => 'GianniBosioFromCunt','nom' =>'Bosio', 'Prenom' => 'Gianni','mail'=>'gianniBosio@kant.com', 'motDePasseUtilisateur' => 'narutoXmanonLove', 'motDePasseValide'=> 0 ,'isAdministrateur' => false ,
+            ),
+            array(
+                'idUtilisateur' => 11, 'nomUtilisateur' => 'MelvRedur','nom' =>'Redureau', 'Prenom' => 'Melvin','mail'=>'MelDokkan@battle.com', 'motDePasseUtilisateur' => 'CquantiqueToutça', 'motDePasseValide'=> 0 ,'isAdministrateur' => false ,
+            ),
+            array(
+                'idUtilisateur' => 12, 'nomUtilisateur' => 'Alex','nom' =>'CHERAMNAC', 'Prenom' => 'Alexei','mail'=>'jepechobeaucouptrop@tinder.com', 'motDePasseUtilisateur' => 'rocketLeague3000€', 'motDePasseValide'=> 0 ,'isAdministrateur' => false ,
+            ),
+            array(
+                'idUtilisateur' => 13, 'nomUtilisateur' => 'ProfDeMath','nom' =>'exponentiel', 'Prenom' => 'logarithmique','mail'=>'maths@calculatrice.com', 'motDePasseUtilisateur' => 'çacemangesansfaim', 'motDePasseValide'=> 0 ,'isAdministrateur' => false ,
+            ),
         ));
         DB::table('reservations')->insert(array(
             array(
-                'idReservation' => 2, 'positionFileAttente' => 0 , 'numeroPlace' => '0', 'utilisateur' => 2,'etatReservation' => 'validé', 'dateDebut' => '2020/08/10', 'dateFin' => '2020/04/17',
+                'idReservation' => 2, 'positionFileAttente' => 0 , 'numeroPlace' => '0', 'utilisateur' => 2,'etatReservation' => null, 'dateDebut' => '2020/08/10', 'dateFin' => '2020/04/17',
             ),
             array(
-                'idReservation' => 3, 'positionFileAttente' => 0 , 'numeroPlace' => '0', 'utilisateur' => 3 , 'etatReservation' => 'validé', 'dateDebut' => '2020/01/29', 'dateFin' => '2020/01/20',
+                'idReservation' => 3, 'positionFileAttente' => 0 , 'numeroPlace' => '0', 'utilisateur' => 3 , 'etatReservation' => null, 'dateDebut' => '2020/01/29', 'dateFin' => '2020/01/20',
             ),
             array(
-                'idReservation' => 4, 'positionFileAttente' => 1 , 'numeroPlace' => '1A', 'utilisateur' => 10 ,'etatReservation' => 'validé', 'dateDebut' => null,'dateFin' => null,
+                'idReservation' => 4, 'positionFileAttente' => 1 , 'numeroPlace' => '1A', 'utilisateur' => 10 ,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
             ),
             array(
-                'idReservation' => 5, 'positionFileAttente' => 0 , 'numeroPlace' => '2A', 'utilisateur' => 5 ,'etatReservation' => 'validé', 'dateDebut' => '2019/01/17','dateFin' => '2019/02/17',
+                'idReservation' => 5, 'positionFileAttente' => 0 , 'numeroPlace' => '2A', 'utilisateur' => 5 ,'etatReservation' => null, 'dateDebut' => '2019/01/17','dateFin' => '2019/02/17',
             ),
             array(
-                'idReservation' => 6, 'positionFileAttente' => 0 , 'numeroPlace' => '7A', 'utilisateur' => 5 ,'etatReservation' => 'validé', 'dateDebut' => '2019/07/10','dateFin' => '2019/08/10',
+                'idReservation' => 6, 'positionFileAttente' => 0 , 'numeroPlace' => '7A', 'utilisateur' => 5 ,'etatReservation' => null, 'dateDebut' => '2019/07/10','dateFin' => '2019/08/10',
             ),
             array(
-                'idReservation' => 7, 'positionFileAttente' => 0 , 'numeroPlace' => '9A', 'utilisateur' => 5 ,'etatReservation' => 'validé', 'dateDebut' => '2019/11/21','dateFin' => '2019/12/21',
+                'idReservation' => 7, 'positionFileAttente' => 0 , 'numeroPlace' => '9A', 'utilisateur' => 5 ,'etatReservation' => null, 'dateDebut' => '2019/11/21','dateFin' => '2019/12/21',
             ),
             array(
-                'idReservation' => 8, 'positionFileAttente' => 0 , 'numeroPlace' => '3A', 'utilisateur' => 5 ,'etatReservation' => 'validé', 'dateDebut' => '2020/01/10','dateFin' => '2019/02/10',
+                'idReservation' => 8, 'positionFileAttente' => 0 , 'numeroPlace' => '3A', 'utilisateur' => 5 ,'etatReservation' => null, 'dateDebut' => '2020/01/10','dateFin' => '2019/02/10',
             ),
             array(
-                'idReservation' => 9, 'positionFileAttente' => 1 , 'numeroPlace' => '7A', 'utilisateur' => 5 ,'etatReservation' => 'en attente', 'dateDebut' => null,'dateFin' => null,
+                'idReservation' => 9, 'positionFileAttente' => 1 , 'numeroPlace' => '7A', 'utilisateur' => 5 ,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
+            ),
+            array(
+                'idReservation' => 10, 'positionFileAttente' => 1 , 'numeroPlace' => '7A', 'utilisateur' => 10 ,'etatReservation' => 'annulée', 'dateDebut' => '2020/01/12','dateFin' => '2020/02/12',
+            ),
+            array(
+                'idReservation' => 11, 'positionFileAttente' => 2 , 'numeroPlace' => '3A', 'utilisateur' => 6 ,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
+            ),
+            array(
+                'idReservation' => 12, 'positionFileAttente' => 3 , 'numeroPlace' => '5A', 'utilisateur' => 7 ,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
+            ),
+            array(
+                'idReservation' => 13, 'positionFileAttente' => 1 , 'numeroPlace' => '10A', 'utilisateur' => 9 ,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
+            ),
+            array(
+                'idReservation' => 14, 'positionFileAttente' => 1 , 'numeroPlace' => '1B', 'utilisateur' => 6 ,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
+            ),
+            array(
+                'idReservation' => 15, 'positionFileAttente' => 0 , 'numeroPlace' => '2A', 'utilisateur' => 13 ,'etatReservation' => null, 'dateDebut' => '2019/01/28','dateFin' => '2019/02/28',
+            ),
+            array(
+                'idReservation' => 16, 'positionFileAttente' => 0 , 'numeroPlace' => '7A', 'utilisateur' => 13 ,'etatReservation' => null, 'dateDebut' => '2019/04/27','dateFin' => '2019/05/27',
+            ),
+            array(
+                'idReservation' => 17, 'positionFileAttente' => 0 , 'numeroPlace' => '9A', 'utilisateur' => 13 ,'etatReservation' => null, 'dateDebut' => '2019/12/21','dateFin' => '2020/01/21',
+            ),
+            array(
+                'idReservation' => 18, 'positionFileAttente' => 0 , 'numeroPlace' => '3A', 'utilisateur' => 13,'etatReservation' => null, 'dateDebut' => '2020/02/04','dateFin' => '2019/03/04',
             ),
         ));
     }
