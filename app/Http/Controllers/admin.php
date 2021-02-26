@@ -24,6 +24,12 @@ class admin extends Controller
         $listeNom = utilisateur::select('idUtilisateur','nomUtilisateur')->where('isAdministrateur', '=', false)->get();
         return view('admin.listeutilisateur', compact('utilisateur','listeNom'));
     }
+    public function demandesinscriptions()
+    {
+        $utilisateur = $_POST['utilisateur'];
+         $utilisateursnoninscrit = utilisateur::select('idUtilisateur','nomUtilisateur')->where('EstInscrit', '=', false)->get();
+         return view('admin.demandesinscriptions', compact('utilisateursnoninscrit'), compact('utilisateur'));
+    }
 
     public function histoattributionplace()
     {

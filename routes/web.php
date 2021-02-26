@@ -35,6 +35,8 @@ Route::get('testadmin', function () {
 
 Route::get('modificationFileAttente/updateFileAttente/{idReservation}', [admin::class, 'listeattente']);
 
+Route::post('demandesinscriptions', [admin::class, 'demandesinscriptions']);
+
 
 Route::post('ListeAttente', [admin::class, 'listeattente']);
 
