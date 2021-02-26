@@ -1,11 +1,13 @@
 @extends('head.admin')
 @section('content')
 <div style="text-align: center;">
-    <table border="1">
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <h3 align="center" style="color:#00DFF9";>HISTORIQUE DES RESERVATIONS</h3>
+  </div>
+    <table border="2" align="center">
         <thead>
             <tr>
-                <th colspan="7" >Historique des reservations </th>
-            </tr>
+                <th colspan="7" ></th>
         </thead>
         <tbody>
             <tr>
