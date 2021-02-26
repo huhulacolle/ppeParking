@@ -17,15 +17,15 @@
             <input type="checkbox" onclick="myFunction()">Montrer mot de passe
 
             <script>
-function myFunction() {
-  var x = document.getElementById("mdp");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
-</script>
+                function myFunction() {
+                    var x = document.getElementById("mdp");
+                    if (x.type === "password") {
+                        x.type = "text";
+                    } else {
+                        x.type = "password";
+                    }
+                }
+            </script>
 
         </div>
         <div class="form-group">

@@ -1,11 +1,10 @@
 @extends('head.admin')
 @section('content')
 
-<form action="DemandesInscriptions" align="center" method="post">
-                 
-                  <input type="hidden" name="utilisateur" value={{$utilisateur}}>
-                 
-                      <button type="submit"  class="nav-link">Voir demandes d'inscription</button>
+<form action="demandesinscriptions" align="center" method="post">
+@csrf
+
+        <button type="submit"  class="nav-link">Voir demandes d'inscription</button>
                  
               </form>
 <div class="shadow-lg p-3 mb-5 bg-white rounded">

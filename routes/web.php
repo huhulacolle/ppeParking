@@ -35,6 +35,8 @@ Route::get('testadmin', function () {
 
 Route::get('modificationFileAttente/updateFileAttente/{idReservation}', [admin::class, 'listeattente']);
 
+Route::post('demandesinscriptions', [admin::class, 'demandesinscriptions']);
+
 
 Route::get('ListeAttente', [admin::class, 'listeattente']);
 
@@ -51,6 +53,7 @@ Route::get('testuser', function () {
 });
 
 Route::post('VosReservation', [user::class, 'reservation']);
+Route::post('annuler', [user::class, 'annule']);
 
 Route::get('testinscription', function () {
     return view ('testinscriptionform');

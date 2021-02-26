@@ -28,7 +28,8 @@ class connexion extends Controller
         }
         if ($utilisateur != null && $motdepasse == $pswd) {
             if ($admin == 0) {
-                return view('user.acceuiluser', compact('id'));
+                $action = 1;
+                return view('user.acceuiluser', compact('id'), compact('action'));
             }
             else {
                 return view('admin.acceuiladmin', compact('utilisateur'));
