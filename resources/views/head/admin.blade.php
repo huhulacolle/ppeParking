@@ -25,7 +25,7 @@
     Log::debug($adresse);
     ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand mb-0 h1">Administrateur {{$utilisateur}}</a>
+        <p class="navbar-brand mb-0 h1">Administrateur </p>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,68 +34,45 @@
             <?php
             if ($adresse = "ListeAttente") {
                 ?>
-              <form action="ListeAttente" method="post">
-                  @csrf
-                  <input type="hidden" name="utilisateur" value={{$utilisateur}}>
                   <li class="nav-item active">
-                      <button type="submit" class="nav-link">Liste d'attente</button>
+                      <a  class="nav-link" href="/ListeAttente">Liste d'attente</a>
                   </li>
-              </form>
               <?php
             }
             else {
                 ?>
-              <form action="ListeAttente" method="post">
-                  @csrf
-                  <input type="hidden" name="utilisateur" value={{$utilisateur}}>
                   <li class="nav-item">
-                      <button type="submit" class="nav-link">Liste d'attente</button>
+                    <a  class="nav-link" href="/ListeAttente">Liste d'attente</a>
                   </li>
-              </form>
               <?php
             }
             if ($adresse = "ListeUtilisateur") {
                 ?>
-              <form action="ListeUtilisateur" method="post">
-                  @csrf
-                  <input type="hidden" name="utilisateur" value={{$utilisateur}}>
                   <li class="nav-item active">
-                      <button type="submit" class="nav-link">Liste des utilisateurs</button>
+                      <a  class="nav-link" href="/ListeUtilisateur">Liste des utilisateurs</a>
                   </li>
               </form>
               <?php
             }
             else {
                 ?>
-              <form action="ListeUtilisateur" method="post">
-                  @csrf
-                  <input type="hidden" name="utilisateur" value={{$utilisateur}}>
                   <li class="nav-item">
-                      <button type="submit" class="nav-link">Liste des utilisateurs</button>
+                    <a  class="nav-link" href="/ListeUtilisateur">Liste des utilisateurs</a>
                   </li>
-              </form>
               <?php
             }
             if ($adresse = "HistoAttributionPlace") {
                 ?>
-              <form action="HistoAttributionPlace" method="post">
-                  @csrf
-                  <input type="hidden" name="utilisateur" value={{$utilisateur}}>
                   <li class="nav-item active">
-                      <button type="submit" class="nav-link">Historique attribution des places</button>
+                      <a  class="nav-link" href="HistoAttributionPlace">Historique attribution des places</a>
                   </li>
-              </form>
               <?php
             }
             else {
                 ?>
-              <form action="HistoAttributionPlace" method="post">
-                  @csrf
-                  <input type="hidden" name="utilisateur" value={{$utilisateur}}>
                   <li class="nav-item">
-                      <button type="submit" class="nav-link">Historique attribution des places</button>
+                    <a  class="nav-link" href="HistoAttributionPlace">Historique attribution des places</a>
                   </li>
-              </form>
               <?php
             }
             ?>

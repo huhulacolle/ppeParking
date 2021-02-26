@@ -36,11 +36,11 @@ Route::get('testadmin', function () {
 Route::get('modificationFileAttente/updateFileAttente/{idReservation}', [admin::class, 'listeattente']);
 
 
-Route::post('ListeAttente', [admin::class, 'listeattente']);
+Route::get('ListeAttente', [admin::class, 'listeattente']);
 
-Route::post('ListeUtilisateur', [admin::class, 'listeutilisateur']);
+Route::get('ListeUtilisateur', [admin::class, 'listeutilisateur']);
 
-Route::post('HistoAttributionPlace', [admin::class, 'histoattributionplace']);
+Route::get('HistoAttributionPlace', [admin::class, 'histoattributionplace']);
 
 Route::post('modificationFileAttente/updateFileAttente/{idReservation}', [admin::class, 'updateFileAttente']);
 
