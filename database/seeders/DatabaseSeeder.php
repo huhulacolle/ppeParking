@@ -142,31 +142,31 @@ class DatabaseSeeder extends Seeder
         ));
         DB::table('reservations')->insert(array(
             array(
-                'idReservation' => 2, 'positionFileAttente' => 0 , 'numeroPlace' => '0', 'utilisateur' => 2,'etatReservation' => null, 'dateDebut' => '2020/08/10', 'dateFin' => '2020/04/17',
+                'idReservation' => 2, 'positionFileAttente' => null , 'numeroPlace' => '0', 'utilisateur' => 2,'etatReservation' => null, 'dateDebut' => '2020/08/10', 'dateFin' => '2020/04/17',
             ),
             array(
-                'idReservation' => 3, 'positionFileAttente' => 0 , 'numeroPlace' => '0', 'utilisateur' => 3 , 'etatReservation' => null, 'dateDebut' => '2020/01/29', 'dateFin' => '2020/01/20',
+                'idReservation' => 3, 'positionFileAttente' => null , 'numeroPlace' => '0', 'utilisateur' => 3 , 'etatReservation' => null, 'dateDebut' => '2020/01/29', 'dateFin' => '2020/01/20',
             ),
             array(
                 'idReservation' => 4, 'positionFileAttente' => 1 , 'numeroPlace' => '1A', 'utilisateur' => 10 ,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
             ),
             array(
-                'idReservation' => 5, 'positionFileAttente' => 0 , 'numeroPlace' => '2A', 'utilisateur' => 5 ,'etatReservation' => null, 'dateDebut' => '2019/01/17','dateFin' => '2019/02/17',
+                'idReservation' => 5, 'positionFileAttente' => null , 'numeroPlace' => '2A', 'utilisateur' => 5 ,'etatReservation' => null, 'dateDebut' => '2019/01/17','dateFin' => '2019/02/17',
             ),
             array(
-                'idReservation' => 6, 'positionFileAttente' => 0 , 'numeroPlace' => '7A', 'utilisateur' => 5 ,'etatReservation' => null, 'dateDebut' => '2019/07/10','dateFin' => '2019/08/10',
+                'idReservation' => 6, 'positionFileAttente' => null , 'numeroPlace' => '7A', 'utilisateur' => 5 ,'etatReservation' => null, 'dateDebut' => '2019/07/10','dateFin' => '2019/08/10',
             ),
             array(
-                'idReservation' => 7, 'positionFileAttente' => 0 , 'numeroPlace' => '9A', 'utilisateur' => 5 ,'etatReservation' => null, 'dateDebut' => '2019/11/21','dateFin' => '2019/12/21',
+                'idReservation' => 7, 'positionFileAttente' => null , 'numeroPlace' => '9A', 'utilisateur' => 5 ,'etatReservation' => null, 'dateDebut' => '2019/11/21','dateFin' => '2019/12/21',
             ),
             array(
-                'idReservation' => 8, 'positionFileAttente' => 0 , 'numeroPlace' => '3A', 'utilisateur' => 5 ,'etatReservation' => null, 'dateDebut' => '2020/01/10','dateFin' => '2019/02/10',
+                'idReservation' => 8, 'positionFileAttente' => null , 'numeroPlace' => '3A', 'utilisateur' => 5 ,'etatReservation' => null, 'dateDebut' => '2020/01/10','dateFin' => '2019/02/10',
             ),
             array(
                 'idReservation' => 9, 'positionFileAttente' => 3 , 'numeroPlace' => '7A', 'utilisateur' => 5 ,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
             ),
             array(
-                'idReservation' => 10, 'positionFileAttente' => 0 , 'numeroPlace' => '7A', 'utilisateur' => 10 ,'etatReservation' => 'annulée', 'dateDebut' => '2020/01/12','dateFin' => '2020/02/12',
+                'idReservation' => 10, 'positionFileAttente' => null , 'numeroPlace' => '7A', 'utilisateur' => 10 ,'etatReservation' => 'annulée', 'dateDebut' => '2020/01/12','dateFin' => '2020/02/12',
             ),
             array(
                 'idReservation' => 11, 'positionFileAttente' => 4 , 'numeroPlace' => '3A', 'utilisateur' => 6 ,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
@@ -181,16 +181,16 @@ class DatabaseSeeder extends Seeder
                 'idReservation' => 14, 'positionFileAttente' => 7 , 'numeroPlace' => '1B', 'utilisateur' => 6 ,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
             ),
             array(
-                'idReservation' => 15, 'positionFileAttente' => 0 , 'numeroPlace' => '2A', 'utilisateur' => 13 ,'etatReservation' => null, 'dateDebut' => '2019/01/28','dateFin' => '2019/02/28',
+                'idReservation' => 15, 'positionFileAttente' => null , 'numeroPlace' => '2A', 'utilisateur' => 13 ,'etatReservation' => null, 'dateDebut' => '2019/01/28','dateFin' => '2019/02/28',
             ),
             array(
-                'idReservation' => 16, 'positionFileAttente' => 0 , 'numeroPlace' => '7A', 'utilisateur' => 13 ,'etatReservation' => null, 'dateDebut' => '2019/04/27','dateFin' => '2019/05/27',
+                'idReservation' => 16, 'positionFileAttente' => null , 'numeroPlace' => '7A', 'utilisateur' => 13 ,'etatReservation' => null, 'dateDebut' => '2019/04/27','dateFin' => '2019/05/27',
             ),
             array(
-                'idReservation' => 17, 'positionFileAttente' => 0 , 'numeroPlace' => '9A', 'utilisateur' => 13 ,'etatReservation' => null, 'dateDebut' => '2019/12/21','dateFin' => '2020/01/21',
+                'idReservation' => 17, 'positionFileAttente' => null , 'numeroPlace' => '9A', 'utilisateur' => 13 ,'etatReservation' => null, 'dateDebut' => '2019/12/21','dateFin' => '2020/01/21',
             ),
             array(
-                'idReservation' => 18, 'positionFileAttente' => 0 , 'numeroPlace' => '3A', 'utilisateur' => 13,'etatReservation' => null, 'dateDebut' => '2020/02/04','dateFin' => '2019/03/04',
+                'idReservation' => 18, 'positionFileAttente' => null , 'numeroPlace' => '3A', 'utilisateur' => 13,'etatReservation' => null, 'dateDebut' => '2020/02/04','dateFin' => '2019/03/04',
             ),
             array(
                 'idReservation' => 19, 'positionFileAttente' => 2 , 'numeroPlace' => '3A', 'utilisateur' => 13,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,

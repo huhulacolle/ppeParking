@@ -6,18 +6,22 @@
 <div style="text-align: center;">
     <?php
         foreach ($reservation as $key => $value) {
-            echo'Modification de la liste pour la reservation'.$value->idReservation.'<br><br><br><br><br><br><br><br>
-            <form method="POST" action="updateFileAttente/'.$value->positionFileAttente.'">';
+            $positionFileAttente = $value->positionFileAttente;
+            $idReservation = $value->idReservation;
+            echo'Modification de la liste pour la reservation'.$idReservation.'<br><br><br><br><br><br><br><br>
+            <form method="POST" action="updateFileAttente/'.$idReservation.'">';
         }?>
+        {{ csrf_field() }}
         <p>Nouvelle place de file d'attente à attribuer: <br><br></p>
-        <select name="placeAttente">
+        <select name="placeAattribuer">
         <?php
-        foreach($placeAattribuer as $key => $value) {
-            echo '<option value="'.$value->positionFileAttente.'">'.$value->positionFileAttente.'</option>';
-        }
-    ?>
+            foreach($placeAattribuer as $key => $value) {
+               echo '<option value="'.$value->positionFileAttente.'">'.$value->positionFileAttente.'</option>';
+            }
+        ?>
         </select>
         <br><br><br>
         <button type="submit" value="valider">Valider</button>
+        </form>
 </div>
 @endsection

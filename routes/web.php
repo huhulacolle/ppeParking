@@ -33,11 +33,16 @@ Route::get('testadmin', function () {
     return view('admin.testadmin');
 });
 
+Route::get('modificationFileAttente/updateFileAttente/{idReservation}', [admin::class, 'listeattente']);
+
+
 Route::post('ListeAttente', [admin::class, 'listeattente']);
 
 Route::post('ListeUtilisateur', [admin::class, 'listeutilisateur']);
 
 Route::post('HistoAttributionPlace', [admin::class, 'histoattributionplace']);
+
+Route::post('modificationFileAttente/updateFileAttente/{idReservation}', [admin::class, 'updateFileAttente']);
 
 Route::get('modificationFileAttente/{idReservation}', [admin::class, 'show']);
 

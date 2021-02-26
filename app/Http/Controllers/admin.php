@@ -32,13 +32,25 @@ class admin extends Controller
         return view('admin.histoattributionplace', compact('utilisateur','listeHistoReservation'));
     }
 
-    public function updateFileAttente(Request $request, $idReservation)
+    public function updateFileAttente(Request $request,$idReservation)
     {
-        // foreach($reservation as $value)
-        // {
-        //     reservation::where('positionFileAttente','>', $value->positionFileAttente)->update(array('positionFileAttente' => 'positionFileAttente + 1'));
-        // }
-        // return Redirect::to('admin.listeattente');
+        $placeAattribuer= $request->input('placeAattribuer');
+        $request = reservation::select('positionFileAttente')->where('idReservation','=', $idReservation)->get();
+        foreach($request as $key => $value)
+        {
+            if($value->positionFileAttente >$placeAattribuer)
+                reservation::where('positionFileAttente','>=', $placeAattribuer)->increment('positionFileAttente');
+            else
+            reservation::where('positionFileAttente','<=', $placeAattribuer)->decrement('positionFileAttente');
+        }
+        reservation::where('idReservation','=',$idReservation)->update(array('positionFileAttente' => $placeAattribuer));
+        $utilisateur = utilisateur::select('nomUtilisateur')->where('isAdministrateur','=', true)->get();
+        foreach($utilisateur as $key => $value)
+        {
+            $utilisateur = $value->nomUtilisateur;
+        }
+        $utilisateursFileAttente = reservation::select('idReservation','utilisateur', 'positionFileAttente')->where('positionFileAttente','>', 0)->get();
+        return view('admin.listeattente', compact('utilisateursFileAttente','utilisateur'));
     }
 
     public function show($idReservation)
@@ -47,7 +59,7 @@ class admin extends Controller
         foreach($utilisateur as $key => $value)
             $utilisateur = $value->nomUtilisateur;
         $reservation = reservation::select('*')->where('idReservation','=', $idReservation)->get();
-        $placeAattribuer = reservation::select('positionFileAttente')->where('idReservation','<>', $idReservation)->where('positionFileAttente','>',0)->get();
+        $placeAattribuer = reservation::select('positionFileAttente')->where('idReservation','<>', $idReservation)->where('positionFileAttente','>',0)->orderBy('positionFileAttente')->get();
         return view('admin.modifListeAttente', compact('utilisateur','reservation','placeAattribuer'));
     }
 }
