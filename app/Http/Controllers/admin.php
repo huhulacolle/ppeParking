@@ -47,7 +47,7 @@ class admin extends Controller
         foreach($utilisateur as $key => $value)
             $utilisateur = $value->nomUtilisateur;
         $reservation = reservation::select('*')->where('idReservation','=', $idReservation)->get();
-        $placeAattribuer = reservation::select('positionFileAttente')->where('idReservation','<>', $idReservation)->get();
+        $placeAattribuer = reservation::select('positionFileAttente')->where('idReservation','<>', $idReservation)->where('positionFileAttente','>',0)->get();
         return view('admin.modifListeAttente', compact('utilisateur','reservation','placeAattribuer'));
     }
 }

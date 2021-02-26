@@ -163,22 +163,22 @@ class DatabaseSeeder extends Seeder
                 'idReservation' => 8, 'positionFileAttente' => 0 , 'numeroPlace' => '3A', 'utilisateur' => 5 ,'etatReservation' => null, 'dateDebut' => '2020/01/10','dateFin' => '2019/02/10',
             ),
             array(
-                'idReservation' => 9, 'positionFileAttente' => 1 , 'numeroPlace' => '7A', 'utilisateur' => 5 ,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
+                'idReservation' => 9, 'positionFileAttente' => 3 , 'numeroPlace' => '7A', 'utilisateur' => 5 ,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
             ),
             array(
-                'idReservation' => 10, 'positionFileAttente' => 1 , 'numeroPlace' => '7A', 'utilisateur' => 10 ,'etatReservation' => 'annulée', 'dateDebut' => '2020/01/12','dateFin' => '2020/02/12',
+                'idReservation' => 10, 'positionFileAttente' => 0 , 'numeroPlace' => '7A', 'utilisateur' => 10 ,'etatReservation' => 'annulée', 'dateDebut' => '2020/01/12','dateFin' => '2020/02/12',
             ),
             array(
-                'idReservation' => 11, 'positionFileAttente' => 2 , 'numeroPlace' => '3A', 'utilisateur' => 6 ,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
+                'idReservation' => 11, 'positionFileAttente' => 4 , 'numeroPlace' => '3A', 'utilisateur' => 6 ,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
             ),
             array(
-                'idReservation' => 12, 'positionFileAttente' => 3 , 'numeroPlace' => '5A', 'utilisateur' => 7 ,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
+                'idReservation' => 12, 'positionFileAttente' => 5 , 'numeroPlace' => '5A', 'utilisateur' => 7 ,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
             ),
             array(
-                'idReservation' => 13, 'positionFileAttente' => 1 , 'numeroPlace' => '10A', 'utilisateur' => 9 ,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
+                'idReservation' => 13, 'positionFileAttente' => 6 , 'numeroPlace' => '10A', 'utilisateur' => 9 ,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
             ),
             array(
-                'idReservation' => 14, 'positionFileAttente' => 1 , 'numeroPlace' => '1B', 'utilisateur' => 6 ,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
+                'idReservation' => 14, 'positionFileAttente' => 7 , 'numeroPlace' => '1B', 'utilisateur' => 6 ,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
             ),
             array(
                 'idReservation' => 15, 'positionFileAttente' => 0 , 'numeroPlace' => '2A', 'utilisateur' => 13 ,'etatReservation' => null, 'dateDebut' => '2019/01/28','dateFin' => '2019/02/28',
@@ -191,6 +191,9 @@ class DatabaseSeeder extends Seeder
             ),
             array(
                 'idReservation' => 18, 'positionFileAttente' => 0 , 'numeroPlace' => '3A', 'utilisateur' => 13,'etatReservation' => null, 'dateDebut' => '2020/02/04','dateFin' => '2019/03/04',
+            ),
+            array(
+                'idReservation' => 19, 'positionFileAttente' => 2 , 'numeroPlace' => '3A', 'utilisateur' => 13,'etatReservation' => null, 'dateDebut' => null,'dateFin' => null,
             ),
         ));
     }
