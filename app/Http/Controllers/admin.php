@@ -24,9 +24,22 @@ class admin extends Controller
     }
     public function demandesinscriptions()
     {
-        $utilisateur = $_POST['utilisateur'];
-         $utilisateursnoninscrit = utilisateur::select('idUtilisateur','nomUtilisateur')->where('EstInscrit', '=', false)->get();
-         return view('admin.demandesinscriptions', compact('utilisateursnoninscrit'), compact('utilisateur'));
+        $utilisateurNonInscrits = utilisateur::select('idUtilisateur','nomUtilisateur','nom','prenom','mail','motDePasseUtilisateur')->where('estInscrit', '=', false)->get();
+        return view('admin.demandesinscriptions', compact('utilisateurNonInscrits'));
+    }
+
+    public function accepterinscription($idUtilisateur)
+    {
+        utilisateur::where('idUtilisateur','=',$idUtilisateur)->update(array('estInscrit' => true));
+        $utilisateurNonInscrits = utilisateur::select('idUtilisateur','nomUtilisateur','nom','prenom','mail','motDePasseUtilisateur')->where('estInscrit', '=', false)->get();
+        return view('admin.demandesinscriptions', compact('utilisateurNonInscrits'));
+    }
+
+    public function refuserinscription($idUtilisateur)
+    {
+        utilisateur::where('idUtilisateur','=',$idUtilisateur)->delete();
+        $utilisateurNonInscrits = utilisateur::select('idUtilisateur','nomUtilisateur','nom','prenom','mail','motDePasseUtilisateur')->where('estInscrit', '=', false)->get();
+        return view('admin.demandesinscriptions', compact('utilisateurNonInscrits'));
     }
 
     public function histoattributionplace()

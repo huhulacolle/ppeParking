@@ -48,6 +48,10 @@ Route::post('modificationFileAttente/updateFileAttente/{idReservation}', [admin:
 
 Route::get('modificationFileAttente/{idReservation}', [admin::class, 'show']);
 
+Route::get('accepterInscription/{idUtilisateur}', [admin::class, 'accepterInscription']);
+
+Route::get('refuserInscription/{idUtilisateur}', [admin::class, 'refuserInscription']);
+
 Route::get('testuser', function () {
     return view('user.testuser');
 });
