@@ -41,11 +41,20 @@
     </div>
 </div>
 
-<form action="VosReservation" name="form" method="post">
-    @csrf
-    <input type="hidden" name='id' value={{$id}}>
-</form>
-<script type="text/javascript">
-    document.forms["form"].submit();
+@switch($action)
+    @case(1)
+    <form action="VosReservation" name="form" method="post">
+        @csrf
+        <input type="hidden" name='id' value={{$id}}>
+    </form>
+    <script type="text/javascript">
+        document.forms["form"].submit();
 
-</script>
+    </script>
+        @break
+    @case(2)
+
+        @break
+    @default
+
+@endswitch

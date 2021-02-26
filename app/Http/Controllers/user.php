@@ -35,8 +35,18 @@ class user extends Controller
             $dbreserv[0] = 1;
         }
 
-        $dbreserv[1] = reservation::select('*')->where('utilisateur','=',$info[0])->get();
+        $dbreserv[1] = reservation::select('*')->where('utilisateur','=',$info)->get();
 
         return view('user.reservation', compact('info'), compact('dbreserv'));
+    }
+
+    public function annule()
+    {
+        $annule = DB::table('reservations')
+        ->where('idReservation', '=', $_POST['id'])
+        ->update(['etatReservation' => 1]);
+        $id = $_POST['iduser'];
+        $action = $_POST['action'];
+        return view('user.acceuiluser', compact('action'), compact('id'));
     }
 }
