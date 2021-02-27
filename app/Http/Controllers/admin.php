@@ -61,7 +61,7 @@ class admin extends Controller
         }
         reservation::where('idReservation','=',$idReservation)->update(array('positionFileAttente' => $placeAattribuer));
         $utilisateursFileAttente = reservation::select('idReservation','utilisateur', 'positionFileAttente')->where('positionFileAttente','>', 0)->get();
-        return redirect('ListeAttente');;
+        return redirect()->action([admin::class, 'listeattente']);
     }
 
     public function show($idReservation)

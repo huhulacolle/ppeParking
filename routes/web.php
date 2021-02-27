@@ -38,6 +38,8 @@ Route::get('modificationFileAttente/updateFileAttente/{idReservation}', [admin::
 Route::post('demandesinscriptions', [admin::class, 'demandesinscriptions']);
 
 
+Route::post('ListeAttente', [admin::class, 'listeattente']);
+
 Route::get('ListeAttente', [admin::class, 'listeattente']);
 
 Route::get('ListeUtilisateur', [admin::class, 'listeutilisateur']);
