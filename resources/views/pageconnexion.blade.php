@@ -41,7 +41,7 @@
         </div>
     </form>
     <div class="clearfix">
-        <a href="#" class="float-right">Mot de passe oublié ?</a>
+        <a href="mdpoublie" class="float-right">Mot de passe oublié ?</a>
     </div>
 </div>
 @endsection
