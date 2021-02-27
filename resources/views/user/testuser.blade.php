@@ -1,1 +1,2 @@
-@extends('head.user')
+salut
+<?php Log::debug($old); ?>

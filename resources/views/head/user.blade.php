@@ -25,16 +25,13 @@
     Log::debug($adresse);
     ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand mb-0 h1">{{$info[1]}} {{$info[2]}}</a>
+        <a class="navbar-brand mb-0 h1">{{$info[2]}} {{$info[1]}}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-                <?php
-              if ($adresse = "VosReservation") {
-                  ?>
                 <form action="VosReservation" method="post">
                     @csrf
                     <input type="hidden" name="id" value={{$info[0]}}>
@@ -42,22 +39,14 @@
                         <button type="submit" class="nav-link">Vos réservations</button>
                     </li>
                 </form>
-                <?php
-              }
-              else {
-                  ?>
-                <form action="VosReservation" method="post">
-                    @csrf
-                    <input type="hidden" name="id" value={{$info[0]}}>
-                    <li class="nav-item">
-                        <button type="submit" class="nav-link">Vos réservations</button>
-                    </li>
-                </form>
-                <?php
-              }
-              ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Faire une reservation</a>
+                    <form action="ModificationMDP" method="post">
+                        @csrf
+                        <input type="hidden" name="id" value={{$info[0]}}>
+                        <li class="nav-item">
+                            <button type="submit" class="nav-link">Modifier son Mot de passe</button>
+                        </li>
+                    </form>
                 </li>
             </ul>
             <span class="navbar-text">

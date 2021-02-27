@@ -22,10 +22,20 @@ Route::get('/', function () {
     return view('pageconnexion');
 });
 
+
+
 Route::post('/', [connexion::class, 'connexion']);
 
 Route::get('Inscription', function () {
     return view('pageinscription');
+});
+
+Route::get('mdpoublie', function() {
+    return view('user.mdpoublie');
+});
+
+Route::get('mdpoublieresultat', function() {
+    return view('user.mdpoublieresultat');
 });
 
 
@@ -58,6 +68,8 @@ Route::get('testuser', function () {
 
 Route::post('VosReservation', [user::class, 'reservation']);
 Route::post('annuler', [user::class, 'annule']);
+Route::post('ModificationMDP', [user::class, 'formMDP']);
+Route::post('ModificationConfirmation', [user::class, 'confirmMDP']);
 
 Route::get('testinscription', function () {
     return view ('testinscriptionform');

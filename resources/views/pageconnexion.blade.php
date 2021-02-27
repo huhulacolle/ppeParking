@@ -34,14 +34,13 @@
                     }
                 }
             </script>
-
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">Connexion</button>
         </div>
     </form>
     <div class="clearfix">
-        <a href="#" class="float-right">Mot de passe oublié ?</a>
+        <a href="mdpoublie" class="float-right">Mot de passe oublié ?</a>
     </div>
 </div>
 @endsection
