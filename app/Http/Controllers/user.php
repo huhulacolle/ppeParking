@@ -49,5 +49,44 @@ class user extends Controller
         $action = $_POST['action'];
         return view('user.acceuiluser', compact('action'), compact('id'));
     }
-   
+
+    public function formMDP()
+    {
+        $requete = utilisateur::select('*')->where('idUtilisateur', '=',$_POST['id'])->get();
+        foreach ($requete as $requetedata) {
+            $id = $requetedata -> idUtilisateur;
+            $nom = $requetedata -> nom;
+            $prenom = $requetedata -> prenom;
+        }
+        $info = array(
+            0 => $id,
+            1 => $nom,
+            2 => $prenom,
+        );
+
+        return view('user.modificationmdp', compact('info'));
+    }
+
+    public function confirmMDP()
+    {
+        $action = 2;
+        $id = $_POST['iduser'];
+        $user = array(
+            0 => $id,
+            1 => 0,
+        );
+        $connect = utilisateur::select('motDePasseUtilisateur')->where('idUtilisateur', '=', $id)->get();
+        foreach ($connect as $connectdata) {
+            $old = $connectdata -> motDePasseUtilisateur;
+        }
+        if ($old != $_POST['old']) {
+            $user[1] = 1;
+            return view('user.acceuiluser', compact('user'), compact('action'));
+        }
+        elseif ($_POST['new'] != $_POST['new2']) {
+            $user[1] = 2;
+            return view('user.acceuiluser', compact('user'), compact('info'));
+        }
+    }
+
 }

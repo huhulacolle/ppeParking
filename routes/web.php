@@ -70,6 +70,8 @@ Route::get('testuser', function () {
 
 Route::post('VosReservation', [user::class, 'reservation']);
 Route::post('annuler', [user::class, 'annule']);
+Route::post('ModificationMDP', [user::class, 'formMDP']);
+Route::post('ModificationConfirmation', [user::class, 'confirmMDP']);
 
 Route::get('testinscription', function () {
     return view ('testinscriptionform');
