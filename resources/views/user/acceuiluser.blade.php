@@ -53,25 +53,14 @@
     </script>
         @break
     @case(2)
-    @if ($user[0] <= 1)
     <form action="ModificationMDP" name="form" method="post">
         @csrf
-        <input type="hidden" name="error" value={{$user[0]}}>
-        <input type="hidden" name='id' value={{$user[1]}}>
+        <input type="hidden" name="error" value={{$user[1]}}>
+        <input type="hidden" name='id' value={{$user[0]}}>
     </form>
     <script type="text/javascript">
         document.forms["form"].submit();
     </script>
-    @else
-    <form action="ModificationMDP" name="form" method="post">
-        @csrf
-        <input type="hidden" name="error" value={{$user[0]}}>
-        <input type="hidden" name='id' value={{$user[1]}}>
-    </form>
-    <script type="text/javascript">
-        document.forms["form"].submit();
-    </script>
-    @endif
         @break
     @default
 

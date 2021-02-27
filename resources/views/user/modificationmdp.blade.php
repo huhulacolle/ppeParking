@@ -1,3 +1,8 @@
+<?php $error = 0 ?>
+@if (isset($_POST['error']))
+    <?php $error = $_POST['error'] ?>
+@endif
+<?php Log::debug($error); ?>
 <style>
     .login-form {
         width: 340px;
@@ -31,19 +36,16 @@
 @extends('head.user')
 @section('content')
 <div class="login-form">
-    @if (isset($_POST['error']) && $_POST['error'] == 2)
-        <?php Log::debug($_POST['error']); ?>
-        <?php Log::debug($_POST['error']); ?>
-        <center>
-            <p class="bg-light border border-danger">
-                le mot de passe ne correspond pas
-            </p>
-        </center>
-    @elseif(isset($_POST['error']) && $_POST['error'] == 1)
-    <?php Log::debug($_POST['error']); ?>
+    @if ($error == 1)
     <center>
         <p class="bg-light border border-danger">
-            Votre mot de passe est incorrecte
+            Mot de passe incorrect
+        </p>
+    </center>
+    @elseif($error == 2)
+    <center>
+        <p class="bg-light border border-primary">
+            Mot de passe changer
         </p>
     </center>
     @endif
@@ -58,10 +60,6 @@
         <div class="form-group">
             Nouveau mot de passe
             <input type="password" name="new" class="form-control" required>
-        </div>
-        <div class="form-group">
-            Confirmation mot de passe
-            <input type="password" name="new2" class="form-control" required>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">Changer le mot de passe</button>

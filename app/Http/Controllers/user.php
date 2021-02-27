@@ -69,24 +69,26 @@ class user extends Controller
 
     public function confirmMDP()
     {
+
         $action = 2;
-        $id = $_POST['iduser'];
         $user = array(
-            0 => $id,
+            0 => $_POST['iduser'],
             1 => 0,
         );
-        $connect = utilisateur::select('motDePasseUtilisateur')->where('idUtilisateur', '=', $id)->get();
+        $connect = utilisateur::select('motDePasseUtilisateur')->where('idUtilisateur', '=', $user[0])->get();
         foreach ($connect as $connectdata) {
             $old = $connectdata -> motDePasseUtilisateur;
         }
-        if ($old != $_POST['old']) {
-            $user[1] = 1;
-            return view('user.acceuiluser', compact('user'), compact('action'));
-        }
-        elseif ($_POST['new'] != $_POST['new2']) {
+        if ($old == $_POST['old']) {
+            $update = DB::table('utilisateurs')
+            ->where('idUtilisateur', '=', $user[0])
+            ->update(['motDePasseUtilisateur' => $_POST['new']]);
             $user[1] = 2;
-            return view('user.acceuiluser', compact('user'), compact('info'));
         }
+        else {
+            $user[1] = 1;
+        }
+        return view('user.acceuiluser', compact('action'), compact('user'));
     }
 
 }
