@@ -24,20 +24,27 @@ class connexion extends Controller
             $utilisateur = $connectdata -> nomUtilisateur;
             $id = $connectdata -> idUtilisateur;
             $motdepasse = $connectdata -> motDePasseUtilisateur;
+            $inscrit = $connectdata -> estInscrit;
             $admin = $connectdata -> isAdministrateur;
         }
         if ($utilisateur != null && $motdepasse == $pswd) {
-            if ($admin == 0) {
-                $action = 1;
-                return view('user.acceuiluser', compact('id'), compact('action'));
+            if ($inscrit == 0) {
+                $error = 2;
+                return view('pageconnexion', compact('error'),);
             }
             else {
-                return view('admin.acceuiladmin', compact('utilisateur'));
+                if ($admin == 0) {
+                    $action = 1;
+                    return view('user.acceuiluser', compact('id'), compact('action'));
+                }
+                else {
+                    return view('admin.acceuiladmin', compact('utilisateur'));
+                }
             }
         }
         else {
             $error = 1;
+            return view('pageconnexion', compact('error'));
         }
-        return view('pageconnexion', compact('error'));
     }
 }

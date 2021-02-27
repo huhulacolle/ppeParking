@@ -1,11 +1,19 @@
 @extends('head.connexion')
 @section('content')
 <div class="login-form">
-    <?php
-    if (isset($error) && $error == 1) {
-        echo 'erreur nom ou mot de passe';
-    }
-    ?>
+    @if (isset($error) && $error == 1)
+        <center>
+            <p class="bg-light border border-danger">
+                Erreur dans le nom d'utilisateur ou tu mot de passe
+            </p>
+        </center>
+    @elseif(isset($error) && $error == 2)
+    <center>
+        <p class="bg-light border border-danger">
+            Compte non activé
+        </p>
+    </center>
+    @endif
     <form action="/" method="post">
         @csrf
         <h2 class="text-center">Connexion</h2>
