@@ -119,7 +119,7 @@ class DatabaseSeeder extends Seeder
                 'idUtilisateur' => 5, 'nomUtilisateur' => 'Escriva','nom' =>'Escriva', 'Prenom' => 'gOublié','mail'=>'escrivaSafari@safari.com', 'motDePasseUtilisateur' => 'JeKiffeLesParkings', 'motDePasseValide'=> 0 ,'estInscrit' => true,'isAdministrateur' => false ,
             ),
             array(
-                'idUtilisateur' => 6, 'nomUtilisateur' => 'bruney','nom' =>'faitesNousDesOrdisQuiMarchent', 'Prenom' => 'DIDIER','mail'=>'jeNeComprendspas@bloodyHell.com', 'motDePasseUtilisateur' => 'onTheFly','estInscrit' => true, 'motDePasseValide'=> 0 ,'isAdministrateur' => false ,
+                'idUtilisateur' => 6, 'nomUtilisateur' => 'bruney','nom' =>'faitesNousDesOrdisQuiMarchent', 'Prenom' => 'DIDIER','mail'=>'jeNeComprendspas@bloodyHell.com', 'motDePasseUtilisateur' => 'onTheFly','estInscrit' => true, 'isAdministrateur' => false ,
             ),
             array(
                 'idUtilisateur' => 7, 'nomUtilisateur' => 'titli','nom' =>'fastFood', 'Prenom' => 'vintage','mail'=>'çaMarcheComment@huawei.com', 'motDePasseUtilisateur' => 'lesTrains', 'motDePasseValide'=> 0 ,'estInscrit' => true,'isAdministrateur' => false ,
