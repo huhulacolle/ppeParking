@@ -1,5 +1,3 @@
-
-@section('content')
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -50,33 +48,16 @@
         }
 
     </style>
+    
     <nav class="navbar navbar-light bg-light">
         <span class="navbar-brand mb-0 h1">Reservation Parking</span>
         <span class="navbar-text">
-           
-          </span>
-    </nav>
-    <br>
-    @yield('content')
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
-    </script>
-</body>
+        </nav>
+    <body>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <h3 align="center" style="color:#00DFF9";>Votre mot de passe a été réinitialisé </h3>
+  </div>
+  <div>
 
-</html>
-
-        <div class="login-form" align="center">
-    <form action="mdpoublieresultat" method="get">
-        <h2 class="text-center">Mot de passe oublié ?</h2>
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="email" required>
-        </div>
-        
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Réinitialisation</button>
-        </div>
-    </form>
-</div>
+  <a class="btn btn-primary" href="pageconnexion" role="button">Retour Page connexion</a>
+    </body>
