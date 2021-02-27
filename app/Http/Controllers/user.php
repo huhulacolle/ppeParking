@@ -49,9 +49,5 @@ class user extends Controller
         $action = $_POST['action'];
         return view('user.acceuiluser', compact('action'), compact('id'));
     }
-    public function reinitialisemdp() 
-    {
-        $mdpreinitialise = utilisateur::delete('motDePasseUtilisateur')->where('mail', '=',$_POST['email'])->get();
-        return view('user.mdpoublieresultat');
-    }
+   
 }
