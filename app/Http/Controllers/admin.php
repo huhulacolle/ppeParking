@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\parking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\reservation;
 use App\Models\utilisateur;
+use DateTime;
 use Illuminate\Support\Facades\Redirect;
 
 class admin extends Controller
@@ -19,8 +21,8 @@ class admin extends Controller
 
     public function listeUtilisateur()
     {
-        $listeNom = utilisateur::select('idUtilisateur','nomUtilisateur')->where('isAdministrateur', '=', false)->get();
-        return view('admin.listeutilisateur', compact('listeNom'));
+        $listeUtilisateur = utilisateur::select('idUtilisateur','nomUtilisateur','nom','prenom','mail','motDePasseUtilisateur')->where('isAdministrateur', '=', false)->get();
+        return view('admin.listeutilisateur', compact('listeUtilisateur'));
     }
     public function demandesinscriptions()
     {
@@ -69,5 +71,14 @@ class admin extends Controller
         $reservation = reservation::select('*')->where('idReservation','=', $idReservation)->get();
         $placeAattribuer = reservation::select('positionFileAttente')->where('idReservation','<>', $idReservation)->where('positionFileAttente','>',0)->orderBy('positionFileAttente')->get();
         return view('admin.modifListeAttente', compact('reservation','placeAattribuer'));
+    }
+
+    public function test()
+    {
+        $date = new DateTime();
+        $placesLibres = parking::leftJoin('reservations', 'reservations.numeroPlace','=','parkings.numeroPlace')->
+                          select('parkings.numeroPlace')->where('dateFin','<', $date->format('Y-m-d'))
+                                                        ->orWhere('etatReservation','=', 1)->distinct()->get();
+        return view('admin.testadmin', compact('placesLibres'));
     }
 }

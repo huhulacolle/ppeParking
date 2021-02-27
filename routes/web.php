@@ -29,9 +29,7 @@ Route::get('Inscription', function () {
 });
 
 
-Route::get('testadmin', function () {
-    return view('admin.testadmin');
-});
+Route::get('testAdmin', [admin::class, 'test']);
 
 Route::get('modificationFileAttente/updateFileAttente/{idReservation}', [admin::class, 'listeattente']);
 
