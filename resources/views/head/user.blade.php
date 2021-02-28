@@ -13,8 +13,14 @@
         //<!--
         document.oncontextmenu = new Function("return false");
         //-->
-
     </script>
+    <style>
+        .link-lookalike {
+            background: none;
+            border: none;
+            color: blue;
+        }
+    </style>
 </head>
 
 <body>
@@ -32,22 +38,40 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-                <form action="VosReservation" method="post">
+                @if ($adresse == "VosReservation")
+                <form action="VosReservation" name="VosReservation" method="post">
                     @csrf
                     <input type="hidden" name="id" value={{$info[0]}}>
                     <li class="nav-item active">
-                        <button type="submit" class="nav-link">Vos réservations</button>
+                        <button type="submit" class="link-lookalike nav-link">Vos réservations</button>
                     </li>
                 </form>
-                <li class="nav-item">
+                @else
+                <form action="VosReservation" name="VosReservation" method="post">
+                    @csrf
+                    <input type="hidden" name="id" value={{$info[0]}}>
+                    <li class="nav-item">
+                        <button type="submit" class="link-lookalike nav-link">Vos réservations</button>
+                    </li>
+                </form>
+                @endif
+                @if ($adresse == "ModificationMDP")
+                    <form action="ModificationMDP" method="post">
+                        @csrf
+                        <input type="hidden" name="id" value={{$info[0]}}>
+                        <li class="nav-item active">
+                            <button type="submit" class="link-lookalike nav-link">Modifier son Mot de passe</button>
+                        </li>
+                    </form>
+                @else
                     <form action="ModificationMDP" method="post">
                         @csrf
                         <input type="hidden" name="id" value={{$info[0]}}>
                         <li class="nav-item">
-                            <button type="submit" class="nav-link">Modifier son Mot de passe</button>
+                            <button type="submit" class="link-lookalike nav-link">Modifier son Mot de passe</button>
                         </li>
                     </form>
-                </li>
+                @endif
             </ul>
             <span class="navbar-text">
                 <a href="/">
