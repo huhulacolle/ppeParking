@@ -115,7 +115,7 @@ class user extends Controller
             $datefin = date('Y-m-t', strtotime('+1 month'));
             $requete = DB::table('reservations')->insert([
                 'idReservation' => $max,
-                'positionFileAttente' => $attente,
+                'positionFileAttente' => null,
                 'numeroPlace' => $nbplace,
                 'utilisateur' => $id,
                 'etatReservation' => 0,
