@@ -67,6 +67,7 @@ Route::get('testuser', function () {
 });
 
 Route::post('VosReservation', [user::class, 'reservation']);
+Route::post('ReservationExe', [user::class, 'ReservationExe']);
 Route::post('annuler', [user::class, 'annule']);
 Route::post('ModificationMDP', [user::class, 'formMDP']);
 Route::post('ModificationConfirmation', [user::class, 'confirmMDP']);

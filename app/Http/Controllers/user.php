@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\parking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\reservation;
 use App\Models\utilisateur;
+use DateTime;
 
 class user extends Controller
 {
@@ -89,6 +91,52 @@ class user extends Controller
             $user[1] = 1;
         }
         return view('user.acceuiluser', compact('action'), compact('user'));
+    }
+
+    public function ReservationExe()
+    {
+        $action = 1;
+        $id = $_POST['iduser'];
+        $date = new DateTime();
+        $placesLibres = parking::leftJoin('reservations', 'reservations.numeroPlace','=','parkings.numeroPlace')->
+                          select('parkings.numeroPlace')->where('dateFin','<', $date->format('Y-m-d'))
+                                                        ->orWhere('etatReservation','=', 1)->distinct()->get();
+        $nbPlacesLibres = count($placesLibres);
+        $max = DB::table('reservations')->max('idReservation');
+        $max++;
+        $attente = DB::table('reservations')->max('positionFileAttente');
+        $attente++;
+        if ($nbPlacesLibres >= 0) {
+            $input = rand(0, count($placesLibres));
+            $nbplace = $placesLibres[$input];
+            $nbplace = explode('"', $nbplace);
+            $nbplace = $nbplace[3];
+            $datedebut = date('Y-m-d');
+            $datefin = date('Y-m-t', strtotime('+1 month'));
+            $requete = DB::table('reservations')->insert([
+                'idReservation' => $max,
+                'positionFileAttente' => $attente,
+                'numeroPlace' => $nbplace,
+                'utilisateur' => $id,
+                'etatReservation' => 0,
+                'dateDebut' => $datedebut,
+                'dateFin' => $datefin,
+            ]);
+        }
+        else {
+            $requete = DB::table('reservations')->insert([
+                'idReservation' => $max,
+                'positionFileAttente' => $attente,
+                'numeroPlace' => 0,
+                'utilisateur' => $id,
+                'etatReservation' => 0,
+                'dateDebut' => NULL,
+                'dateFin' => NULL,
+            ]);
+        }
+        $max = DB::table('reservations')->max('idReservation');
+
+        return view('user.acceuiluser', compact('action'), compact('id'));
     }
 
 }

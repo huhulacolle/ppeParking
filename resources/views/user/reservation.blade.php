@@ -9,7 +9,8 @@ Log::debug($today);
     <h2> Vos Réservations </h2>
 </center>
 <br>
-<form action="Reservation" method="post">
+<form action="ReservationExe" method="post">
+    @csrf
     <input type="hidden" name="iduser" value={{$info[0]}}>
     <div class="container mb-3 mt-3">
         <p class="text-right">
@@ -36,7 +37,11 @@ Log::debug($today);
                     {{$reservdata -> idReservation}}
                 </td>
                 <td>
-                    {{$reservdata -> positionFileAttente}}
+                    @if ($reservdata -> positionFileAttente == NULL)
+                        0
+                    @else
+                        {{$reservdata -> positionFileAttente}}
+                    @endif
                 </td>
                 <td>
                     {{$reservdata -> dateDebut}}
@@ -48,7 +53,12 @@ Log::debug($today);
                     <?php
                             Log::debug($reservdata -> idReservation);
                             Log::debug($reservdata -> etatReservation);
-                            if ($reservdata -> etatReservation == 1) {
+
+                            if ($reservdata -> dateDebut == NULL) {
+                                echo 'En attente';
+                                $annule = 1;
+                            }
+                            elseif ($reservdata -> etatReservation == 1) {
                                 echo 'Annulée';
                                 $annule = 1;
                             }
