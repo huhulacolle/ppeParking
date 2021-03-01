@@ -1,9 +1,5 @@
 @extends('head.connexion')
 @section('content')
-
-<div class="alert alert-primary" role="alert" align="center">
-  Votre demande de mot de passe a bien été envoyée 
-</div>
 <div class="login-form">
     @if (isset($error) && $error == 1)
         <center>
@@ -15,6 +11,12 @@
     <center>
         <p class="bg-light border border-danger">
             Compte non activé
+        </p>
+    </center>
+    @elseif(isset($error) && $error == 4)
+    <center>
+        <p class="bg-light border border-primary">
+            Demande d'inscription envoyé
         </p>
     </center>
     @endif

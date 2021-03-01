@@ -61,11 +61,11 @@
                 $adresse = $adresse[1];
             }
             Log::debug($adresse);
-            if ($adresse == "Inscription") {
-                echo '<a href="/"> Connexion </a>';
+            if ($adresse == "index.php" || $adresse == null) {
+                echo '<a href="Inscription"> Inscription </a>';
             }
             else {
-                echo '<a href="Inscription"> Inscription </a>';
+                echo '<a href="/"> Connexion </a>';
             }
             ?>
           </span>

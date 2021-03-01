@@ -30,6 +30,8 @@ Route::get('Inscription', function () {
     return view('pageinscription');
 });
 
+Route::get('inscriptionexe', [connexion::class, 'inscriptionexe']);
+
 Route::get('mdpoublie', function() {
     return view('user.mdpoublie');
 });

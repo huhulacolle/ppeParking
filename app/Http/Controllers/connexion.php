@@ -47,7 +47,42 @@ class connexion extends Controller
             return view('pageconnexion', compact('error'));
         }
     }
-    public function reinitialisemdp() 
+
+    public function inscriptionexe()
+    {
+        $verif = utilisateur::select('*')->get();
+        $error = 0;
+        foreach ($verif as $verifdata) {
+            if ($verifdata -> nomUtilisateur == $_GET['user']) {
+                $error = 1;
+            }
+            if ($verifdata -> mail == $_GET['mail']) {
+                $error = 2;
+            }
+        }
+        if ($_GET['password'] != $_GET['newpassword']) {
+            $error = 3;
+        }
+        if ($error == 0) {
+            $error = 4;
+            $max = DB::table('utilisateurs')->max('idUtilisateur');
+            $max++;
+            $inscription = DB::table('utilisateurs')->insert([
+                'idUtilisateur' => $max,
+                'nomUtilisateur' => $_GET['user'],
+                'nom' => $_GET['nom'],
+                'prenom' => $_GET['prenom'],
+                'mail' => $_GET['mail'],
+                'motDePasseUtilisateur' => $_GET['password'],
+                'isAdministrateur' => false,
+            ]);
+            return view('pageconnexion', compact('error'));
+        }
+        // return back();
+        return view('pageinscription', compact('error'));
+    }
+
+    public function reinitialisemdp()
     {
          utilisateur::where('mail', '=',$_POST['email'])->update(array('MdpOublie' => true)) ->get();
         return view('/');
