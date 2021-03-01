@@ -75,6 +75,9 @@ Log::debug($today);
         </tbody>
     </table>
 </div>
+@else
+<center> Aucune réservation effectuer </center>
+@endif
 <form action="ReservationExe" method="post">
     @csrf
     <input type="hidden" name="iduser" value={{$info[0]}}>
@@ -84,7 +87,4 @@ Log::debug($today);
         </p>
     </div>
 </form>
-@else
-<center> Aucune réservation effectuer </center>
-@endif
 @endsection
