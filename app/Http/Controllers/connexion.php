@@ -49,7 +49,7 @@ class connexion extends Controller
     }
     public function reinitialisemdp() 
     {
-        $mdpreinitialise = utilisateur::delete('motDePasseUtilisateur')->where('mail', '=',$_POST['email'])->get();
+        $mdpoublie = utilisateur::where('mail', '=',$_POST['email'])->update(array('MdpOublie' => true)) ->get();
         return view('user.mdpoublieresultat');
     }
 }
