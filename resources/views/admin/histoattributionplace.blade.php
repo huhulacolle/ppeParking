@@ -4,22 +4,19 @@
 <div class="shadow-lg p-3 mb-5 bg-white rounded">
     <h3 align="center" style="color:#00DFF9";>HISTORIQUE DES RESERVATIONS</h3>
 </div>
-    <table border="1" align="center">
-        <thead>
-            <tr>
-                <th colspan="7"></th>
-            </tr>
+<div class="container mb-3 mt-3">
+        <table class="table">
+            <thead>
+           <th scope="col">Id de la réservation</th>
+           <th scope="col">position dans la file d'attente</th>
+           <th scope="col">Numero de la place attribuée</th>
+           <th scope="col">utilisateur</th>
+           <th scope="col">Etat de la réservation</th>
+           <th scope="col">Date début de la réservation</th>
+           <th scope="col">Date fin de la réservation</th>
         </thead>
         <tbody>
-            <tr>
-                <td>Id de la réservation</td>
-                <td>position dans la file d'attente</td>
-                <td>Numero de la place attribuée</td>
-                <td>utilisateur</td>
-                <td>Etat de la réservation</td>
-                <td>Date début de la réservation</td>
-                <td>Date fin de la réservation</td>
-            </tr>
+          
             <?php
                 foreach ($listeHistoReservation as $key => $value) {
                     echo '<tr>
