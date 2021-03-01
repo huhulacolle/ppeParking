@@ -72,7 +72,7 @@
     <form action="mdpoublieresultat" method="get">
         <h2 class="text-center">Mot de passe oublié ?</h2>
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="email" required>
+            <input type="text" class="form-control" placeholder="email" id="email" required>
         </div>
         
         <div class="form-group">
