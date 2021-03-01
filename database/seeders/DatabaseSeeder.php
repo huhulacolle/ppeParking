@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\reservation;
+use App\Models\utilisateur;
+use App\Models\parking;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -47,7 +49,7 @@ class DatabaseSeeder extends Seeder
         //         'dateReservation' => '2020/08/16',
         //     ),
         // ));
-        DB::table('parkings')->insert(array(
+        parking::insert(array(
             array(
                 'idParking' => 1,
                 'numeroPlace'=> '1A',
@@ -99,7 +101,7 @@ class DatabaseSeeder extends Seeder
                 'nbPlaces' => 10,
             ),
         ));
-        DB::table('utilisateurs')->insert(array(
+        utilisateur::insert(array(
             array(
                 'idUtilisateur' => 1, 'nomUtilisateur' => 'HugoAraujooooo','nom' =>'Hugo', 'Prenom' => 'Araujo','mail'=>'laTourInfernale@hotmail.com', 'motDePasseUtilisateur' => 'huhuLaColle', 'estInscrit' => true, 'isAdministrateur' => true ,
             ),
@@ -140,7 +142,7 @@ class DatabaseSeeder extends Seeder
                 'idUtilisateur' => 13, 'nomUtilisateur' => 'ProfDeMath','nom' =>'exponentiel', 'Prenom' => 'logarithmique','mail'=>'maths@calculatrice.com', 'motDePasseUtilisateur' => 'çacemangesansfaim' ,'estInscrit' => true,'isAdministrateur' => false ,
             ),
         ));
-        DB::table('reservations')->insert(array(
+        reservation::insert(array(
             array(
                 'idReservation' => 2, 'positionFileAttente' => null , 'numeroPlace' => '0', 'utilisateur' => 2,'etatReservation' => 0, 'dateDebut' => '2020/08/10', 'dateFin' => '2020/04/17',
             ),

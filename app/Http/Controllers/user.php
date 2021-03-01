@@ -44,8 +44,8 @@ class user extends Controller
 
     public function annule()
     {
-        $annule = DB::table('reservations')
-        ->where('idReservation', '=', $_POST['id'])
+        $annule = reservation::
+        where('idReservation', '=', $_POST['id'])
         ->update(['etatReservation' => 1]);
         $id = $_POST['iduser'];
         $action = $_POST['action'];
@@ -82,15 +82,15 @@ class user extends Controller
             $old = $connectdata -> motDePasseUtilisateur;
         }
         if ($old == $_POST['old']) {
-            $update = DB::table('utilisateurs')
-            ->where('idUtilisateur', '=', $user[0])
+            $update = utilisateur::
+            where('idUtilisateur', '=', $user[0])
             ->update(['motDePasseUtilisateur' => $_POST['new']]);
             $user[1] = 2;
         }
         else {
             $user[1] = 1;
         }
-        return view('user.acceuiluser', compact('action'), compact('user'));
+        return view('user.acceuiluser', compact('action','user'));
     }
 
     public function ReservationExe()
@@ -102,10 +102,8 @@ class user extends Controller
                           select('parkings.numeroPlace')->where('dateFin','<', $date->format('Y-m-d'))
                                                         ->orWhere('etatReservation','=', 1)->distinct()->get();
         $nbPlacesLibres = count($placesLibres);
-        $max = DB::table('reservations')->max('idReservation');
-        $max++;
-        $attente = DB::table('reservations')->max('positionFileAttente');
-        $attente++;
+        $max = reservation::select('idReservation')->max('idReservation') + 1;
+        $attente = reservation::select('positionFIleAttente')->max('positionFileAttente') + 1;
         if ($nbPlacesLibres >= 0) {
             $input = rand(0, count($placesLibres));
             $nbplace = $placesLibres[$input];
@@ -113,7 +111,7 @@ class user extends Controller
             $nbplace = $nbplace[3];
             $datedebut = date('Y-m-d');
             $datefin = date('Y-m-t', strtotime('+1 month'));
-            $requete = DB::table('reservations')->insert([
+            $requete = reservation::insert([
                 'idReservation' => $max,
                 'positionFileAttente' => null,
                 'numeroPlace' => $nbplace,
@@ -124,7 +122,7 @@ class user extends Controller
             ]);
         }
         else {
-            $requete = DB::table('reservations')->insert([
+            $requete = reservation::insert([
                 'idReservation' => $max,
                 'positionFileAttente' => $attente,
                 'numeroPlace' => 0,
@@ -134,9 +132,9 @@ class user extends Controller
                 'dateFin' => NULL,
             ]);
         }
-        $max = DB::table('reservations')->max('idReservation');
+        $max = reservation::select('idReservation')->max('idReservation');
 
-        return view('user.acceuiluser', compact('action'), compact('id'));
+        return view('user.acceuiluser', compact('action','id'));
     }
 
 }
