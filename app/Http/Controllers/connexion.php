@@ -84,7 +84,7 @@ class connexion extends Controller
 
     public function reinitialisemdp()
     {
-         utilisateur::where('mail', '=',$_POST['email'])->update(array('MdpOublie' => true)) ->get();
+         utilisateur::where('mail', '=',$_POST['email'])->update(array('motDePasseOublie' => true));
         return view('/');
     }
 }
