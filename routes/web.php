@@ -57,6 +57,10 @@ Route::post('modificationFileAttente/updateFileAttente/{idReservation}', [admin:
 
 Route::get('modificationFileAttente/{idReservation}', [admin::class, 'show']);
 
+Route::get('toutaccepter', [admin::class,'accepterToutesLesInscriptions']);
+
+Route::get('toutrefuser', [admin::class,'refuserToutesLesInscriptions']);
+
 Route::get('accepterInscription/{idUtilisateur}', [admin::class, 'accepterInscription']);
 
 Route::get('refuserInscription/{idUtilisateur}', [admin::class, 'refuserInscription']);

@@ -85,10 +85,10 @@ class connexion extends Controller
     public function reinitialisemdp()
     {
         $error = 2;
-        $verif = utilisateur::select('mail')->get();
+        $verif = utilisateur::select('mail')->where('isAdministrateur','=',false)->get();
         foreach ($verif as $verifdata) {
             if ($verifdata->mail == $_GET['email']) {
-                // echo 'caca';
+                echo'<table border="1"><tr><td>'.$verifdata->mail.'</td><td>'.$_GET["email"].'</td></tr></table>';
                 $error = 3;
             }
         }

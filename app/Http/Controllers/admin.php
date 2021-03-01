@@ -15,7 +15,7 @@ class admin extends Controller
 {
     public function listeattente()
     {
-        $utilisateursFileAttente = reservation::select('idReservation','utilisateur', 'positionFileAttente')->where('positionFileAttente','>', 0)->get();
+        $utilisateursFileAttente = reservation::join('utilisateurs','idUtilisateur','=','utilisateur')->select('idReservation','nomUtilisateur', 'positionFileAttente')->where('positionFileAttente','>', 0)->get();
         return view('admin.listeattente', compact('utilisateursFileAttente'));
     }
 
@@ -37,9 +37,23 @@ class admin extends Controller
         return view('admin.demandesinscriptions', compact('utilisateurNonInscrits'));
     }
 
+    public function accepterToutesLesInscriptions()
+    {
+        utilisateur::where('estInscrit','=',false)->update(array('estInscrit' => true));
+        $utilisateurNonInscrits = utilisateur::select('idUtilisateur','nomUtilisateur','nom','prenom','mail','motDePasseUtilisateur')->where('estInscrit', '=', false)->get();
+        return view('admin.demandesinscriptions', compact('utilisateurNonInscrits'));
+    }
+
     public function refuserinscription($idUtilisateur)
     {
         utilisateur::where('idUtilisateur','=',$idUtilisateur)->delete();
+        $utilisateurNonInscrits = utilisateur::select('idUtilisateur','nomUtilisateur','nom','prenom','mail','motDePasseUtilisateur')->where('estInscrit', '=', false)->get();
+        return view('admin.demandesinscriptions', compact('utilisateurNonInscrits'));
+    }
+
+    public function refuserToutesLesInscriptions()
+    {
+        utilisateur::where('estInscrit','=',false)->delete();
         $utilisateurNonInscrits = utilisateur::select('idUtilisateur','nomUtilisateur','nom','prenom','mail','motDePasseUtilisateur')->where('estInscrit', '=', false)->get();
         return view('admin.demandesinscriptions', compact('utilisateurNonInscrits'));
     }
@@ -56,7 +70,7 @@ class admin extends Controller
         $request = reservation::select('positionFileAttente')->where('idReservation','=', $idReservation)->get();
         foreach($request as $key => $value)
         {
-            if($value->positionFileAttente >$placeAattribuer)
+            if($value->positionFileAttente > $placeAattribuer)
                 reservation::where('positionFileAttente','>=', $placeAattribuer)->increment('positionFileAttente');
             else
             reservation::where('positionFileAttente','<=', $placeAattribuer)->decrement('positionFileAttente');
@@ -68,7 +82,7 @@ class admin extends Controller
 
     public function show($idReservation)
     {
-        $reservation = reservation::select('*')->where('idReservation','=', $idReservation)->get();
+        $reservation = reservation::join('utilisateurs','idUtilisateur','=','utilisateur')->select('idReservation','nomUtilisateur')->where('idReservation','=', $idReservation)->get();
         $placeAattribuer = reservation::select('positionFileAttente')->where('idReservation','<>', $idReservation)->where('positionFileAttente','>',0)->orderBy('positionFileAttente')->get();
         return view('admin.modifListeAttente', compact('reservation','placeAattribuer'));
     }

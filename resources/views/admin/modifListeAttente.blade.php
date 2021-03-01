@@ -8,7 +8,7 @@
         foreach ($reservation as $key => $value) {
             $positionFileAttente = $value->positionFileAttente;
             $idReservation = $value->idReservation;
-            echo'Modification de la liste pour la reservation  :  '.$idReservation.'<br><br><br><br><br><br><br><br>
+            echo'Modification de la position dans la liste attente :  '.$value->nomUtilisateur.'<br><br><br><br><br><br><br><br>
             <form method="POST" action="updateFileAttente/'.$idReservation.'">';
         }?>
         {{ csrf_field() }}

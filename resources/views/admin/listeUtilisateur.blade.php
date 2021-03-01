@@ -10,7 +10,7 @@
 <div class="shadow-lg p-3 mb-5 bg-white rounded">
     <h3 align="center" style="color:#00DFF9";>LISTE DES UTILISATEURS</h3>
   </div>
-    <table border="2" align="center">
+    <table border="2" align="center" width="90%">
         <thead>
             <tr>
                 <th colspan="8" >Liste des utilisateurs</th>
@@ -25,7 +25,7 @@
                 <td>Mail de l'utilisateur  </td>
                 <td>Mot de passe de l'utilisateur   </td>
                 <td>Mot de passe de l'utilisateur oublié   </td>
-                <td>Modifier le mot de passe de l'utilisateur</td>
+                <td></td>
             </tr>
             <?php
                 foreach ($listeUtilisateur as $key => $value) {
@@ -38,13 +38,14 @@
                             <td>'.$value->mail.'</td>
                             <td>'.$value->motDePasseUtilisateur.'</td>
                             <td>'.$value->motDePasseOublie.'</td>
-                            <td><a href="modificationMdpUtilisateur'.$idUtilisateur.'"> Modifier mot de passe utlisateur</a></td>
+                            <td><a href="modificationMdpUtilisateur'.$idUtilisateur.'"> Modifier mot de passe</a></td>
                             <td></td>
                         </tr>';
                 }
             ?>
         </tbody>
     </table>
+    <br><br><br><br><br>
 <a href="testAdmin">Regarder les places libres</a>
 </div>
 @endsection

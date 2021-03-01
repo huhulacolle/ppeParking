@@ -4,6 +4,9 @@
 <div style="text-align: center;">
 <div class="shadow-lg p-3 mb-5 bg-white rounded">
     <h3 align="center" style="color:#00DFF9";>DEMANDES INSCRIPTIONS</h3>
+    <br><br>
+    <a href = "toutaccepter">Accepter toutes les inscriptions </a>
+    <a href = "toutrefuser">Refuser toutes les inscriptions </a>
     <table border="2" align="center">
         <thead>
             <tr>
@@ -18,8 +21,8 @@
                 <td>Prénom</td>
                 <td>Mail</td>
                 <td>Mot de passe de l'utilisateur</td>
-                <td>Accepter l'inscription</td>
-                <td>Refuser l'inscription</td>
+                <td>Accepter</td>
+                <td>Refuser </td>
             </tr>
             <?php
                 foreach ($utilisateurNonInscrits as $key => $value) {

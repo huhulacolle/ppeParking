@@ -12,14 +12,14 @@
         </thead>
         <tbody>
             <tr>
-                <td>Id de l'utilisateur</td>
+                <td>Pseudonyme de l'utilisateur</td>
                 <td>position dans la file d'attente</td>
                 <td>modifier la position dans la file d'attente</td>
             </tr>
             <?php
                 foreach ($utilisateursFileAttente as $key => $value) {
                     echo '<tr>
-                            <td>'.$value->utilisateur.'</td>
+                            <td>'.$value->nomUtilisateur.'</td>
                             <td>'.$value->positionFileAttente.'</td>
                             <td><a href="modificationFileAttente/'.$value->idReservation.'"> modifier la file attente</a></td>
                         </tr>';
