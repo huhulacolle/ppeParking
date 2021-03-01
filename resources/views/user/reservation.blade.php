@@ -67,10 +67,6 @@ Log::debug($today);
                         <button type="submit" value={{$reservdata -> idReservation}}
                             onclick='return confirm("Êtes-vous sûr de vouloir annuler la reservation ?")' name="id"
                             class="btn btn-danger">Annuler</button>
-                        @else
-                        <button type="submit" value={{$reservdata -> idReservation}}
-                            onclick='return confirm("Êtes-vous sûr de vouloir annuler la reservation ?")' name="id"
-                            class="btn btn-danger" disabled>Annuler</button>
                         @endif
                     </form>
                 </td>
