@@ -49,7 +49,7 @@ class connexion extends Controller
     }
     public function reinitialisemdp() 
     {
-        $mdpoublie = utilisateur::where('mail', '=',$_POST['email'])->update(array('MdpOublie' => true)) ->get();
-        return view('user.mdpoublieresultat');
+         utilisateur::where('mail', '=',$_POST['email'])->update(array('MdpOublie' => true)) ->get();
+        return view('/');
     }
 }
