@@ -32,14 +32,9 @@ Route::get('Inscription', function () {
 
 Route::get('inscriptionexe', [connexion::class, 'inscriptionexe']);
 
-Route::get('mdpoublie', function() {
-    return view('user.mdpoublie');
+Route::get('mdpoublie', function () {
+    return view('mdpoublie');
 });
-
-Route::get('mdpoublieresultat', function() {
-    return view('user.mdpoublieresultat');
-});
-
 
 Route::get('testAdmin', [admin::class, 'test']);
 
