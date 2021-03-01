@@ -34,6 +34,7 @@
         </div>
         <div class="form-group">
             <input type="password" name="pswd" id="mdp" class="form-control" placeholder="Mot de passe" required>
+            <br>
             <input type="checkbox" onclick="myFunction()">Montrer mot de passe
 
             <script>
