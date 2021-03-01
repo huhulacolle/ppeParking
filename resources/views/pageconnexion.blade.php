@@ -19,6 +19,12 @@
             Demande d'inscription envoyé
         </p>
     </center>
+    @elseif(isset($error) && $error == 5)
+    <center>
+        <p class="bg-light border border-primary">
+            La demande de modification de mot de passe à était envoyée
+        </p>
+    </center>
     @endif
     <form action="/" method="post">
         @csrf

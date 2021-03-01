@@ -7,10 +7,10 @@ Log::debug($error);
 @extends('head.connexion')
 @section('content')
 <div class="login-form">
-    @if ($error == 3)
+    @if ($error == 2)
     <center>
         <p class="bg-light border border-danger">
-            E-mail non inconnu
+            E-mail non reconnu
         </p>
     </center>
     @endif

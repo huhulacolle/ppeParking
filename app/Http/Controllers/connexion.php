@@ -88,16 +88,17 @@ class connexion extends Controller
         $verif = utilisateur::select('mail')->where('isAdministrateur','=',false)->get();
         foreach ($verif as $verifdata) {
             if ($verifdata->mail == $_GET['email']) {
-                echo'<table border="1"><tr><td>'.$verifdata->mail.'</td><td>'.$_GET["email"].'</td></tr></table>';
                 $error = 3;
             }
         }
-        if ($error = 2) {
-            // $error = 5;
+        if ($error == 3) {
+            $error = 5;
             utilisateur::where('mail', '=',$_GET['email'])->update(array('motDePasseOublie' => true));
+            return view('pageconnexion', compact('error'));
+        }
+        else {
             return view('mdpoublie', compact('error'));
         }
 
-        return view('mdpoublie', compact('error'));
     }
 }

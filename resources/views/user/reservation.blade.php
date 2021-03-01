@@ -80,13 +80,15 @@ Log::debug($today);
 @else
 <center> Aucune réservation effectuer </center>
 @endif
-<form action="ReservationExe" method="post">
-    @csrf
-    <input type="hidden" name="iduser" value={{$info[0]}}>
-    <div class="container mb-3 mt-3">
-        <p class="text-center">
-            <button type="submit" class="btn btn-success">Faire une réservation</button>
-        </p>
-    </div>
-</form>
+@if ($annule != 0)
+    <form action="ReservationExe" method="post">
+        @csrf
+        <input type="hidden" name="iduser" value={{$info[0]}}>
+        <div class="container mb-3 mt-3">
+            <p class="text-center">
+                <button type="submit" class="btn btn-success">Faire une réservation</button>
+            </p>
+        </div>
+    </form>
+@endif
 @endsection
