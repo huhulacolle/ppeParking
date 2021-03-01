@@ -22,7 +22,8 @@ class CreateUtilisateursTable extends Migration
             $table->char('mail', 50)->unique();
             $table->char('motDePasseUtilisateur', 30);
             $table->boolean('estInscrit')->default(false); // 0 : attente de validation , 1 : refusé, 2 : validé
-            $table->boolean('isAdministrateur');
+            $table->boolean('isAdministrateur')->default(false);
+            $table->boolean('motDePasseOublie')->default(false);
             $table->timestamps();
         });
     }
