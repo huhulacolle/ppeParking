@@ -12,7 +12,7 @@
             <form method="POST" action="updateFileAttente/'.$idReservation.'">';
         }?>
         {{ csrf_field() }}
-        <p>Nouvelle place de file d'attente à attribuer: <br><br></p>
+        <p>Nouvelle place de file d'attente à attribué: <br><br></p>
         <select name="placeAattribuer">
         <?php
             foreach($placeAattribuer as $key => $value) {

@@ -13,7 +13,7 @@
     <table border="2" align="center">
         <thead>
             <tr>
-                <th colspan="7" >Liste des utilisateurs</th>
+                <th colspan="8" >Liste des utilisateurs</th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +24,7 @@
                 <td>Prénom de l'utlisateur   </td>
                 <td>Mail de l'utilisateur  </td>
                 <td>Mot de passe de l'utilisateur   </td>
+                <td>Mot de passe de l'utilisateur oublié   </td>
                 <td>Modifier le mot de passe de l'utilisateur</td>
             </tr>
             <?php
@@ -36,6 +37,7 @@
                             <td>'.$value->prenom.'</td>
                             <td>'.$value->mail.'</td>
                             <td>'.$value->motDePasseUtilisateur.'</td>
+                            <td>'.$value->motDePasseOublie.'</td>
                             <td><a href="modificationMdpUtilisateur'.$idUtilisateur.'"> Modifier mot de passe utlisateur</a></td>
                             <td></td>
                         </tr>';

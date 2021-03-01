@@ -9,6 +9,8 @@ Log::debug($today);
     <h2> Vos Réservations </h2>
 </center>
 <br>
+{{-- ajouter le champ numeroPlace --}}
+{{-- faire disparaitre le bouton : faire une réservation (si une réservation de l'utilisateur est déjà en cours) --}}
 @if ($dbreserv[0] == 0)
 <div class="container mb-3 mt-3">
     <table class="table">

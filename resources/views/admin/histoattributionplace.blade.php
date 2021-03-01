@@ -3,11 +3,12 @@
 <div style="text-align: center;">
 <div class="shadow-lg p-3 mb-5 bg-white rounded">
     <h3 align="center" style="color:#00DFF9";>HISTORIQUE DES RESERVATIONS</h3>
-  </div>
-    <table border="2" align="center">
+</div>
+    <table border="1" align="center">
         <thead>
             <tr>
-                <th colspan="7" ></th>
+                <th colspan="7"></th>
+            </tr>
         </thead>
         <tbody>
             <tr>

@@ -30,8 +30,8 @@
                          <td>'.$value->prenom.'</td>
                          <td>'.$value->mail.'</td>
                          <td>'.$value->motDePasseUtilisateur.'</td>
-                         <td><a href="/accepterInscription/'.$idUtilisateur.'">Accepter inscription </a></td>
-                         <td><a href="/refuserInscription/'.$idUtilisateur.'">Refuser inscription </a></td></tr>';
+                         <td><a href="accepterInscription/'.$idUtilisateur.'">Accepter inscription </a></td>
+                         <td><a href="refuserInscription/'.$idUtilisateur.'">Refuser inscription </a></td></tr>';
                 }
             ?>
 </div>

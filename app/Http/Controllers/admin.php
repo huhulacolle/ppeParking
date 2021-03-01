@@ -21,7 +21,7 @@ class admin extends Controller
 
     public function listeUtilisateur()
     {
-        $listeUtilisateur = utilisateur::select('idUtilisateur','nomUtilisateur','nom','prenom','mail','motDePasseUtilisateur')->where('isAdministrateur', '=', false)->get();
+        $listeUtilisateur = utilisateur::select('idUtilisateur','nomUtilisateur','nom','prenom','mail','motDePasseUtilisateur','motDePasseOublie')->where('isAdministrateur', '=', false)->get();
         return view('admin.listeutilisateur', compact('listeUtilisateur'));
     }
     public function demandesinscriptions()

@@ -33,29 +33,29 @@
           <ul class="navbar-nav mr-auto">
             @if ($adresse == "ListeAttente")
             <li class="nav-item active">
-                <a class="nav-link" href="ListeAttente">Liste d'attente</a>
+                <a class="nav-link" href="/ListeAttente">Liste d'attente</a>
             </li>
             @else
             <li class="nav-item">
-                <a class="nav-link" href="ListeAttente">Liste d'attente</a>
+                <a class="nav-link" href="/ListeAttente">Liste d'attente</a>
             </li>
             @endif
             @if ($adresse == "ListeUtilisateur")
             <li class="nav-item active">
-                <a class="nav-link" href="ListeUtilisateur">Liste des utilisateurs</a>
+                <a class="nav-link" href="/ListeUtilisateur">Liste des utilisateurs</a>
             </li>
             @else
             <li class="nav-item">
-                <a class="nav-link" href="ListeUtilisateur">Liste des utilisateurs</a>
+                <a class="nav-link" href="/ListeUtilisateur">Liste des utilisateurs</a>
             </li>
             @endif
             @if ($adresse == "HistoAttributionPlace")
             <li class="nav-item active">
-                <a class="nav-link" href="HistoAttributionPlace">Historique attribution des places</a>
+                <a class="nav-link" href="/HistoAttributionPlace">Historique attribution des places</a>
             </li>
             @else
             <li class="nav-item">
-                <a class="nav-link" href="HistoAttributionPlace">Historique attribution des places</a>
+                <a class="nav-link" href="/HistoAttributionPlace">Historique attribution des places</a>
             </li>
             @endif
           </ul>
