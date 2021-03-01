@@ -57,7 +57,10 @@
     <div class="shadow-lg p-3 mb-5 bg-white rounded">
     <h3 align="center" style="color:#00DFF9";>Votre mot de passe a été réinitialisé </h3>
   </div>
+  <script>
+  console.log($_POST['email']);
+  </script>
   <div>
 
-  <a class="btn btn-primary" href="pageconnexion" role="button">Retour Page connexion</a>
+  <a class="btn btn-primary" href="/" role="button">Retour Page connexion</a>
     </body>
