@@ -1,5 +1,9 @@
 @extends('head.connexion')
 @section('content')
+
+<div class="alert alert-primary" role="alert" align="center">
+  Votre demande de mot de passe a bien été envoyée 
+</div>
 <div class="login-form">
     @if (isset($error) && $error == 1)
         <center>

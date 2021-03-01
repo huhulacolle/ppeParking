@@ -1,9 +1,9 @@
 @extends('head.admin')
 @section('content')
 
-<h2>Demandes d'inscriptions</h2>
-<br><br><br><br><br>
 <div style="text-align: center;">
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <h3 align="center" style="color:#00DFF9";>DEMANDES INSCRIPTIONS</h3>
     <table border="2" align="center">
         <thead>
             <tr>
@@ -35,3 +35,4 @@
                 }
             ?>
 </div>
+@endsection
