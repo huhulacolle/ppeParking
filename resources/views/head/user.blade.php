@@ -31,7 +31,7 @@
     Log::debug($adresse);
     ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand mb-0 h1">{{$info[2]}} {{$info[1]}}</a>
+        <a class="navbar-brand mb-0 h1">Utilisateur : {{$info[2]}} {{$info[1]}}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

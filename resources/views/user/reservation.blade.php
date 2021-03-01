@@ -9,15 +9,6 @@ Log::debug($today);
     <h2> Vos Réservations </h2>
 </center>
 <br>
-<form action="ReservationExe" method="post">
-    @csrf
-    <input type="hidden" name="iduser" value={{$info[0]}}>
-    <div class="container mb-3 mt-3">
-        <p class="text-right">
-            <button type="submit" class="btn btn-link">Faire une réservation</button>
-        </p>
-    </div>
-</form>
 @if ($dbreserv[0] == 0)
 <div class="container mb-3 mt-3">
     <table class="table">
@@ -37,11 +28,7 @@ Log::debug($today);
                     {{$reservdata -> idReservation}}
                 </td>
                 <td>
-                    @if ($reservdata -> positionFileAttente == NULL)
-                        0
-                    @else
-                        {{$reservdata -> positionFileAttente}}
-                    @endif
+                    {{$reservdata -> positionFileAttente}}
                 </td>
                 <td>
                     {{$reservdata -> dateDebut}}
@@ -92,6 +79,15 @@ Log::debug($today);
         </tbody>
     </table>
 </div>
+<form action="ReservationExe" method="post">
+    @csrf
+    <input type="hidden" name="iduser" value={{$info[0]}}>
+    <div class="container mb-3 mt-3">
+        <p class="text-center">
+            <button type="submit" class="btn btn-success">Faire une réservation</button>
+        </p>
+    </div>
+</form>
 @else
 <center> Aucune réservation effectuer </center>
 @endif
