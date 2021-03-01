@@ -36,6 +36,8 @@ Route::get('mdpoublie', function () {
     return view('mdpoublie');
 });
 
+Route::get('oublie', [connexion::class, 'reinitialisemdp']);
+
 Route::get('testAdmin', [admin::class, 'test']);
 
 Route::get('modificationFileAttente/updateFileAttente/{idReservation}', [admin::class, 'listeattente']);
