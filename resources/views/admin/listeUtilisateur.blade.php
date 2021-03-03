@@ -22,22 +22,24 @@
         <th scope="col">Mot de passe de l'utilisateur </th>
         <th scope="col">MDP Oublié? </th>
         </tr>
-        <?php
-                foreach ($listeUtilisateur as $key => $value) {
-                    $idUtilisateur = $value->idUtilisateur;
-                    echo '<tr>
-                            <td>'.$idUtilisateur.'</td>
-                            <td>'.$value->nomUtilisateur.'</td>
-                            <td>'.$value->nom.'</td>
-                            <td>'.$value->prenom.'</td>
-                            <td>'.$value->mail.'</td>
-                            <td>'.$value->motDePasseUtilisateur.'</td>
-                            <td>'.$value->motDePasseOublie.'</td>
-                            <td><a class="btn btn-primary" href="modificationMdpUtilisateur'.$idUtilisateur.'" role="button">Modifier</a></td>
-                            <td></td>
-                        </tr>';
-                }
-            ?>
+        @foreach ($listeUtilisateur as $listeUtilisateurdata)
+            <?php $idUtilisateur = $listeUtilisateurdata->idUtilisateur; ?>
+            <tr>
+                <td>{{$idUtilisateur}}</td>
+                <td>{{$listeUtilisateurdata->nomUtilisateur}}</td>
+                <td>{{$listeUtilisateurdata->nom}}</td>
+                <td>{{$listeUtilisateurdata->prenom}}</td>
+                <td>{{$listeUtilisateurdata->mail}}</td>
+                <td>
+                    @if ($listeUtilisateurdata->motDePasseOublie == 0)
+                        <div class="p-3 mb-2 bg-success text-white"></div>
+                    @else
+                        <div class="p-3 mb-2 bg-danger text-white"></div>
+                    @endif
+                </td>
+                <td><a class="btn btn-primary" href="modificationMdpUtilisateur{{$idUtilisateur}}" role="button">Modifier</a></td>
+            </tr>
+        @endforeach
         </tbody>
     </table>
 <br><br><br><br><br>
