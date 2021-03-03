@@ -9,14 +9,15 @@ Log::debug($today);
     <h2> Vos Réservations </h2>
 </center>
 <br>
-{{-- ajouter le champ numeroPlace --}}
-{{-- faire disparaitre le bouton : faire une réservation (si une réservation de l'utilisateur est déjà en cours) --}}
+{{-- ajouter le champ numeroPlace / ok --}}
+{{-- faire disparaitre le bouton : faire une réservation (si une réservation de l'utilisateur est déjà en cours) / ok --}}
 @if ($dbreserv[0] == 0)
 <div class="container mb-3 mt-3">
     <table class="table">
         <thead>
             <th scope="col">Réservation N°</th>
             <th scope="col">File d'attente</th>
+            <th scope="col">Nombre de place</th>
             <th scope="col">Réservation faite le</th>
             <th scope="col">Date limite</th>
             <th scope="col">Etat de la reservation</th>
@@ -31,6 +32,9 @@ Log::debug($today);
                 </td>
                 <td>
                     {{$reservdata -> positionFileAttente}}
+                </td>
+                <td>
+                    {{$reservdata -> numeroPlace}}
                 </td>
                 <td>
                     {{$reservdata -> dateDebut}}
