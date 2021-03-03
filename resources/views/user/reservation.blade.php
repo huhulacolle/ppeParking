@@ -44,20 +44,17 @@ Log::debug($today);
                 </td>
                 <td>
                     <?php
-                            Log::debug($reservdata -> idReservation);
-                            Log::debug($reservdata -> etatReservation);
-
-                            if ($reservdata -> dateDebut == NULL) {
-                                echo 'En attente';
-                                $annule = 1;
-                            }
-                            elseif ($reservdata -> etatReservation == 1) {
+                            if ($reservdata -> etatReservation == 1) {
                                 echo 'Annulée';
                                 $annule = 1;
                             }
                             elseif ($reservdata -> dateFin < $today) {
                                 echo 'Expirée';
                                 $annule = 1;
+                            }
+                            elseif ($reservdata -> dateDebut == NULL) {
+                                echo 'En attente';
+                                $annule = 0;
                             }
                             else {
                                 echo 'Validée';
@@ -84,7 +81,8 @@ Log::debug($today);
 @else
 <center> Aucune réservation effectuer </center>
 @endif
-@if ($annule != 0)
+<?php Log::debug($annule); ?>
+@if ($annule == 1)
     <form action="ReservationExe" method="post">
         @csrf
         <input type="hidden" name="iduser" value={{$info[0]}}>
