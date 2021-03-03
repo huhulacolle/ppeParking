@@ -74,7 +74,7 @@ class connexion extends Controller
                 'nom' => $_GET['nom'],
                 'prenom' => $_GET['prenom'],
                 'mail' => $_GET['mail'],
-                'motDePasseUtilisateur' => $_GET['password'],
+                'motDePasseUtilisateur' => Hash::make($_GET['password']),
                 'isAdministrateur' => false,
             ]);
             return view('pageconnexion', compact('error'));
