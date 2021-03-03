@@ -7,6 +7,7 @@ use App\Models\utilisateur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Stmt\Else_;
+use Illuminate\Support\Facades\Hash;
 
 class connexion extends Controller
 {
@@ -27,7 +28,7 @@ class connexion extends Controller
             $inscrit = $connectdata -> estInscrit;
             $admin = $connectdata -> isAdministrateur;
         }
-        if ($utilisateur != null && $motdepasse == $pswd) {
+        if ($utilisateur != null && Hash::check($pswd, $motdepasse)) {
             if ($inscrit == 0) {
                 $error = 2;
                 return view('pageconnexion', compact('error'),);
