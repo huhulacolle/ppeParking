@@ -32,12 +32,11 @@
                 <td>{{$listeUtilisateurdata->mail}}</td>
                 <td>
                     @if ($listeUtilisateurdata->motDePasseOublie == 0)
-                        <div class="p-3 mb-2 bg-success text-white"></div>
+                        <td><a class="btn btn-primary" href="modificationMdpUtilisateur/{{$idUtilisateur}}" role="button">Modifier</a></td>
                     @else
                         <div class="p-3 mb-2 bg-danger text-white"></div>
                     @endif
                 </td>
-                <td><a class="btn btn-primary" href="modificationMdpUtilisateur{{$idUtilisateur}}" role="button">Modifier</a></td>
             </tr>
         @endforeach
         </tbody>

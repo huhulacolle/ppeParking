@@ -81,6 +81,6 @@ Route::get('testinscription', function () {
 
 Route::post('testinscriptionresultat', [test::class, 'testinscription']);
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/modificationMdpUtilisateur/{idUtilisateur}',[admin::class,'showModifMdp']);
+
+Route::post('/updateMotDePasse/{idUtilisateur}', [admin::class, 'updateMotDePasse']);

@@ -1,22 +1,19 @@
 @extends('head.admin')
 @section('content')
 <div class="shadow-lg p-3 mb-5 bg-white rounded">
-    <h3 align="center" style="color:#00DFF9";>MODIFICATION DE LA LISTE D'ATTENTE</h3>
+    <h3 align="center" style="color:#00DFF9";>MODIFICATION DU MOT DE PASSE DE L'UTILISATEUR : </h3>
   </div>
 <div style="text-align: center;">
-    <?php
-        foreach ($nomUtilsi as $key => $value) {
-            $positionFileAttente = $value->positionFileAttente;
-            $idReservation = $value->idReservation;
-            echo'Modification du mot de passe de utilisateur    '.$nomUtilisateur.'<br><br><br><br><br><br><br><br>"
-            <form method="POST" action="updateFileAttente/'.$idReservation.'">';
-        }?>
-        {{ csrf_field() }}
-        <p>Nouvelle place de file d'attente à attribuer: <br><br></p>
-        <select name="placeAattribuer">
-        </select>
-        <br><br><br>
-        <button type="submit" value="valider">Valider</button>
-        </form>
+    <form action="updateMotDePasse/{{$idUtilisateur}}" method="post">;
+        @csrf
+        <h2 class="text-center">Modification du mot de passe</h2>
+        <div class="form-group">
+            Nouveau mot de passe
+            <input type="password" name="motDePasse" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Changer le mot de passe</button>
+        </div>
+    </form>
 </div>
 @endsection

@@ -9,12 +9,13 @@ use Illuminate\Support\Facades\DB;
 use App\Models\reservation;
 use App\Models\utilisateur;
 use DateTime;
+use Illuminate\Support\Facades\Hash;
 
 class user extends Controller
 {
     public function reservation()
     {
-        $requete = utilisateur::select('*')->where('idUtilisateur', '=',$_POST['id'])->get();
+        $requete = utilisateur::select('*')->where('idUtilisateur', '=',$_POST['id'])->oderBy('etatReservation')->get();
         foreach ($requete as $requetedata) {
             $id = $requetedata -> idUtilisateur;
             $nom = $requetedata -> nom;
@@ -84,7 +85,7 @@ class user extends Controller
         if ($old == $_POST['old']) {
             $update = utilisateur::
             where('idUtilisateur', '=', $user[0])
-            ->update(['motDePasseUtilisateur' => $_POST['new']]);
+            ->update(['motDePasseUtilisateur' => Hash::make($_POST['new'])]);
             $user[1] = 2;
         }
         else {

@@ -5,14 +5,24 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\parking;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\reservation;
 use App\Models\utilisateur;
 use DateTime;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Hash;
 
 class admin extends Controller
 {
+    public function showModifMdp($idUtilisateur)
+    {
+        return view('admin.modificationMdpUtilisateur', compact('idUtilisateur'));
+    }
+    public function updateMotDePasse($idUtilisateur)
+    {
+        utilisateur::where("idUtilisateur","=", $idUtilisateur)->update(array('motDePasseUtilisateur' => Hash::make($_POST['motDePasse'])));
+        $listeUtilisateur = utilisateur::select('idUtilisateur','nomUtilisateur','nom','prenom','mail','motDePasseUtilisateur','motDePasseOublie')->where('isAdministrateur', '=', false)->get();
+        return view('admin.listeutilisateur', compact('listeUtilisateur'));
+    }
+
     public function listeattente()
     {
         $utilisateursFileAttente = reservation::join('utilisateurs','idUtilisateur','=','utilisateur')->select('idReservation','nomUtilisateur', 'positionFileAttente')->where('positionFileAttente','>', 0)->get();
