@@ -19,7 +19,6 @@
         <th scope="col">Nom de l'utilisateur </th>
         <th scope="col">Prénom de l'utlisateur </th>
         <th scope="col">Mail de l'utilisateur </th>
-        <th scope="col">Mot de passe de l'utilisateur </th>
         <th scope="col">MDP Oublié? </th>
         </tr>
         @foreach ($listeUtilisateur as $listeUtilisateurdata)
@@ -32,9 +31,9 @@
                 <td>{{$listeUtilisateurdata->mail}}</td>
                 <td>
                     @if ($listeUtilisateurdata->motDePasseOublie == 0)
-                        <td><a class="btn btn-primary" href="modificationMdpUtilisateur/{{$idUtilisateur}}" role="button">Modifier</a></td>
+                        <a class="btn btn-primary" href="modificationMdpUtilisateur/{{$idUtilisateur}}" role="button">Modifier</a>
                     @else
-                        <div class="p-3 mb-2 bg-danger text-white"></div>
+                        <a class="btn btn-danger" href="modificationMdpUtilisateur/{{$idUtilisateur}}" role="button">Modifier</a>
                     @endif
                 </td>
             </tr>
