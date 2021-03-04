@@ -33,7 +33,7 @@
             <input type="text" name="user" class="form-control" placeholder="Utilisateur" required>
         </div>
         <div class="form-group">
-            <input type="password" name="pswd" id="mdp" class="form-control" placeholder="Mot de passe" required>
+            <input type="password" name="pswd" id="mdp" class="form-control" placeholder="Mot de passe" maxlength="30" required>
             <br>
             <input type="checkbox" onclick="myFunction()">Montrer mot de passe
 

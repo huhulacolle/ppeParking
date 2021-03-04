@@ -9,7 +9,7 @@
         <h2 class="text-center">Modification du mot de passe</h2>
         <div class="form-group">
             Nouveau mot de passe
-            <input type="password" name="motDePasse" class="form-control" required>
+            <input type="password" name="motDePasse" class="form-control" maxlength="30" required>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">Changer le mot de passe</button>
