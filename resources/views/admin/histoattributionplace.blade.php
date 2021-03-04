@@ -16,20 +16,27 @@
            <th scope="col">Date fin de la réservation</th>
         </thead>
         <tbody>
-          
-            <?php
-                foreach ($listeHistoReservation as $key => $value) {
-                    echo '<tr>
-                            <td>'.$value->idReservation.'</td>
-                            <td>'.$value->positionFileAttente.'</td>
-                            <td>'.$value->numeroPlace.'</td>
-                            <td>'.$value->nomUtilisateur.'</td>
-                            <td>'.$value->etatReservation.'</td>
-                            <td>'.$value->dateDebut.'</td>
-                            <td>'.$value->dateFin.'</td>
-                        </tr>';
-                }
-            ?>
+            @foreach ($listeHistoReservation as $listeHistoReservationdata)
+            <tr>
+                <td>{{$listeHistoReservationdata->idReservation}}</td>
+                <td>{{$listeHistoReservationdata->positionFileAttente}}</td>
+                <td>{{$listeHistoReservationdata->numeroPlace}}</td>
+                <td>{{$listeHistoReservationdata->nomUtilisateur}}</td>
+                <td>
+                    @if ($listeHistoReservationdata -> etatReservation == 1)
+                        Annulée
+                    @elseif($listeHistoReservationdata -> dateFin < date("Y-m-d"))
+                        Expirée
+                    @elseif($listeHistoReservationdata -> dateDebut == NULL)
+                        En attente
+                    @else
+                        Validée
+                    @endif
+                </td>
+                <td>{{$listeHistoReservationdata->dateDebut}}</td>
+                <td>{{$listeHistoReservationdata->dateFin}}</td>
+            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

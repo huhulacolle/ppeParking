@@ -106,7 +106,8 @@ class user extends Controller
         $max = reservation::select('idReservation')->max('idReservation') + 1;
         $attente = reservation::select('positionFIleAttente')->max('positionFileAttente') + 1;
         if ($nbPlacesLibres >= 0) {
-            $input = rand(1, count($placesLibres));
+            $nbPlacesLibres--;
+            $input = rand(0, $nbPlacesLibres);
             $nbplace = $placesLibres[$input];
             $nbplace = explode('"', $nbplace);
             $nbplace = $nbplace[3];

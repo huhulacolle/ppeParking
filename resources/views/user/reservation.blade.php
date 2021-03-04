@@ -43,23 +43,18 @@ Log::debug($today);
                     {{$reservdata -> dateFin}}
                 </td>
                 <td>
-                    <?php
-                            if ($reservdata -> etatReservation == 1) {
-                                echo 'Annulée';
-                                $annule = 1;
-                            }
-                            elseif ($reservdata -> dateFin < $today) {
-                                echo 'Expirée';
-                                $annule = 1;
-                            }
-                            elseif ($reservdata -> dateDebut == NULL) {
-                                echo 'En attente';
-                                $annule = 0;
-                            }
-                            else {
-                                echo 'Validée';
-                            }
-                            ?>
+                    @if ($reservdata -> etatReservation == 1)
+                        Annulée
+                        <?php $annule = 1 ?>
+                    @elseif($reservdata -> dateFin < $today)
+                        Expirée
+                        <?php $annule = 1 ?>
+                    @elseif($reservdata -> dateDebut == NULL)
+                        En attente
+                        <?php $annule = 0 ?>
+                    @else
+                        Validée
+                    @endif
                 </td>
                 <td>
                     <form action="annuler" method="post">
