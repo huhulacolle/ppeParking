@@ -15,7 +15,7 @@ class user extends Controller
 {
     public function reservation()
     {
-        $requete = utilisateur::select('*')->where('idUtilisateur', '=',$_POST['id'])->oderBy('etatReservation')->get();
+        $requete = utilisateur::select('*')->where('idUtilisateur', '=',$_POST['id'])->get();
         foreach ($requete as $requetedata) {
             $id = $requetedata -> idUtilisateur;
             $nom = $requetedata -> nom;
