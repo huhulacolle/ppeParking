@@ -23,10 +23,10 @@ class CreateReservationsTable extends Migration
             $table->date('dateDebut')->nullable();
             $table->date('dateFin')->nullable();
             $table->foreign('numeroPlace')
-                ->references('id')
+                ->references('idParking')
                 ->on('parkings');
-           $table->foreign('utilisateur')
-                ->references('id')
+            $table->foreign('utilisateur')
+                ->references('idUtilisateur')
                 ->on('utilisateurs');
             $table->timestamps();
         });
