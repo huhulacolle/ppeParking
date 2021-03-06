@@ -47,11 +47,11 @@ Route::get('demandesinscriptions', [admin::class, 'demandesinscriptions']);
 
 Route::post('ListeAttente', [admin::class, 'listeattente']);
 
-Route::get('ListeAttente', [admin::class, 'listeattente']);
+// Route::get('ListeAttente', [admin::class, 'listeattente']);
 
-Route::get('ListeUtilisateur', [admin::class, 'listeutilisateur']);
+Route::post('ListeUtilisateur', [admin::class, 'listeutilisateur']);
 
-Route::get('HistoAttributionPlace', [admin::class, 'histoattributionplace']);
+Route::post('HistoAttributionPlace', [admin::class, 'histoattributionplace']);
 
 Route::post('modificationFileAttente/updateFileAttente/{idReservation}', [admin::class, 'updateFileAttente']);
 
@@ -83,4 +83,4 @@ Route::post('testinscriptionresultat', [test::class, 'testinscription']);
 
 Route::get('/modificationMdpUtilisateur/{idUtilisateur}',[admin::class,'showModifMdp']);
 
-Route::post('/updateMotDePasse/{idUtilisateur}', [admin::class, 'updateMotDePasse']);
+Route::post('/updateMotDePasse', [admin::class, 'updateMotDePasse']);

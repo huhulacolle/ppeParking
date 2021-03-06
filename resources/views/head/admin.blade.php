@@ -15,6 +15,14 @@
         //-->
 
     </script>
+    <style>
+        .link-lookalike {
+            background: none;
+            border: none;
+            color: blue;
+        }
+    </style>
+    </style>
 </head>
 
 <body>
@@ -23,6 +31,13 @@
     $adresse = explode("/", $adresse);
     $adresse = $adresse[2];
     Log::debug($adresse);
+    if (isset($_POST['id'])) {
+        $id = $_POST['id'];
+    }
+    elseif (isset($_GET['id'])) {
+        $id = $_GET['id'];
+    }
+    Log::debug($id);
     ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">Administrateur</a>
@@ -32,31 +47,55 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto">
             @if ($adresse == "ListeAttente")
-            <li class="nav-item active">
-                <a class="nav-link" href="/ListeAttente">Liste d'attente</a>
-            </li>
+            <form action="/ListeAttente" method="post">
+                @csrf
+                <input type="hidden" name="id" value={{$id}}>
+                <li class="nav-item active">
+                    <button type="submit" class="link-lookalike nav-link">Liste d'attente</button>
+                </li>
+            </form>
             @else
-            <li class="nav-item">
-                <a class="nav-link" href="/ListeAttente">Liste d'attente</a>
-            </li>
+            <form action="/ListeAttente" method="post">
+                @csrf
+                <input type="hidden" name="id" value={{$id}}>
+                <li class="nav-item">
+                    <button type="submit" class="link-lookalike nav-link">Liste d'attente</button>
+                </li>
+            </form>
             @endif
             @if ($adresse == "ListeUtilisateur")
-            <li class="nav-item active">
-                <a class="nav-link" href="/ListeUtilisateur">Liste des utilisateurs</a>
-            </li>
+            <form action="/ListeUtilisateur" method="post">
+                @csrf
+                <input type="hidden" name="id" value={{$id}}>
+                <li class="nav-item active">
+                    <button type="submit" class="link-lookalike nav-link">Liste des utilisateurs</button>
+                </li>
+            </form>
             @else
-            <li class="nav-item">
-                <a class="nav-link" href="/ListeUtilisateur">Liste des utilisateurs</a>
-            </li>
+            <form action="/ListeUtilisateur" method="post">
+                @csrf
+                <input type="hidden" name="id" value={{$id}}>
+                <li class="nav-item">
+                    <button type="submit" class="link-lookalike nav-link">Liste des utilisateurs</button>
+                </li>
+            </form>
             @endif
             @if ($adresse == "HistoAttributionPlace")
-            <li class="nav-item active">
-                <a class="nav-link" href="/HistoAttributionPlace">Historique attribution des places</a>
-            </li>
+            <form action="/HistoAttributionPlace" method="post">
+                @csrf
+                <input type="hidden" name="id" value={{$id}}>
+                <li class="nav-item active">
+                    <button type="submit" class="link-lookalike nav-link">Historique attribution des places</button>
+                </li>
+            </form>
             @else
-            <li class="nav-item">
-                <a class="nav-link" href="/HistoAttributionPlace">Historique attribution des places</a>
-            </li>
+            <form action="/HistoAttributionPlace" method="post">
+                @csrf
+                <input type="hidden" name="id" value={{$id}}>
+                <li class="nav-item">
+                    <button type="submit" class="link-lookalike nav-link">Historique attribution des places</button>
+                </li>
+            </form>
             @endif
           </ul>
           <span class="navbar-text">

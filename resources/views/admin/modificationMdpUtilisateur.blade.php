@@ -4,8 +4,10 @@
     <h3 align="center" style="color:#00DFF9";>MODIFICATION DU MOT DE PASSE DE L'UTILISATEUR : </h3>
   </div>
 <div style="text-align: center;">
-    <form action="updateMotDePasse/{{$idUtilisateur}}" method="post">;
+    <form action="/updateMotDePasse" method="post">;
         @csrf
+        <input type="hidden" name="id" value={{$_GET['id']}}>
+        <input type="hidden" name="idUtilisateur" value={{$_GET['idUtilisateur']}}>
         <h2 class="text-center">Modification du mot de passe</h2>
         <div class="form-group">
             Nouveau mot de passe

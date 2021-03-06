@@ -42,11 +42,18 @@
         <span class="sr-only">Loading...</span>
     </div>
 </div>
+@if (!isset($liste))
+    <form action="/ListeAttente" name="form" method="post">
+        @csrf
+        <input type="hidden" name='id' value={{$id}}>
+    </form>
+@else
+    <form action="/ListeUtilisateur" name="form" method="post">
+        @csrf
+        <input type="hidden" name='id' value={{$id}}>
+    </form>
+@endif
 
-<form action="ListeAttente" name="form" method="post">
-    @csrf
-    <input type="hidden" name='utilisateur' value={{$utilisateur}}>
-</form>
 <script type="text/javascript">
     document.forms["form"].submit();
 

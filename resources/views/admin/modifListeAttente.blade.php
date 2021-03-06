@@ -18,6 +18,7 @@
             @endforeach
         </select>
         <br><br><br>
+        <input type="hidden" name="id" value={{$_GET['id']}}>
         <button type="submit" value="valider">Valider</button>
         </form>
 </div>

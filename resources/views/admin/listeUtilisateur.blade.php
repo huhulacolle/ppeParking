@@ -3,14 +3,12 @@
 
 
 <div class="shadow-lg p-3 mb-5 bg-white rounded">
-    <form action="demandesinscriptions" method="post">
+    <form action="demandesinscriptions" method="get">
         @csrf
-
-        <a class="btn btn-info" align="left" href="demandesinscriptions" role="button">Voir demandes d'inscription</a>
-
-
-        <h3 align="center" style="color:#00DFF9" ;>LISTE DES UTILISATEURS</h3>
+        <input type="hidden" name="id" value={{$_POST['id']}}>
+        <button type="submit" class="btn btn-info">Voir demandes d'inscription</button>
     </form>
+    <h3 align="center" style="color:#00DFF9">LISTE DES UTILISATEURS</h3>
 </div>
     <table class="table">
 
@@ -22,7 +20,10 @@
         <th scope="col">MDP Oublié? </th>
         </tr>
         @foreach ($listeUtilisateur as $listeUtilisateurdata)
-            <?php $idUtilisateur = $listeUtilisateurdata->idUtilisateur; ?>
+        <?php $idUtilisateur = $listeUtilisateurdata->idUtilisateur; ?>
+        <form action="modificationMdpUtilisateur/{{$idUtilisateur}}" method="get">
+            <input type="hidden" name="id" value={{$_POST['id']}}>
+            <input type="hidden" name="idUtilisateur" value={{$idUtilisateur}}>
             <tr>
                 <td>{{$idUtilisateur}}</td>
                 <td>{{$listeUtilisateurdata->nomUtilisateur}}</td>
@@ -31,12 +32,13 @@
                 <td>{{$listeUtilisateurdata->mail}}</td>
                 <td>
                     @if ($listeUtilisateurdata->motDePasseOublie == 0)
-                        <a class="btn btn-primary" href="modificationMdpUtilisateur/{{$idUtilisateur}}" role="button">Modifier</a>
+                        <button type="submit" class="btn btn-primary">Modifier</button>
                     @else
-                        <a class="btn btn-danger" href="modificationMdpUtilisateur/{{$idUtilisateur}}" role="button">Modifier</a>
+                        <button type="submit" class="btn btn-danger">Modifier</button>
                     @endif
                 </td>
             </tr>
+        </form>
         @endforeach
         </tbody>
     </table>

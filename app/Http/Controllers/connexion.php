@@ -39,7 +39,7 @@ class connexion extends Controller
                     return view('user.acceuiluser', compact('id'), compact('action'));
                 }
                 else {
-                    return view('admin.acceuiladmin', compact('utilisateur'));
+                    return view('admin.acceuiladmin', compact('id'));
                 }
             }
         }

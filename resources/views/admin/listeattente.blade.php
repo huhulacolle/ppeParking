@@ -13,11 +13,15 @@
             </thead>
            <tbody>
                 @foreach ($utilisateursFileAttente as $value)
+                <form action="modificationFileAttente/{{$value->idReservation}}" method="get">
                     <tr>
                         <td>{{$value->nomUtilisateur}}</td>
                         <td>{{$value->positionFileAttente}}</td>
-                        <td><a class="btn btn-primary" href="modificationFileAttente/{{$value->idReservation}}"> modifier la file attente</a></td>
+                        <td><button type="submit" class="btn btn-primary">modifier la file attente</button></td>
+                        <input type="hidden" name="id" value={{$_POST['id']}}>
+                        {{-- <td><a class="btn btn-primary" href="modificationFileAttente/{{$value->idReservation}}"> modifier la file attente</a></td> --}}
                     </tr>
+                </form>
             @endforeach
             </tbody>
         </table>
