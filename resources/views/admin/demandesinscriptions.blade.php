@@ -5,34 +5,38 @@
 <div class="shadow-lg p-3 mb-5 bg-white rounded">
     <h3 align="center" style="color:#00DFF9";>DEMANDES INSCRIPTIONS</h3>
     <br><br>
-    <a href = "toutaccepter">Accepter toutes les inscriptions </a>
-    <a href = "toutrefuser">Refuser toutes les inscriptions </a>
-    <table border="2" align="center">
-        <thead>
-            <tr>
-                <th colspan="8" >Liste d'attente</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Id de l'utilisateur</td>
-                <td>Pseudonyme de l'utilisateur</td>
-                <td>Nom</td>
-                <td>Prénom</td>
-                <td>Mail</td>
-                <td>Mot de passe de l'utilisateur</td>
-                <td>Accepter</td>
-                <td>Refuser </td>
-            </tr>
+    <a href = "toutaccepter" class="btn btn-primary">Accepter toutes les inscriptions </a>
+    <a href = "toutrefuser" class="btn btn-primary">Refuser toutes les inscriptions </a>
+    <div class="container mb-3 mt-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="9">Liste D'attente</th>
+                </tr>
+                <tr>
+                    <th scope="col">Id de l'utilisateur</th>
+                    <th scope="col">Pseudonyme de l'utilisateur</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Mail</th>
+                    <th scope="col">Accepter</th>
+                    <th scope="col">Refuser </th>
+                </tr>
+            </thead>
+            <tbody>
                 @foreach ($utilisateurNonInscrits as $value)
-                    <tr><td>{{$value->idUtilisateur}}</td>
+                    <tr>
+                        <td>{{$value->idUtilisateur}}</td>
                         <td>{{$value->nomUtilisateur}}</td>
                         <td>{{$value->nom}}</td>
                         <td>{{$value->prenom}}</td>
                         <td>{{$value->mail}}</td>
-                        <td>{{$value->motDePasseUtilisateur}}</td>
                         <td><a href="accepterInscription/{{$value->idUtilisateur}}">Accepter inscription </a></td>
-                        <td><a href="refuserInscription/{{$value->idUtilisateur}}">Refuser inscription </a></td></tr>
+                        <td><a href="refuserInscription/{{$value->idUtilisateur}}">Refuser inscription </a></td>
+                    </tr>
                 @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
 @endsection
