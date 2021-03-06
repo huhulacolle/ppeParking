@@ -24,18 +24,15 @@
                 <td>Accepter</td>
                 <td>Refuser </td>
             </tr>
-            <?php
-                foreach ($utilisateurNonInscrits as $key => $value) {
-                    $idUtilisateur = $value->idUtilisateur;
-                    echo'<tr><td>'.$idUtilisateur.'</td>
-                         <td>'.$value->nomUtilisateur.'</td>
-                         <td>'.$value->nom.'</td>
-                         <td>'.$value->prenom.'</td>
-                         <td>'.$value->mail.'</td>
-                         <td>'.$value->motDePasseUtilisateur.'</td>
-                         <td><a href="accepterInscription/'.$idUtilisateur.'">Accepter inscription </a></td>
-                         <td><a href="refuserInscription/'.$idUtilisateur.'">Refuser inscription </a></td></tr>';
-                }
-            ?>
+                @foreach ($utilisateurNonInscrits as $value)
+                    <tr><td>{{$value->idUtilisateur}}</td>
+                        <td>{{$value->nomUtilisateur}}</td>
+                        <td>{{$value->nom}}</td>
+                        <td>{{$value->prenom}}</td>
+                        <td>{{$value->mail}}</td>
+                        <td>{{$value->motDePasseUtilisateur}}</td>
+                        <td><a href="accepterInscription/{{$value->idUtilisateur}}">Accepter inscription </a></td>
+                        <td><a href="refuserInscription/{{$value->idUtilisateur}}">Refuser inscription </a></td></tr>
+                @endforeach
 </div>
 @endsection

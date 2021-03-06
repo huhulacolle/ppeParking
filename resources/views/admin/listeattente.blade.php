@@ -12,16 +12,13 @@
                 <th scope="col">modifier la position dans la file d'attente</th>
             </thead>
            <tbody>
-          
-            <?php
-                foreach ($utilisateursFileAttente as $key => $value) {
-                    echo '<tr>
-                            <td>'.$value->nomUtilisateur.'</td>
-                            <td>'.$value->positionFileAttente.'</td>
-                            <td><a class="btn btn-primary" href="modificationFileAttente/'.$value->idReservation.'"> modifier la file attente</a></td>
-                        </tr>';
-                }
-            ?>
+                @foreach ($utilisateursFileAttente as $value)
+                    <tr>
+                        <td>{{$value->nomUtilisateur}}</td>
+                        <td>{{$value->positionFileAttente}}</td>
+                        <td><a class="btn btn-primary" href="modificationFileAttente/{{$value->idReservation}}"> modifier la file attente</a></td>
+                    </tr>
+            @endforeach
             </tbody>
         </table>
     </div>

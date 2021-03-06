@@ -4,21 +4,18 @@
     <h3 align="center" style="color:#00DFF9";>MODIFICATION DE LA LISTE D'ATTENTE</h3>
   </div>
 <div style="text-align: center;">
-    <?php
-        foreach ($reservation as $key => $value) {
-            $positionFileAttente = $value->positionFileAttente;
-            $idReservation = $value->idReservation;
-            echo'Modification de la position dans la liste attente :  '.$value->nomUtilisateur.'<br><br><br><br><br><br><br><br>
-            <form method="POST" action="updateFileAttente/'.$idReservation.'">';
-        }?>
+        @foreach ($reservation as $reservationdata)
+            {{$positionFileAttente = $reservationdata->positionFileAttente}}
+            {{$idReservation = $reservationdata->idReservation}}
+            Modification de la position dans la liste attente :  {{$reservationdata->nomUtilisateur}}<br><br><br><br><br><br><br><br>
+            <form method="POST" action="updateFileAttente/{{$idReservation}}">;
+        @endforeach
         {{ csrf_field() }}
         <p>Nouvelle place de file d'attente à attribué: <br><br></p>
         <select name="placeAattribuer">
-        <?php
-            foreach($placeAattribuer as $key => $value) {
-               echo '<option value="'.$value->positionFileAttente.'">'.$value->positionFileAttente.'</option>';
-            }
-        ?>
+            @foreach($placeAattribuer as $value)
+               <option value="{{$value->positionFileAttente}}">{{$value->positionFileAttente}}</option>
+            @endforeach
         </select>
         <br><br><br>
         <button type="submit" value="valider">Valider</button>

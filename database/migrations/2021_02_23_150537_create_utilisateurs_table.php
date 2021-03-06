@@ -15,7 +15,7 @@ class CreateUtilisateursTable extends Migration
     {
         Schema::create('utilisateurs', function (Blueprint $table) {
             $table->engine = 'InnoDb';
-            $table->increments('idUtilisateur');
+            $table->increments('id');
             $table->string('nomUtilisateur')->unique();
             $table->char('nom', 50)->unique();
             $table->char('prenom', 50)->unique();

@@ -15,27 +15,21 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->engine = 'InnoDb';
-            $table->integer('idReservation');
+            $table->increments('id');
             $table->integer("positionFileAttente")->nullable();
-            $table->string('numeroPlace');
-            $table->integer('utilisateur')->unsigned()->index();
+            $table->integer('numeroPlace')->nullable()->unsigned();
+            $table->integer('utilisateur')->nullable()->unsigned();
             $table->string("etatReservation")->nullable();
             $table->date('dateDebut')->nullable();
             $table->date('dateFin')->nullable();
-            $table->primary('idReservation');
+            $table->foreign('numeroPlace')
+                ->references('id')
+                ->on('parkings');
+           $table->foreign('utilisateur')
+                ->references('id')
+                ->on('utilisateurs');
             $table->timestamps();
         });
-
-        /**
-         * Schema::table('reservations', function (Blueprint $table) {
-         *   $table->foreign('numeroPlace')
-         *         ->references('idParking')
-         *         ->on('parking');
-         *   $table->foreign('utilisateur')
-         *         ->references('idUtilisateur')
-         *         ->on('utilisateur');
-         *   });
-        */
     }
 
     /**
