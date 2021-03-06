@@ -14,10 +14,8 @@ class CreateParkingsTable extends Migration
     public function up()
     {
         Schema::create('parkings', function (Blueprint $table) {
-            $table->engine = 'InnoDb';
             $table->increments('idParking');
-            $table->string('numeroPlace');
-            $table->integer('nbPlaces');
+            $table->string('numeroPlace')->nullable();
             $table->timestamps();
         });
     }
