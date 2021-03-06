@@ -21,95 +21,95 @@ class DatabaseSeeder extends Seeder
     {
         parking::insert(array(
             array(
-                'id' => 1,
+                'idParking' => 1,
                 'numeroPlace'=> '1A',
                 'nbPlaces' => 10,
             ),
             array(
-                'id' => 2 ,
+                'idParking' => 2 ,
                 'numeroPlace'=> '2A',
                 'nbPlaces' => 10,
             ),
             array(
-                'id' => 3 ,
+                'idParking' => 3 ,
                 'numeroPlace'=> '3A',
                 'nbPlaces' => 10,
             ),
             array(
-                'id' => 4 ,
+                'idParking' => 4 ,
                 'numeroPlace'=> '4A',
                 'nbPlaces' => 10,
             ),
             array(
-                'id' => 5 ,
+                'idParking' => 5 ,
                 'numeroPlace'=> '5A',
                 'nbPlaces' => 10,
             ),
             array(
-                'id' => 6 ,
+                'idParking' => 6 ,
                 'numeroPlace'=> '6A',
                 'nbPlaces' => 10,
             ),
             array(
-                'id' => 7 ,
+                'idParking' => 7 ,
                 'numeroPlace'=> '7A',
                 'nbPlaces' => 10,
             ),
             array(
-                'id' => 8 ,
+                'idParking' => 8 ,
                 'numeroPlace'=> '8A',
                 'nbPlaces' => 10,
             ),
             array(
-                'id' => 9 ,
+                'idParking' => 9 ,
                 'numeroPlace'=> '9A',
                 'nbPlaces' => 10,
             ),
             array(
-                'id' => 10 ,
+                'idParking' => 10 ,
                 'numeroPlace'=> '10A',
                 'nbPlaces' => 10,
             ),
         ));
         utilisateur::insert(array(
             array(
-                'id' => 1, 'nomUtilisateur' => 'HugoAraujooooo','nom' =>'Hugo', 'Prenom' => 'Araujo','mail'=>'laTourInfernale@hotmail.com', 'motDePasseUtilisateur' => Hash::make('huhuLaColle'), 'estInscrit' => true, 'isAdministrateur' => true ,
+                'idUtilisateur' => 1, 'nomUtilisateur' => 'HugoAraujooooo','nom' =>'Hugo', 'Prenom' => 'Araujo','mail'=>'laTourInfernale@hotmail.com', 'motDePasseUtilisateur' => Hash::make('huhuLaColle'), 'estInscrit' => true, 'isAdministrateur' => true ,
             ),
             array(
-                'id' => 2, 'nomUtilisateur' => 'RomainTh','nom' =>'Thiriot', 'Prenom' => 'RomainTmtc','mail'=>'ayaRT@hotmail.com', 'motDePasseUtilisateur' => Hash::make('AyaRomain'), 'estInscrit' => true, 'isAdministrateur' => false ,
+                'idUtilisateur' => 2, 'nomUtilisateur' => 'RomainTh','nom' =>'Thiriot', 'Prenom' => 'RomainTmtc','mail'=>'ayaRT@hotmail.com', 'motDePasseUtilisateur' => Hash::make('AyaRomain'), 'estInscrit' => true, 'isAdministrateur' => false ,
             ),
             array(
-                'id' => 3, 'nomUtilisateur' => 'BoaJulien','nom' =>'Bois', 'Prenom' => 'Julien','mail'=>'julienInconnu@gmail.com', 'motDePasseUtilisateur' => Hash::make('julien1234'), 'estInscrit' => true, 'isAdministrateur' => false ,
+                'idUtilisateur' => 3, 'nomUtilisateur' => 'BoaJulien','nom' =>'Bois', 'Prenom' => 'Julien','mail'=>'julienInconnu@gmail.com', 'motDePasseUtilisateur' => Hash::make('julien1234'), 'estInscrit' => true, 'isAdministrateur' => false ,
             ),
             array(
-                'id' => 10, 'nomUtilisateur' => 'inconnu','nom' =>'zagzag', 'Prenom' => 'rh','mail'=>'royaumeDesRH@rhworld.com', 'motDePasseUtilisateur' => Hash::make('mdpInconnu') ,'estInscrit' => true,'isAdministrateur' => false ,
+                'idUtilisateur' => 10, 'nomUtilisateur' => 'inconnu','nom' =>'zagzag', 'Prenom' => 'rh','mail'=>'royaumeDesRH@rhworld.com', 'motDePasseUtilisateur' => Hash::make('mdpInconnu') ,'estInscrit' => true,'isAdministrateur' => false ,
             ),
             array(
-                'id' => 4, 'nomUtilisateur' => 'PasDeReservation','nom' =>'vinci', 'Prenom' => 'guerra','mail'=>'supraluminique@vinci.universe', 'motDePasseUtilisateur' => Hash::make('slatumGreut'),'estInscrit' => false,'isAdministrateur' => false ,
+                'idUtilisateur' => 4, 'nomUtilisateur' => 'PasDeReservation','nom' =>'vinci', 'Prenom' => 'guerra','mail'=>'supraluminique@vinci.universe', 'motDePasseUtilisateur' => Hash::make('slatumGreut'),'estInscrit' => false,'isAdministrateur' => false ,
             ),
             array(
-                'id' => 5, 'nomUtilisateur' => 'Escriva','nom' =>'Escriva', 'Prenom' => 'gOublié','mail'=>'escrivaSafari@safari.com', 'motDePasseUtilisateur' => Hash::make('JeKiffeLesParkings') ,'estInscrit' => true,'isAdministrateur' => false ,
+                'idUtilisateur' => 5, 'nomUtilisateur' => 'Escriva','nom' =>'Escriva', 'Prenom' => 'gOublié','mail'=>'escrivaSafari@safari.com', 'motDePasseUtilisateur' => Hash::make('JeKiffeLesParkings') ,'estInscrit' => true,'isAdministrateur' => false ,
             ),
             array(
-                'id' => 6, 'nomUtilisateur' => 'bruney','nom' =>'faitesNousDesOrdisQuiMarchent', 'Prenom' => 'DIDIER','mail'=>'jeNeComprendspas@bloodyHell.com', 'motDePasseUtilisateur' => Hash::make('onTheFly'),'estInscrit' => true,'isAdministrateur' => false ,
+                'idUtilisateur' => 6, 'nomUtilisateur' => 'bruney','nom' =>'faitesNousDesOrdisQuiMarchent', 'Prenom' => 'DIDIER','mail'=>'jeNeComprendspas@bloodyHell.com', 'motDePasseUtilisateur' => Hash::make('onTheFly'),'estInscrit' => true,'isAdministrateur' => false ,
             ),
             array(
-                'id' => 7, 'nomUtilisateur' => 'titli','nom' =>'fastFood', 'Prenom' => 'vintage','mail'=>'çaMarcheComment@huawei.com', 'motDePasseUtilisateur' => Hash::make('lesTrains') ,'estInscrit' => true,'isAdministrateur' => false ,
+                'idUtilisateur' => 7, 'nomUtilisateur' => 'titli','nom' =>'fastFood', 'Prenom' => 'vintage','mail'=>'çaMarcheComment@huawei.com', 'motDePasseUtilisateur' => Hash::make('lesTrains') ,'estInscrit' => true,'isAdministrateur' => false ,
             ),
             array(
-                'id' => 8, 'nomUtilisateur' => 'InèsMGG','nom' =>'Maganga', 'Prenom' => 'Inès','mail'=>'wtfmgg@iSpeakEngish.com', 'motDePasseUtilisateur' => Hash::make('holyShit') ,'estInscrit' => true,'isAdministrateur' => false ,
+                'idUtilisateur' => 8, 'nomUtilisateur' => 'InèsMGG','nom' =>'Maganga', 'Prenom' => 'Inès','mail'=>'wtfmgg@iSpeakEngish.com', 'motDePasseUtilisateur' => Hash::make('holyShit') ,'estInscrit' => true,'isAdministrateur' => false ,
             ),
             array(
-                'id' => 9, 'nomUtilisateur' => 'GianniBosioFromCunt','nom' =>'Bosio', 'Prenom' => 'Gianni','mail'=>'gianniBosio@kant.com', 'motDePasseUtilisateur' => Hash::make('narutoXmanonLove') ,'estInscrit' => true,'isAdministrateur' => false ,
+                'idUtilisateur' => 9, 'nomUtilisateur' => 'GianniBosioFromCunt','nom' =>'Bosio', 'Prenom' => 'Gianni','mail'=>'gianniBosio@kant.com', 'motDePasseUtilisateur' => Hash::make('narutoXmanonLove') ,'estInscrit' => true,'isAdministrateur' => false ,
             ),
             array(
-                'id' => 11, 'nomUtilisateur' => 'MelvRedur','nom' =>'Redureau', 'Prenom' => 'Melvin','mail'=>'MelDokkan@battle.com', 'motDePasseUtilisateur' => Hash::make('CquantiqueToutça') ,'estInscrit' => true,'isAdministrateur' => false ,
+                'idUtilisateur' => 11, 'nomUtilisateur' => 'MelvRedur','nom' =>'Redureau', 'Prenom' => 'Melvin','mail'=>'MelDokkan@battle.com', 'motDePasseUtilisateur' => Hash::make('CquantiqueToutça') ,'estInscrit' => true,'isAdministrateur' => false ,
             ),
             array(
-                'id' => 12, 'nomUtilisateur' => 'Alex','nom' =>'CHERAMNAC', 'Prenom' => 'Alexei','mail'=>'jepechobeaucouptrop@tinder.com', 'motDePasseUtilisateur' => Hash::make('rocketLeague3000€') ,'estInscrit' => false,'isAdministrateur' => false ,
+                'idUtilisateur' => 12, 'nomUtilisateur' => 'Alex','nom' =>'CHERAMNAC', 'Prenom' => 'Alexei','mail'=>'jepechobeaucouptrop@tinder.com', 'motDePasseUtilisateur' => Hash::make('rocketLeague3000€') ,'estInscrit' => false,'isAdministrateur' => false ,
             ),
             array(
-                'id' => 13, 'nomUtilisateur' => 'ProfDeMath','nom' =>'exponentiel', 'Prenom' => 'logarithmique','mail'=>'maths@calculatrice.com', 'motDePasseUtilisateur' => Hash::make('çacemangesansfaim') ,'estInscrit' => true,'isAdministrateur' => false ,
+                'idUtilisateur' => 13, 'nomUtilisateur' => 'ProfDeMath','nom' =>'exponentiel', 'Prenom' => 'logarithmique','mail'=>'maths@calculatrice.com', 'motDePasseUtilisateur' => Hash::make('çacemangesansfaim') ,'estInscrit' => true,'isAdministrateur' => false ,
             ),
         ));
     }
