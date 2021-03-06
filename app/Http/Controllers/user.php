@@ -38,7 +38,7 @@ class user extends Controller
             $dbreserv[0] = 1;
         }
 
-        $dbreserv[1] = reservation::select('*')->where('utilisateur','=',$info)->orderBy('etatReservation','asc')->orderBy('dateFin','desc')->get();
+        $dbreserv[1] = reservation::select('*')->where('utilisateur','=',$info)->get();
 
         return view('user.reservation', compact('info'), compact('dbreserv'));
     }
