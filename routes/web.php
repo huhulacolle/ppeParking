@@ -84,3 +84,5 @@ Route::post('testinscriptionresultat', [test::class, 'testinscription']);
 Route::get('/modificationMdpUtilisateur/{idUtilisateur}',[admin::class,'showModifMdp']);
 
 Route::post('/updateMotDePasse', [admin::class, 'updateMotDePasse']);
+
+Route::get('/testmail', [connexion::class, 'testmail']);

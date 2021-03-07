@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Controllers\Controller;
+use App\Mail\Testmail;
+use Illuminate\Support\Facades\Mail;
 use App\Models\utilisateur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -101,5 +102,13 @@ class connexion extends Controller
             return view('mdpoublie', compact('error'));
         }
 
+    }
+
+    public function testmail()
+    {
+        $mail = "ceci est un texte";
+
+        Mail::to('PpeParking@gmail.com')->send(new Testmail($mail));
+        return "E-Mail envoyer";
     }
 }
