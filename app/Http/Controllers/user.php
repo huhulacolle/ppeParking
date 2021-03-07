@@ -110,13 +110,14 @@ class user extends Controller
             $input = rand(0, $nbPlacesLibres);
             $nbplace = $placesLibres[$input];
             $nbplace = explode(':', $nbplace);
-            $nbplace = $nbplace[1];
+            $nbplace = explode('}', $nbplace[1]);
+            $nbplace = $nbplace[0];
             $datedebut = date('Y-m-d');
             $datefin = date('Y-m-t', strtotime('+1 month'));
             $requete = reservation::insert([
                 'idReservation' => $max,
                 'positionFileAttente' => null,
-                'numeroPlace' => $input,
+                'numeroPlace' => $nbplace,
                 'utilisateur' => $id,
                 'etatReservation' => 0,
                 'dateDebut' => $datedebut,
@@ -135,7 +136,6 @@ class user extends Controller
             ]);
         }
         $max = reservation::select('idReservation')->max('idReservation');
-
         return view('user.acceuiluser', compact('action','id'));
     }
 
