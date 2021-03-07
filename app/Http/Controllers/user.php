@@ -99,8 +99,8 @@ class user extends Controller
         $action = 1;
         $id = $_POST['iduser'];
         $date = new DateTime();
-        $placesLibres = parking::leftJoin('reservations', 'reservations.numeroPlace','=','parkings.numeroPlace')->
-                          select('parkings.numeroPlace')->where('dateFin','<', $date->format('Y-m-d'))
+        $placesLibres = parking::leftJoin('reservations', 'reservations.numeroPlace','=','parkings.idParking')->
+                          select('parkings.idParking')->where('dateFin','<', $date->format('Y-m-d'))
                                                         ->orWhere('etatReservation','=', 1)->distinct()->get();
         $nbPlacesLibres = count($placesLibres);
         $max = reservation::select('idReservation')->max('idReservation') + 1;
@@ -108,15 +108,15 @@ class user extends Controller
         if ($nbPlacesLibres >= 0) {
             $nbPlacesLibres--;
             $input = rand(0, $nbPlacesLibres);
-            $nbplace = $placesLibres[$input];
-            $nbplace = explode('"', $nbplace);
-            $nbplace = $nbplace[3];
+            // $nbplace = $placesLibres[$input];
+            // $nbplace = explode('"', $nbplace);
+            // $nbplace = $nbplace[3];
             $datedebut = date('Y-m-d');
             $datefin = date('Y-m-t', strtotime('+1 month'));
             $requete = reservation::insert([
                 'idReservation' => $max,
                 'positionFileAttente' => null,
-                'numeroPlace' => $nbplace,
+                'numeroPlace' => $input,
                 'utilisateur' => $id,
                 'etatReservation' => 0,
                 'dateDebut' => $datedebut,
