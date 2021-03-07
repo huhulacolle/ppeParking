@@ -82,7 +82,7 @@ class user extends Controller
         foreach ($connect as $connectdata) {
             $old = $connectdata -> motDePasseUtilisateur;
         }
-        if ($old == $_POST['old']) {
+        if (Hash::check($_POST['old'], $old)) {
             $update = utilisateur::
             where('idUtilisateur', '=', $user[0])
             ->update(['motDePasseUtilisateur' => Hash::make($_POST['new'])]);
