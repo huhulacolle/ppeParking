@@ -38,7 +38,7 @@ class user extends Controller
             $dbreserv[0] = 1;
         }
 
-        $dbreserv[1] = reservation::join('parkings','idParking','=','reservations.numeroPlace')->select('*')->where('utilisateur','=',$info)->get();
+        $dbreserv[1] = reservation::leftJoin('parkings','idParking','=','reservations.numeroPlace')->select('*')->where('utilisateur','=',$info)->get();
 
         return view('user.reservation', compact('info'), compact('dbreserv'));
     }
