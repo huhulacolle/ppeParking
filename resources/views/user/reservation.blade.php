@@ -2,7 +2,8 @@
 $reserv = $dbreserv[1];
 $today = date("Y-m-d");
 Log::debug($today);
-$annule = 1;
+$annule = 0;
+$valide = 0;
 ?>
 @extends('head.user')
 @section('content')
@@ -26,7 +27,10 @@ $annule = 1;
         </thead>
         <tbody>
             @foreach ($reserv as $reservdata)
-            <?php $annule = 0 ?>
+            <?php
+            $annule = 0;
+            $valide = 0;
+            ?>
             <tr>
                 <td>
                     {{$reservdata -> idReservation}}
@@ -47,12 +51,14 @@ $annule = 1;
                     @if ($reservdata -> etatReservation == 1)
                         Annulée
                         <?php $annule = 1 ?>
+                        <?php $valide = 1 ?>
+                    @elseif($reservdata -> dateDebut == NULL)
+                        En attente
+                        <?php $annule = 1 ?>
                     @elseif($reservdata -> dateFin < $today)
                         Expirée
                         <?php $annule = 1 ?>
-                    @elseif($reservdata -> dateDebut == NULL)
-                        En attente
-                        <?php $annule = 0 ?>
+                        <?php $valide = 1 ?>
                     @else
                         Validée
                     @endif
@@ -78,7 +84,7 @@ $annule = 1;
 <center> Aucune réservation effectuer </center>
 @endif
 <?php Log::debug($annule); ?>
-@if ($annule == 1)
+@if ($valide == 1 || $dbreserv[0] != 0)
     <form action="ReservationExe" method="post">
         @csrf
         <input type="hidden" name="iduser" value={{$info[0]}}>
