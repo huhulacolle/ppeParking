@@ -42,7 +42,4 @@
         @endforeach
         </tbody>
     </table>
-<br><br><br><br><br>
-<a href="testAdmin">Regarder les places libres</a>
-
 @endsection

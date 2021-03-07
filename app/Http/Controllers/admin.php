@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Controller;
+use App\Mail\ChangeMDP;
 use Illuminate\Http\Request;
 use App\Models\reservation;
 use App\Models\utilisateur;
@@ -19,8 +21,14 @@ class admin extends Controller
     {
         $idUtilisateur = $_POST['idUtilisateur'];
         $id = $_POST['id'];
+        $mdp = $_POST['motDePasse'];
         $liste = 1;
-        utilisateur::where("idUtilisateur","=", $idUtilisateur)->update(array('motDePasseUtilisateur' => Hash::make($_POST['motDePasse'])));
+        utilisateur::where("idUtilisateur","=", $idUtilisateur)->update(array('motDePasseUtilisateur' => Hash::make($mdp)));
+
+        $req = utilisateur::select('mail')->where('idUtilisateur', '=', $idUtilisateur)->get();
+        $mail = explode('"', $req);
+        $mail = $mail[3];
+        Mail::to($mail)->send(new ChangeMDP($mdp));
         return view('admin.acceuiladmin', compact('id', 'liste'));
     }
 
