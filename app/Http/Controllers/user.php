@@ -127,7 +127,7 @@ class user extends Controller
             $requete = reservation::insert([
                 'idReservation' => $max,
                 'positionFileAttente' => $attente,
-                'numeroPlace' => 0,
+                'numeroPlace' => null,
                 'utilisateur' => $id,
                 'etatReservation' => 0,
                 'dateDebut' => NULL,
