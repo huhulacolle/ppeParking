@@ -2,6 +2,7 @@
 $reserv = $dbreserv[1];
 $today = date("Y-m-d");
 Log::debug($today);
+$annule = 1;
 ?>
 @extends('head.user')
 @section('content')
