@@ -108,9 +108,9 @@ class user extends Controller
         if ($nbPlacesLibres >= 0) {
             $nbPlacesLibres--;
             $input = rand(0, $nbPlacesLibres);
-            // $nbplace = $placesLibres[$input];
-            // $nbplace = explode('"', $nbplace);
-            // $nbplace = $nbplace[3];
+            $nbplace = $placesLibres[$input];
+            $nbplace = explode(':', $nbplace);
+            $nbplace = $nbplace[1];
             $datedebut = date('Y-m-d');
             $datefin = date('Y-m-t', strtotime('+1 month'));
             $requete = reservation::insert([
