@@ -38,7 +38,7 @@ Log::debug($error);
             <input type="text" class="form-control" name="prenom" placeholder="Prénom" required>
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" name="mail" placeholder="Adresse E-Mail" required>
+            <input type="email" class="form-control" name="mail" placeholder="Adresse E-Mail" required>
         </div>
         <div class="form-group">
             <input type="password" class="form-control" id="mdp" name="password" placeholder="Mot de passe" maxlength="30" required>
