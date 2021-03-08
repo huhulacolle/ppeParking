@@ -11,8 +11,6 @@ $valide = 0;
     <h2> Vos Réservations </h2>
 </center>
 <br>
-{{-- ajouter le champ numeroPlace / ok --}}
-{{-- faire disparaitre le bouton : faire une réservation (si une réservation de l'utilisateur est déjà en cours) / ok --}}
 @if ($dbreserv[0] == 0)
 <div class="container mb-3 mt-3">
     <table class="table">
@@ -81,7 +79,7 @@ $valide = 0;
     </table>
 </div>
 @else
-<center> Aucune réservation effectuer </center>
+<center> Aucune réservation effectuée </center>
 @endif
 <?php Log::debug($annule); ?>
 @if ($valide == 1 || $dbreserv[0] != 0)
