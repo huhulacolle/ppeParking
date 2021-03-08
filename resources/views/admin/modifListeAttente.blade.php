@@ -1,25 +1,32 @@
 @extends('head.admin')
 @section('content')
 <div class="shadow-lg p-3 mb-5 bg-white rounded">
-    <h3 align="center" style="color:#00DFF9";>MODIFICATION DE LA LISTE D'ATTENTE</h3>
-  </div>
-<div style="text-align: center;">
-        @foreach ($reservation as $reservationdata)
-            {{$positionFileAttente = $reservationdata->positionFileAttente}}
-            {{$idReservation = $reservationdata->idReservation}}
-            Modification de la position dans la liste attente :  {{$reservationdata->nomUtilisateur}}<br><br><br><br><br><br><br><br>
-            <form method="POST" action="updateFileAttente/{{$idReservation}}">;
+    <h3 align="center" style="color:#00DFF9" ;>MODIFICATION DE LA LISTE D'ATTENTE</h3>
+</div>
+<br>
+
+@foreach ($reservation as $reservationdata)
+<?php $positionFileAttente = $reservationdata->positionFileAttente ?>
+<?php $idReservation = $reservationdata->idReservation ?>
+<div class="container mb-3 mt-3">
+    <center>
+        <h3> Modification de la position dans la liste attente : {{$reservationdata->nomUtilisateur}}</h3>
+    </center>
+    <form method="POST" action="updateFileAttente/{{$idReservation}}">
+        <br>
         @endforeach
-        {{ csrf_field() }}
-        <p>Nouvelle place de file d'attente à attribué: <br><br></p>
-        <select name="placeAattribuer">
-            @foreach($placeAattribuer as $value)
-               <option value="{{$value->positionFileAttente}}">{{$value->positionFileAttente}}</option>
-            @endforeach
-        </select>
+        <center>Nouvelle place de file d'attente à attribué:
+            <select name="placeAattribuer">
+                @foreach($placeAattribuer as $value)
+                <option value="{{$value->positionFileAttente}}">{{$value->positionFileAttente}}</option>
+                @endforeach
+            </select>
+        </center>
         <br><br><br>
         <input type="hidden" name="id" value={{$_GET['id']}}>
-        <button type="submit" value="valider">Valider</button>
-        </form>
+        <div style="text-align: right">
+            <button type="submit" class="btn btn-primary" value="valider">Valider</button>
+        </div>
+    </form>
 </div>
 @endsection
