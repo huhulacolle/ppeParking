@@ -72,6 +72,9 @@
                         </li>
                     </form>
                 @endif
+                <li class="nav-item">
+                    <a href="Documentation_Utilisateur_Parking.pdf" class="link-lookalike nav-link">Documentation</a>
+                </li>
             </ul>
             <span class="navbar-text">
                 <a href="/">
