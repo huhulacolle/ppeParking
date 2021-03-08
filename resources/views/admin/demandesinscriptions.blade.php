@@ -31,8 +31,8 @@
                         <td>{{$value->nom}}</td>
                         <td>{{$value->prenom}}</td>
                         <td>{{$value->mail}}</td>
-                        <td><a href="accepterInscription/{{$value->idUtilisateur}}">Accepter inscription </a></td>
-                        <td><a href="refuserInscription/{{$value->idUtilisateur}}">Refuser inscription </a></td>
+                        <td><a class="btn btn-primary" href="accepterInscription/{{$value->idUtilisateur}}">Accepter</td>
+                        <td><a class="btn btn-danger" href="refuserInscription/{{$value->idUtilisateur}}">Refuser</td>
                     </tr>
                 @endforeach
             </tbody>
