@@ -13,6 +13,7 @@
         <h3> Modification de la position dans la liste attente : {{$reservationdata->nomUtilisateur}}</h3>
     </center>
     <form method="POST" action="updateFileAttente/{{$idReservation}}">
+        @csrf
         <br>
         @endforeach
         <center>Nouvelle place de file d'attente à attribué:
