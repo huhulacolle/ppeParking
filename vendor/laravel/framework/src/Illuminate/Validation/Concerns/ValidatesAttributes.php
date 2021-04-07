@@ -556,7 +556,7 @@ trait ValidatesAttributes
             return empty(preg_grep('/^'.preg_quote($value, '/').'$/iu', $data));
         }
 
-        return ! in_array($value, array_values($data), in_array('strict', $parameters));
+        return ! in_array($value, array_values($data));
     }
 
     /**
@@ -617,15 +617,15 @@ trait ValidatesAttributes
             ->unique()
             ->map(function ($validation) {
                 if ($validation === 'rfc') {
-                    return new RFCValidation;
+                    return new RFCValidation();
                 } elseif ($validation === 'strict') {
-                    return new NoRFCWarningsValidation;
+                    return new NoRFCWarningsValidation();
                 } elseif ($validation === 'dns') {
-                    return new DNSCheckValidation;
+                    return new DNSCheckValidation();
                 } elseif ($validation === 'spoof') {
-                    return new SpoofCheckValidation;
+                    return new SpoofCheckValidation();
                 } elseif ($validation === 'filter') {
-                    return new FilterEmailValidation;
+                    return new FilterEmailValidation();
                 } elseif ($validation === 'filter_unicode') {
                     return FilterEmailValidation::unicode();
                 } elseif (is_string($validation) && class_exists($validation)) {
@@ -633,7 +633,7 @@ trait ValidatesAttributes
                 }
             })
             ->values()
-            ->all() ?: [new RFCValidation];
+            ->all() ?: [new RFCValidation()];
 
         return (new EmailValidator)->isValid($value, new MultipleValidationWithAnd($validations));
     }
@@ -1425,65 +1425,10 @@ trait ValidatesAttributes
     {
         $this->requireParameterCount(2, $parameters, 'required_if');
 
-        [$values, $other] = $this->parseDependentRuleParameters($parameters);
+        [$values, $other] = $this->prepareValuesAndOther($parameters);
 
-        if (in_array($other, $values, is_bool($other))) {
+        if (in_array($other, $values)) {
             return $this->validateRequired($attribute, $value);
-        }
-
-        return true;
-    }
-
-    /**
-     * Validate that an attribute does not exist.
-     *
-     * @param  string  $attribute
-     * @param  mixed  $value
-     * @param  mixed  $parameters
-     * @return bool
-     */
-    public function validateProhibited($attribute, $value)
-    {
-        return false;
-    }
-
-    /**
-     * Validate that an attribute does not exist when another attribute has a given value.
-     *
-     * @param  string  $attribute
-     * @param  mixed  $value
-     * @param  mixed  $parameters
-     * @return bool
-     */
-    public function validateProhibitedIf($attribute, $value, $parameters)
-    {
-        $this->requireParameterCount(2, $parameters, 'prohibited_if');
-
-        [$values, $other] = $this->parseDependentRuleParameters($parameters);
-
-        if (in_array($other, $values, is_bool($other))) {
-            return ! $this->validateRequired($attribute, $value);
-        }
-
-        return true;
-    }
-
-    /**
-     * Validate that an attribute does not exist unless another attribute has a given value.
-     *
-     * @param  string  $attribute
-     * @param  mixed  $value
-     * @param  mixed  $parameters
-     * @return bool
-     */
-    public function validateProhibitedUnless($attribute, $value, $parameters)
-    {
-        $this->requireParameterCount(2, $parameters, 'prohibited_unless');
-
-        [$values, $other] = $this->parseDependentRuleParameters($parameters);
-
-        if (! in_array($other, $values, is_bool($other))) {
-            return ! $this->validateRequired($attribute, $value);
         }
 
         return true;
@@ -1501,9 +1446,9 @@ trait ValidatesAttributes
     {
         $this->requireParameterCount(2, $parameters, 'exclude_if');
 
-        [$values, $other] = $this->parseDependentRuleParameters($parameters);
+        [$values, $other] = $this->prepareValuesAndOther($parameters);
 
-        return ! in_array($other, $values, is_bool($other));
+        return ! in_array($other, $values);
     }
 
     /**
@@ -1518,9 +1463,9 @@ trait ValidatesAttributes
     {
         $this->requireParameterCount(2, $parameters, 'exclude_unless');
 
-        [$values, $other] = $this->parseDependentRuleParameters($parameters);
+        [$values, $other] = $this->prepareValuesAndOther($parameters);
 
-        return in_array($other, $values, is_bool($other));
+        return in_array($other, $values);
     }
 
     /**
@@ -1548,7 +1493,7 @@ trait ValidatesAttributes
      * @param  array  $parameters
      * @return array
      */
-    public function parseDependentRuleParameters($parameters)
+    protected function prepareValuesAndOther($parameters)
     {
         $other = Arr::get($this->data, $parameters[0]);
 
@@ -1607,9 +1552,9 @@ trait ValidatesAttributes
     {
         $this->requireParameterCount(2, $parameters, 'required_unless');
 
-        [$values, $other] = $this->parseDependentRuleParameters($parameters);
+        [$values, $other] = $this->prepareValuesAndOther($parameters);
 
-        if (! in_array($other, $values, is_bool($other))) {
+        if (! in_array($other, $values)) {
             return $this->validateRequired($attribute, $value);
         }
 

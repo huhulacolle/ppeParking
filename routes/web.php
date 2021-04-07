@@ -22,6 +22,8 @@ Route::get('/', function () {
     return view('pageconnexion');
 });
 
+
+
 Route::post('/', [connexion::class, 'connexion']);
 
 Route::get('Inscription', function () {
@@ -44,6 +46,8 @@ Route::get('demandesinscriptions', [admin::class, 'demandesinscriptions']);
 
 
 Route::post('ListeAttente', [admin::class, 'listeattente']);
+
+// Route::get('ListeAttente', [admin::class, 'listeattente']);
 
 Route::post('ListeUtilisateur', [admin::class, 'listeutilisateur']);
 
