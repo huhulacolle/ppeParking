@@ -67,10 +67,7 @@ class connexion extends Controller
         }
         if ($error == 0) {
             $error = 4;
-            $max = DB::table('utilisateurs')->max('idUtilisateur');
-            $max++;
             $inscription = DB::table('utilisateurs')->insert([
-                'idUtilisateur' => $max,
                 'nomUtilisateur' => $_GET['user'],
                 'nom' => $_GET['nom'],
                 'prenom' => $_GET['prenom'],

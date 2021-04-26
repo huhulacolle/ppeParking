@@ -17,8 +17,8 @@ class CreateUtilisateursTable extends Migration
             $table->engine = 'InnoDb';
             $table->increments('idUtilisateur');
             $table->string('nomUtilisateur')->unique();
-            $table->char('nom', 50)->unique();
-            $table->char('prenom', 50)->unique();
+            $table->char('nom', 50);
+            $table->char('prenom', 50);
             $table->char('mail', 50)->unique();
             $table->char('motDePasseUtilisateur');
             $table->boolean('estInscrit')->default(false); // 0 : attente de validation , 1 : refusé, 2 : validé
