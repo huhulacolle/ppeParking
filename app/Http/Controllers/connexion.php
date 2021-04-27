@@ -101,11 +101,4 @@ class connexion extends Controller
 
     }
 
-    public function testmail()
-    {
-        $mail = "ceci est un texte";
-
-        Mail::to('araujohugo@msn.com')->send(new Testmail($mail));
-        return "E-Mail envoyer";
-    }
 }
