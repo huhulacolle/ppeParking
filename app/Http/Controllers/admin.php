@@ -46,7 +46,8 @@ class admin extends Controller
 
     public function listereservation()
     {
-        return view('admin.listereservation');
+        $listeHistoReservation = reservation::join('utilisateurs','reservations.utilisateur','=','idUtilisateur')->select('idReservation','positionFileAttente','numeroPlace','etatReservation','dateDebut','dateFin','nomUtilisateur')->orderBy('idReservation', 'desc')->get();
+        return view('admin.listereservation', compact('listeHistoReservation'));
     }
 
     public function demandesinscriptions()
