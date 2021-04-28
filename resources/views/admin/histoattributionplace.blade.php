@@ -7,7 +7,6 @@
 <div class="container mb-3 mt-3">
         <table class="table">
             <thead>
-           <th scope="col">Id de la réservation</th>
            <th scope="col">position dans la file d'attente</th>
            <th scope="col">Numero de la place attribuée</th>
            <th scope="col">utilisateur</th>
@@ -18,7 +17,6 @@
         <tbody>
             @foreach ($listeHistoReservation as $listeHistoReservationdata)
             <tr>
-                <td>{{$listeHistoReservationdata->idReservation}}</td>
                 <td>{{$listeHistoReservationdata->positionFileAttente}}</td>
                 <td>{{$listeHistoReservationdata->numeroPlace}}</td>
                 <td>{{$listeHistoReservationdata->nomUtilisateur}}</td>

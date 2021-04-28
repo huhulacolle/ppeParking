@@ -76,7 +76,7 @@ class admin extends Controller
 
     public function histoattributionplace()
     {
-        $listeHistoReservation = reservation::join('utilisateurs','reservations.utilisateur','=','idUtilisateur')->select('idReservation','positionFileAttente','numeroPlace','etatReservation','dateDebut','dateFin','nomUtilisateur')->get();
+        $listeHistoReservation = reservation::join('utilisateurs','reservations.utilisateur','=','idUtilisateur')->select('idReservation','positionFileAttente','numeroPlace','etatReservation','dateDebut','dateFin','nomUtilisateur')->orderBy('bar', 'desc')->get();
         return view('admin.histoattributionplace', compact('listeHistoReservation'));
     }
 

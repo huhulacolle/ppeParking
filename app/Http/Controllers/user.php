@@ -101,7 +101,7 @@ class user extends Controller
         $date = new DateTime();
         $placesLibres = parking::leftJoin('reservations', 'reservations.numeroPlace','=','parkings.idParking')->
                           select('parkings.idParking')->where('dateFin','<', $date->format('Y-m-d'))
-                                                        ->andWhere('etatReservation','=', 1)->distinct()->get();
+                                                        ->orWhere('etatReservation','=', 1)->distinct()->get();
         $nbPlacesLibres = count($placesLibres);
         $max = reservation::select('idReservation')->max('idReservation') + 1;
         $attente = reservation::select('positionFIleAttente')->max('positionFileAttente') + 1;
