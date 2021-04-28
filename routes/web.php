@@ -47,6 +47,8 @@ Route::post('ListeAttente', [admin::class, 'listeattente']);
 
 Route::post('ListeUtilisateur', [admin::class, 'listeutilisateur']);
 
+Route::post('ListeReservation', [admin::class, 'listereservation']);
+
 Route::post('HistoAttributionPlace', [admin::class, 'histoattributionplace']);
 
 Route::post('modificationFileAttente/updateFileAttente/{idReservation}', [admin::class, 'updateFileAttente']);

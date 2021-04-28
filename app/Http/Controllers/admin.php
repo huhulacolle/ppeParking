@@ -43,6 +43,12 @@ class admin extends Controller
         $listeUtilisateur = utilisateur::select('idUtilisateur','nomUtilisateur','nom','prenom','mail','motDePasseUtilisateur','motDePasseOublie')->where('isAdministrateur', '=', false)->get();
         return view('admin.listeutilisateur', compact('listeUtilisateur'));
     }
+
+    public function listereservation()
+    {
+        return view('admin.listereservation');
+    }
+
     public function demandesinscriptions()
     {
         $id = $_GET['id'];
@@ -76,7 +82,7 @@ class admin extends Controller
 
     public function histoattributionplace()
     {
-        $listeHistoReservation = reservation::join('utilisateurs','reservations.utilisateur','=','idUtilisateur')->select('idReservation','positionFileAttente','numeroPlace','etatReservation','dateDebut','dateFin','nomUtilisateur')->orderBy('bar', 'desc')->get();
+        $listeHistoReservation = reservation::join('utilisateurs','reservations.utilisateur','=','idUtilisateur')->select('idReservation','positionFileAttente','numeroPlace','etatReservation','dateDebut','dateFin','nomUtilisateur')->orderBy('idReservation', 'desc')->get();
         return view('admin.histoattributionplace', compact('listeHistoReservation'));
     }
 

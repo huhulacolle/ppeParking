@@ -80,6 +80,23 @@
                 </li>
             </form>
             @endif
+            @if ($adresse == "ListeReservation")
+            <form action="/ListeReservation" method="post">
+                @csrf
+                <input type="hidden" name="id" value={{$id}}>
+                <li class="nav-item active">
+                    <button type="submit" class="link-lookalike nav-link">Liste des reservation</button>
+                </li>
+            </form>
+            @else
+            <form action="/ListeReservation" method="post">
+                @csrf
+                <input type="hidden" name="id" value={{$id}}>
+                <li class="nav-item">
+                    <button type="submit" class="link-lookalike nav-link">Liste des reservation</button>
+                </li>
+            </form>
+            @endif
             @if ($adresse == "HistoAttributionPlace")
             <form action="/HistoAttributionPlace" method="post">
                 @csrf
