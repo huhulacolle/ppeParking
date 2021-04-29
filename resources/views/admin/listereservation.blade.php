@@ -13,32 +13,33 @@
        <th scope="col">Date fin de la réservation</th>
     </thead>
     <tbody>
-        <?php
-        $i = 0;
-        $j = 0;
-        ?>
         @foreach ($listeHistoReservation as $listeHistoReservationdata)
-        <?php
-        $i++;
-         ?>
             @if ($listeHistoReservationdata -> dateFin > date("Y-m-d"))
-            <?php
-            $j++;
-             ?>
-                <tr>
+                <tr style="text-align: center">
                     <td>{{$listeHistoReservationdata->nomUtilisateur}}</td>
                     <td>{{$listeHistoReservationdata->numeroPlace}}</td>
                     <td>{{$listeHistoReservationdata->positionFileAttente}}</td>
                     <td>{{$listeHistoReservationdata->dateDebut}}</td>
                     <td>{{$listeHistoReservationdata->dateFin}}</td>
-                    <td></td>
+                    <td> &ensp; </td>
                 </tr>
             @endif
         @endforeach
-        <?php
-        Log::debug($i);
-        Log::debug($j);
-        ?>
+        <tr style="text-align: center">
+            <form action="AjoutReservation" method="post">
+                <td>
+                    <select name="IdUser" class="form-control">
+                        @foreach ($listeUtilisateur as $listeUtilisateurdata)
+                            <option value={{$listeUtilisateurdata->idUtilisateur}}>{{$listeUtilisateurdata->nomUtilisateur}}</option>
+                        @endforeach
+                    </select>
+                </td>
+            </form>
+            <td colspan="4"> &ensp; </td>
+            <td>
+                <input type="submit" class="btn btn-primary" value="Ajouter">
+            </td>
+        </tr>
     </tbody>
 </table>
 </div>
