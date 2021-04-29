@@ -115,7 +115,6 @@ class user extends Controller
             $datedebut = date('Y-m-d');
             $datefin = date('Y-m-t', strtotime('+1 month'));
             $requete = reservation::insert([
-                'idReservation' => $max,
                 'positionFileAttente' => null,
                 'numeroPlace' => $nbplace,
                 'utilisateur' => $id,
@@ -126,7 +125,6 @@ class user extends Controller
         }
         else {
             $requete = reservation::insert([
-                'idReservation' => $max,
                 'positionFileAttente' => $attente,
                 'numeroPlace' => null,
                 'utilisateur' => $id,

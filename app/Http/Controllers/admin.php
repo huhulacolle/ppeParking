@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\parking;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Controller;
 use App\Mail\ChangeMDP;
 use Illuminate\Http\Request;
 use App\Models\reservation;
 use App\Models\utilisateur;
+use DateTime;
 use Illuminate\Support\Facades\Hash;
 
 class admin extends Controller
@@ -44,10 +46,52 @@ class admin extends Controller
         return view('admin.listeutilisateur', compact('listeUtilisateur'));
     }
 
+    public function ajoutreservation()
+    {
+        $id = $_POST['IdUser'];
+        $date = new DateTime();
+        $placesLibres = parking::leftJoin('reservations', 'reservations.numeroPlace','=','parkings.idParking')->
+                          select('parkings.idParking')->where('dateFin','<', $date->format('Y-m-d'))
+                                                        ->orWhere('etatReservation','=', 1)->distinct()->get();
+        $nbPlacesLibres = count($placesLibres);
+        $max = reservation::select('idReservation')->max('idReservation') + 1;
+        $attente = reservation::select('positionFIleAttente')->max('positionFileAttente') + 1;
+        if ($nbPlacesLibres >= 0) {
+            $nbPlacesLibres--;
+            $input = rand(0, $nbPlacesLibres);
+            $nbplace = $placesLibres[$input];
+            $nbplace = explode(':', $nbplace);
+            $nbplace = explode('}', $nbplace[1]);
+            $nbplace = $nbplace[0];
+            $datedebut = date('Y-m-d');
+            $datefin = date('Y-m-t', strtotime('+1 month'));
+            $requete = reservation::insert([
+                'positionFileAttente' => null,
+                'numeroPlace' => $nbplace,
+                'utilisateur' => $id,
+                'etatReservation' => 0,
+                'dateDebut' => $datedebut,
+                'dateFin' => $datefin,
+            ]);
+        }
+        else {
+            $requete = reservation::insert([
+                'positionFileAttente' => $attente,
+                'numeroPlace' => null,
+                'utilisateur' => $id,
+                'etatReservation' => 0,
+                'dateDebut' => NULL,
+                'dateFin' => NULL,
+            ]);
+        }
+        $max = reservation::select('idReservation')->max('idReservation');
+        return "c'est bon";
+    }
+
     public function listereservation()
     {
         $listeHistoReservation = reservation::join('utilisateurs','reservations.utilisateur','=','idUtilisateur')->select('idReservation','positionFileAttente','numeroPlace','etatReservation','dateDebut','dateFin','nomUtilisateur')->orderBy('idReservation', 'desc')->get();
-        $listeUtilisateur = utilisateur::select('idUtilisateur', 'nomUtilisateur')->get();
+        $listeUtilisateur = utilisateur::join('reservations','idUtilisateur','=','utilisateur')->select('idUtilisateur', 'nomUtilisateur')->where('dateFin','<', date('Y-m-d'))->orwhere('etatReservation', '=', '1')->distinct()->get();
         return view('admin.listereservation', compact('listeHistoReservation', 'listeUtilisateur'));
     }
 
