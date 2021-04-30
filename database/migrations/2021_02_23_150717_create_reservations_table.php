@@ -18,7 +18,7 @@ class CreateReservationsTable extends Migration
             $table->integer("positionFileAttente")->nullable();
             $table->integer('numeroPlace')->nullable()->unsigned();
             $table->integer('utilisateur')->nullable()->unsigned();
-            $table->string("etatReservation")->nullable();
+            $table->integer("etatReservation")->nullable();
             $table->date('dateDebut')->nullable();
             $table->date('dateFin')->nullable();
             $table->foreign('numeroPlace')
