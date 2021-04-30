@@ -103,9 +103,6 @@ class DatabaseSeeder extends Seeder
         ));
         reservation::insert(array(
             array(
-                'idReservation' => 2, 'positionFileAttente' => null , 'numeroPlace' => null, 'utilisateur' => rand(3, 13),'etatReservation' => rand(0,1), 'dateDebut' => '2020/08/10', 'dateFin' => '2020/04/17',
-            ),
-            array(
                 'idReservation' => 3, 'positionFileAttente' => null , 'numeroPlace' => null, 'utilisateur' => rand(3, 13),'etatReservation' => 0, 'dateDebut' => '2020/01/29', 'dateFin' => '2020/01/20',
             ),
             array(
