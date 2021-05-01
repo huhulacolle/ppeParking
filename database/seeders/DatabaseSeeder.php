@@ -103,19 +103,19 @@ class DatabaseSeeder extends Seeder
         ));
         reservation::insert(array(
             array(
-                'idReservation' => 1, 'positionFileAttente' => null , 'numeroPlace' => null, 'utilisateur' => 5,'etatReservation' => rand(0,1), 'dateDebut' => '2020/08/10', 'dateFin' => '2020/04/17',
+                'idReservation' => 1, 'positionFileAttente' => null , 'numeroPlace' => 5, 'utilisateur' => 5,'etatReservation' => rand(0,1), 'dateDebut' => '2019/01/17', 'dateFin' => '2019/02/17',
             ),
             array(
-                'idReservation' => 2, 'positionFileAttente' => null , 'numeroPlace' => null, 'utilisateur' => 3,'etatReservation' => rand(0,1), 'dateDebut' => '2020/01/29', 'dateFin' => '2020/01/20',
+                'idReservation' => 2, 'positionFileAttente' => null , 'numeroPlace' => 3, 'utilisateur' => 3,'etatReservation' => rand(0,1), 'dateDebut' => '2019/07/10', 'dateFin' => '2019/08/10',
             ),
             array(
                 'idReservation' => 3, 'positionFileAttente' => 1 , 'numeroPlace' => null, 'utilisateur' => 6,'etatReservation' => 0, 'dateDebut' => null,'dateFin' => null,
             ),
             array(
-                'idReservation' => 4, 'positionFileAttente' => null , 'numeroPlace' => 2, 'utilisateur' => 9,'etatReservation' => rand(0,1), 'dateDebut' => '2019/01/17','dateFin' => '2019/02/17',
+                'idReservation' => 4, 'positionFileAttente' => null , 'numeroPlace' => 2, 'utilisateur' => 9,'etatReservation' => rand(0,1), 'dateDebut' => '2020/01/29','dateFin' => '2020/02/29',
             ),
             array(
-                'idReservation' => 5, 'positionFileAttente' => null , 'numeroPlace' => 7, 'utilisateur' => 4,'etatReservation' => rand(0,1), 'dateDebut' => '2019/07/10','dateFin' => '2019/08/10',
+                'idReservation' => 5, 'positionFileAttente' => null , 'numeroPlace' => 7, 'utilisateur' => 4,'etatReservation' => rand(0,1), 'dateDebut' => '2020/08/10','dateFin' => '2020/09/10',
             ),
         ));
     }
