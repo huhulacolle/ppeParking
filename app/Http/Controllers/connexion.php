@@ -40,7 +40,8 @@ class connexion extends Controller
                     return view('user.acceuiluser', compact('id'), compact('action'));
                 }
                 else {
-                    return view('admin.acceuiladmin', compact('id'));
+                    $action = 1;
+                    return view('admin.acceuiladmin', compact('id', 'action'));
                 }
             }
         }

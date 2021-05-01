@@ -42,7 +42,39 @@
         <span class="sr-only">Loading...</span>
     </div>
 </div>
-@if (!isset($liste))
+@switch($action)
+    @case(1)
+    <form action="/ListeAttente" name="form" method="post">
+        @csrf
+        <input type="hidden" name='id' value={{$id}}>
+    </form>
+    <script type="text/javascript">
+        document.forms["form"].submit();
+
+    </script>
+        @break
+    @case(2)
+    <form action="/ListeUtilisateur" name="form" method="post">
+        @csrf
+        <input type="hidden" name='id' value={{$id}}>
+    </form>
+    <script type="text/javascript">
+        document.forms["form"].submit();
+    </script>
+        @break
+        @case(3)
+        <form action="/ListeReservation" name="form" method="post">
+            @csrf
+            <input type="hidden" name='id' value={{$id}}>
+        </form>
+        <script type="text/javascript">
+            document.forms["form"].submit();
+        </script>
+            @break
+    @default
+
+@endswitch
+{{-- @if (!isset($liste))
     <form action="/ListeAttente" name="form" method="post">
         @csrf
         <input type="hidden" name='id' value={{$id}}>
@@ -52,7 +84,7 @@
         @csrf
         <input type="hidden" name='id' value={{$id}}>
     </form>
-@endif
+@endif --}}
 
 <script type="text/javascript">
     document.forms["form"].submit();
