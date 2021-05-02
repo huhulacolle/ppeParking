@@ -88,7 +88,10 @@ class DatabaseSeeder extends Seeder
                 'idReservation' => 3, 'positionFileAttente' => null , 'numeroPlace' => 3, 'utilisateur' => 9,'etatReservation' => 0, 'dateDebut' => date('Y-m-d', strtotime('-1 month')),'dateFin' => date('Y-m-d'),
             ),
             array(
-                'idReservation' => 4, 'positionFileAttente' => null , 'numeroPlace' => 4, 'utilisateur' => 4,'etatReservation' => 1, 'dateDebut' => '2020/08/10','dateFin' => '2020/09/10',
+                'idReservation' => 4, 'positionFileAttente' => null , 'numeroPlace' => 4, 'utilisateur' => 4,'etatReservation' => 0, 'dateDebut' => date('Y-m-d'), 'dateFin' => date('Y-m-d', strtotime('+1 month')),
+            ),
+            array(
+                'idReservation' => 5, 'positionFileAttente' => null , 'numeroPlace' => 4, 'utilisateur' => 4,'etatReservation' => 1, 'dateDebut' => '2020/08/10','dateFin' => '2020/09/10',
             ),
         ));
     }
