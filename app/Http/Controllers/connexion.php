@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Hash;
 
 class connexion extends Controller
 {
+
+    public function verification()
+    {
+        return view('pageconnexion');
+    }
+
     public function connexion()
     {
         $utilisateur = null;

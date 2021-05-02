@@ -71,6 +71,15 @@
             document.forms["form"].submit();
         </script>
             @break
+        @case(4)
+        <form action="/ListePlace" name="form" method="post">
+            @csrf
+            <input type="hidden" name='id' value={{$id}}>
+        </form>
+        <script type="text/javascript">
+            document.forms["form"].submit();
+        </script>
+            @break
     @default
 
 @endswitch

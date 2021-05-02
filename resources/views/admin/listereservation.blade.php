@@ -28,7 +28,7 @@
                             @csrf
                             <input type="hidden" name="id" value={{$_POST['id']}}>
                             <td>
-                                <button type="submit" name="idReserv" class="btn btn-danger" value={{$listeHistoReservationdata->idReservation}}>Annuler</button>
+                                <button type="submit" name="idReserv" class="btn btn-danger" onclick='return confirm("Êtes-vous sûr de vouloir annuler la reservation ?")' value={{$listeHistoReservationdata->idReservation}}>Annuler</button>
                             </td>
                         </form>
                     </tr>

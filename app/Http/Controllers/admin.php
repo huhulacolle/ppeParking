@@ -49,7 +49,7 @@ class admin extends Controller
     public function listereservation()
     {
         $reservNULL = 0;
-        $listeHistoReservation = reservation::join('utilisateurs','reservations.utilisateur','=','idUtilisateur')->select('idReservation','positionFileAttente','numeroPlace','etatReservation','dateDebut','dateFin','nomUtilisateur')->where('dateFin', '>', date("Y-m-d"))->where('etatReservation', '=', 0)->orderBy('idReservation', 'desc')->get();
+        $listeHistoReservation = reservation::join('utilisateurs','reservations.utilisateur','=','idUtilisateur')->join('parkings', 'parkings.idParking', '=', 'reservations.numeroPlace')->select('idReservation','positionFileAttente','parkings.numeroPlace AS numeroPlace','etatReservation','dateDebut','dateFin','nomUtilisateur')->where('dateFin', '>', date("Y-m-d"))->where('etatReservation', '=', 0)->orderBy('idReservation', 'desc')->get();
         if ($listeHistoReservation == "[]") {
             $reservNULL = 1;
         }
@@ -62,6 +62,37 @@ class admin extends Controller
         $id = $_POST['id'];
         reservation::where('idReservation', '=', $_POST['idReserv'])->update(['etatReservation' => 1]);
         return view('admin.acceuiladmin', compact('action', 'id'));
+    }
+
+    public function listeplace()
+    {
+        $i = 1;
+        $reqplacerise = reservation::join('parkings', 'parkings.idParking', '=',  'reservations.numeroPlace')->select('parkings.numeroPlace AS numeroPlace')->distinct()->get();
+        foreach ($reqplacerise as $reqplacerisedata) {
+            $placeprise[$i] = $reqplacerisedata -> numeroPlace;
+            $i++;
+        }
+        $nbplaceprise = count($placeprise);
+        $listeplace = parking::select('*')->get();
+        return view('admin.listeplace', compact('listeplace', 'placeprise', 'nbplaceprise'));
+    }
+
+    public function ajoutplace()
+    {
+        $action = 4;
+        $id = $_POST['id'];
+        parking::insert([
+            'numeroPlace' => $_POST['numeroPlace'],
+        ]);
+        return view('admin.acceuiladmin', compact('id', 'action'));
+    }
+
+    public function deleteplace()
+    {
+        $action = 4;
+        $id = $_POST['id'];
+        parking::where('idParking','=', $_POST['idParking'])->delete();
+        return view('admin.acceuiladmin', compact('id', 'action'));
     }
 
     public function demandesinscriptions()

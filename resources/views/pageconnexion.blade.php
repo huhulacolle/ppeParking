@@ -26,7 +26,7 @@
         </p>
     </center>
     @endif
-    <form action="/" method="post">
+    <form action="/connexion" method="post">
         @csrf
         <h2 class="text-center">Connexion</h2>
         <div class="form-group">

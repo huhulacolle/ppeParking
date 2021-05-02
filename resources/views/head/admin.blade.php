@@ -80,12 +80,29 @@
                 </li>
             </form>
             @endif
+            @if ($adresse == "ListePlace")
+            <form action="/ListePlace" method="post">
+                @csrf
+                <input type="hidden" name="id" value={{$id}}>
+                <li class="nav-item active">
+                    <button type="submit" class="link-lookalike nav-link">Liste des Places</button>
+                </li>
+            </form>
+            @else
+            <form action="/ListePlace" method="post">
+                @csrf
+                <input type="hidden" name="id" value={{$id}}>
+                <li class="nav-item">
+                    <button type="submit" class="link-lookalike nav-link">Liste des Places</button>
+                </li>
+            </form>
+            @endif
             @if ($adresse == "ListeReservation")
             <form action="/ListeReservation" method="post">
                 @csrf
                 <input type="hidden" name="id" value={{$id}}>
                 <li class="nav-item active">
-                    <button type="submit" class="link-lookalike nav-link">Liste des reservation</button>
+                    <button type="submit" class="link-lookalike nav-link">Liste des reservations</button>
                 </li>
             </form>
             @else
@@ -93,7 +110,7 @@
                 @csrf
                 <input type="hidden" name="id" value={{$id}}>
                 <li class="nav-item">
-                    <button type="submit" class="link-lookalike nav-link">Liste des reservation</button>
+                    <button type="submit" class="link-lookalike nav-link">Liste des reservations</button>
                 </li>
             </form>
             @endif
