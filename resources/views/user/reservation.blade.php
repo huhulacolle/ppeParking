@@ -53,7 +53,7 @@ $valide = 0;
                     @elseif($reservdata -> dateDebut == NULL)
                         En attente
                         <?php $annule = 1 ?>
-                    @elseif($reservdata -> dateFin < $today)
+                    @elseif($reservdata -> dateFin <= $today)
                         Expirée
                         <?php $annule = 1 ?>
                         <?php $valide = 1 ?>

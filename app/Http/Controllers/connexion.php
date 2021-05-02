@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use App\Mail\Testmail;
 use Illuminate\Support\Facades\Mail;
 use App\Models\utilisateur;
+use App\Models\parking;
+use App\Models\reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Stmt\Else_;
@@ -12,10 +14,35 @@ use Illuminate\Support\Facades\Hash;
 
 class connexion extends Controller
 {
-
     public function verification()
     {
+        $reservation = reservation::select('idReservation', 'dateFin', 'numeroPlace')->where('etatReservation', '=', 0)->where('dateFin', '>=', date('Y-m-d'))->get();
+        $enattente = reservation::select('*')->whereNull('dateFin')->get();
+        $nbenattente = count($enattente);
+        $notein = reservation::select('parkings.numeroPlace AS numeroPlace')->join('utilisateurs', 'reservations.utilisateur', '=', 'idUtilisateur')->join('parkings', 'parkings.idParking', '=', 'reservations.numeroPlace')->where('dateFin', '>', date('Y-m-d'))->where('etatReservation', '=', 0)->get()->toArray();
+        $placesLibres = parking::select('idParking')->whereNotIn('idParking', $notein)->get();
+        $nbPlacesLibres = count($placesLibres);
+        if ($nbenattente > 0) {
+            foreach ($reservation as $reservationdata) {
+                if ($reservationdata -> dateFin == date('Y-m-d') && $nbPlacesLibres > 0) {
+                    foreach ($placesLibres as $placesLibresdata) {
+                        $numeroPlace = $placesLibresdata -> idParking;
+                    }
+                    reservation::where('positionFileAttente', '=', 1)->update([
+                        'positionFileAttente' => null,
+                        'numeroPlace' => $numeroPlace,
+                        'etatReservation' => 0,
+                        'dateDebut' => date('Y-m-d'),
+                        'dateFin' => date('Y-m-d', strtotime('+1 month')),
+                    ]);
+                    reservation::where('positionFileAttente', '=', 2)->update([
+                        'positionFileAttente' => 1,
+                    ]);
+                }
+            }
+        }
         return view('pageconnexion');
+
     }
 
     public function connexion()

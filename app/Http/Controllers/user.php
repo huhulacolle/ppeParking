@@ -137,7 +137,6 @@ class user extends Controller
                 'dateFin' => NULL,
             ]);
         }
-        return $nbPlacesLibres;
-        // return view('user.acceuiluser', compact('action', 'id'));
+        return view('user.acceuiluser', compact('action', 'id'));
     }
 }

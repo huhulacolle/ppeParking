@@ -22,7 +22,7 @@
                         Annulée
                     @elseif($listeHistoReservationdata -> dateDebut == NULL)
                          En attente
-                    @elseif($listeHistoReservationdata -> dateFin < date("Y-m-d"))
+                    @elseif($listeHistoReservationdata -> dateFin <= date("Y-m-d"))
                         Expirée
                     @else
                         Validée
