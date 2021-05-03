@@ -27,6 +27,7 @@ class admin extends Controller
         $mdp = $_POST['motDePasse'];
         utilisateur::where("idUtilisateur","=", $idUtilisateur)->update(array('motDePasseUtilisateur' => Hash::make($mdp)));
 
+        // envoi du mail
         $req = utilisateur::select('mail')->where('idUtilisateur', '=', $idUtilisateur)->get();
         $mail = explode('"', $req);
         $mail = $mail[3];
@@ -49,6 +50,7 @@ class admin extends Controller
     public function listereservation()
     {
         $reservNULL = 0;
+        // la requete affiche toute les reservations active
         $listeHistoReservation = reservation::join('utilisateurs','reservations.utilisateur','=','idUtilisateur')->join('parkings', 'parkings.idParking', '=', 'reservations.numeroPlace')->select('idReservation','positionFileAttente','parkings.numeroPlace AS numeroPlace','etatReservation','dateDebut','dateFin','nomUtilisateur')->where('dateFin', '>', date("Y-m-d"))->where('etatReservation', '=', 0)->orderBy('idReservation', 'desc')->get();
         if ($listeHistoReservation == "[]") {
             $reservNULL = 1;

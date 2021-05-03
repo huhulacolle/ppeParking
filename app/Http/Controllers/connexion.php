@@ -89,16 +89,20 @@ class connexion extends Controller
         $verif = utilisateur::select('*')->get();
         $error = 0;
         foreach ($verif as $verifdata) {
+            // si le nom d'utilisateur n'est pas dans la bdd, le message d'erreur correspondant s'affiche
             if ($verifdata -> nomUtilisateur == $_GET['user']) {
                 $error = 1;
             }
+            // si le nom d'utilisateur n'est pas dans la bdd, le message d'erreur correspondant s'affiche
             if ($verifdata -> mail == $_GET['mail']) {
                 $error = 2;
             }
         }
+        // si les deux mot de passes rentrée ne sont pas les mêmes
         if ($_GET['password'] != $_GET['newpassword']) {
             $error = 3;
         }
+        // si aucune erreur, alors l'inscription se lance
         if ($error == 0) {
             $error = 4;
             $inscription = DB::table('utilisateurs')->insert([
