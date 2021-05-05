@@ -18,7 +18,7 @@ use App\Http\Controllers\user;
 |
 */
 
-Route::get('test', [user::class, 'test']);
+Route::get('test', [connexion::class, 'test']);
 
 Route::get('/', [connexion::class, 'verification']);
 

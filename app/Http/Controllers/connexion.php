@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Hash;
 
 class connexion extends Controller
 {
+
+    public function test()
+    {
+
+    }
+
     public function verification()
     {
         $reservation = reservation::select('idReservation', 'dateFin', 'numeroPlace')->where('etatReservation', '=', 0)->where('dateFin', '>=', date('Y-m-d'))->get();
