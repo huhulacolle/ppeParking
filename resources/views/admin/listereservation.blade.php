@@ -33,6 +33,22 @@
                         </form>
                     </tr>
                 @endforeach
+                <tr style="text-align: center">
+                    <form action="Debug" method="post">
+                        @csrf
+                        <input type="hidden" name="id" value={{$_POST['id']}}>
+                        <td colspan="4">
+                            <select name="idUtilisateur" class="form-control">
+                                @foreach ($debug as $debugdata)
+                                    <option value={{$debugdata -> idUtilisateur}}>{{$debugdata -> nomUtilisateur}}</option>
+                                @endforeach
+                            </select>
+                        </td>
+                        <td>
+                            <input type="submit" class="btn btn-primary" value="Ajouter">
+                        </td>
+                    </form>
+                </tr>
             </tbody>
         </table>
     @endif

@@ -55,6 +55,8 @@ Route::post('DeletePlace', [admin::class, 'deleteplace']);
 
 Route::post('ListeReservation', [admin::class, 'listereservation']);
 
+Route::post('Debug', [admin::class, 'debug']);
+
 Route::post('AnnuleReservation', [admin::class, 'annulereservation']);
 
 Route::post('HistoAttributionPlace', [admin::class, 'histoattributionplace']);

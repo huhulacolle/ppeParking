@@ -55,7 +55,47 @@ class admin extends Controller
         if ($listeHistoReservation == "[]") {
             $reservNULL = 1;
         }
-        return view('admin.listereservation', compact('listeHistoReservation', 'reservNULL'));
+        $debug = utilisateur::select('idUtilisateur', 'nomUtilisateur')->get();
+        return view('admin.listereservation', compact('listeHistoReservation', 'reservNULL', 'debug'));
+    }
+
+    public function debug()
+    {
+        $action = 3;
+        $id = $_POST['id'];
+        $idUtilisateur = $_POST['idUtilisateur'];
+        $notein = reservation::select('parkings.numeroPlace AS numeroPlace')->join('utilisateurs', 'reservations.utilisateur', '=', 'idUtilisateur')->join('parkings', 'parkings.idParking', '=', 'reservations.numeroPlace')->where('dateFin', '>', date('Y-m-d'))->where('etatReservation', '=', 0)->get()->toArray();
+        $placesLibres = parking::select('idParking')->whereNotIn('idParking', $notein)->get();
+        $nbPlacesLibres = count($placesLibres);
+        $attente = reservation::select('positionFIleAttente')->max('positionFileAttente') + 1;
+        if ($nbPlacesLibres > 0) {
+            $nbPlacesLibres--;
+            $input = rand(0, $nbPlacesLibres);
+            $nbplace = $placesLibres[$input];
+            $nbplace = explode(':', $nbplace);
+            $nbplace = explode('}', $nbplace[1]);
+            $nbplace = $nbplace[0];
+            $datedebut = date('Y-m-d');
+            $datefin = date('Y-m-d', strtotime('+1 month'));
+            reservation::insert([
+                'positionFileAttente' => null,
+                'numeroPlace' => $nbplace,
+                'utilisateur' => $idUtilisateur,
+                'etatReservation' => 0,
+                'dateDebut' => $datedebut,
+                'dateFin' => $datefin,
+            ]);
+        } else {
+            reservation::insert([
+                'positionFileAttente' => $attente,
+                'numeroPlace' => null,
+                'utilisateur' => $idUtilisateur,
+                'etatReservation' => 0,
+                'dateDebut' => NULL,
+                'dateFin' => NULL,
+            ]);
+        }
+        return view('admin.acceuiladmin', compact('action', 'id'));
     }
 
     public function annulereservation()
