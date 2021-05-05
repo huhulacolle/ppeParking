@@ -30,7 +30,7 @@ class connexion extends Controller
         $nbPlacesLibres = count($placesLibres);
         if ($nbenattente > 0) {
             foreach ($reservation as $reservationdata) {
-                if ($reservationdata -> dateFin == date('Y-m-d') && $nbPlacesLibres > 0) {
+                while ($reservationdata -> dateFin == date('Y-m-d') && $nbPlacesLibres > 0) {
                     foreach ($placesLibres as $placesLibresdata) {
                         $numeroPlace = $placesLibresdata -> idParking;
                     }
@@ -40,9 +40,6 @@ class connexion extends Controller
                         'etatReservation' => 0,
                         'dateDebut' => date('Y-m-d'),
                         'dateFin' => date('Y-m-d', strtotime('+1 month')),
-                    ]);
-                    reservation::where('positionFileAttente', '=', 2)->update([
-                        'positionFileAttente' => 1,
                     ]);
                 }
             }
