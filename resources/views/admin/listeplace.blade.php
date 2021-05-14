@@ -11,26 +11,26 @@
         </thead>
         <tbody>
             @foreach ($listeplace as $listeplacedata)
-            <tr style="text-align: center">
-                <td>{{$listeplacedata->numeroPlace}}</td>
-                @for ($i = 1; $i < $nbplaceprise; $i++)
-                    @if ($listeplacedata->numeroPlace == $placeprise[$i])
-                        <td>
-                            <button type="submit" name="idParking" class="btn btn-danger btn-block" onclick="alert('Impossible de supprimer cette place')" value={{$listeplacedata->idParking}}> Supprimer </button>
-                            @break
-                        </td>
-                    @else
-                        <form action="DeletePlace" method="post">
-                            @csrf
-                            <input type="hidden" name="id" value={{$_POST['id']}}>
+                <tr style="text-align: center">
+                    <td>{{$listeplacedata->numeroPlace}}</td>
+                    @foreach ($placeprise as $placeprisedata)
+                        @if ($listeplacedata->numeroPlace == $placeprisedata->numeroPlace)
                             <td>
-                                <button type="submit" name="idParking" class="btn btn-danger btn-block" value={{$listeplacedata->idParking}}> Supprimer </button>
+                                <button type="submit" name="idParking" class="btn btn-danger btn-block" onclick="alert('Impossible de supprimer cette place')" value={{$listeplacedata->idParking}}> Supprimer </button>
+                                @break
                             </td>
-                        </form>
-                        @break
-                    @endif
-                @endfor
-            </tr>
+                        @else
+                            <form action="DeletePlace" method="post">
+                                @csrf
+                                <input type="hidden" name="id" value={{$_POST['id']}}>
+                                <td>
+                                    <button type="submit" name="idParking" class="btn btn-danger btn-block" value={{$listeplacedata->idParking}}> Supprimer </button>
+                                </td>
+                            </form>
+                            @break
+                        @endif
+                    @endforeach
+                </tr>
             @endforeach
             <tr width='10%'>
                 <form action="AjoutPlace" method="post">

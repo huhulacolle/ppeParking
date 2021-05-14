@@ -109,11 +109,7 @@ class admin extends Controller
     public function listeplace()
     {
         $i = 1;
-        $reqplacerise = reservation::join('parkings', 'parkings.idParking', '=',  'reservations.numeroPlace')->select('parkings.numeroPlace AS numeroPlace')->distinct()->get();
-        foreach ($reqplacerise as $reqplacerisedata) {
-            $placeprise[$i] = $reqplacerisedata -> numeroPlace;
-            $i++;
-        }
+        $placeprise = reservation::join('parkings', 'parkings.idParking', '=',  'reservations.numeroPlace')->select('parkings.numeroPlace AS numeroPlace')->distinct()->get();
         $nbplaceprise = count($placeprise);
         $listeplace = parking::select('*')->get();
         return view('admin.listeplace', compact('listeplace', 'placeprise', 'nbplaceprise'));
