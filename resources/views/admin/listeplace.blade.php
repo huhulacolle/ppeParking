@@ -13,23 +13,19 @@
             @foreach ($listeplace as $listeplacedata)
                 <tr style="text-align: center">
                     <td>{{$listeplacedata->numeroPlace}}</td>
-                    @foreach ($placeprise as $placeprisedata)
-                        @if ($listeplacedata->numeroPlace == $placeprisedata->numeroPlace)
-                            <td>
-                                <button type="submit" name="idParking" class="btn btn-danger btn-block" onclick="alert('Impossible de supprimer cette place')" value={{$listeplacedata->idParking}}> Supprimer </button>
-                                @break
-                            </td>
-                        @else
+                    @if ($alert[$listeplacedata->numeroPlace] == false)
+                        <td>
                             <form action="DeletePlace" method="post">
                                 @csrf
                                 <input type="hidden" name="id" value={{$_POST['id']}}>
-                                <td>
-                                    <button type="submit" name="idParking" class="btn btn-danger btn-block" value={{$listeplacedata->idParking}}> Supprimer </button>
-                                </td>
+                                <button type="submit" name="idParking" class="btn btn-danger btn-block" value={{$listeplacedata->idParking}}> Supprimer </button>
                             </form>
-                            @break
-                        @endif
-                    @endforeach
+                        </td>
+                    @else
+                        <td>
+                            <button type="submit" name="idParking" class="btn btn-danger btn-block" onclick="alert('Impossible de supprimer cette place')" value={{$listeplacedata->idParking}}> Supprimer </button>
+                        </td>
+                    @endif
                 </tr>
             @endforeach
             <tr width='10%'>
@@ -62,3 +58,18 @@
     </table>
 </div>
 @endsection
+{{-- @if ($listeplacedata->numeroPlace == $placeprisedata->numeroPlace)
+<td>
+    <button type="submit" name="idParking" class="btn btn-danger btn-block" onclick="alert('Impossible de supprimer cette place')" value={{$listeplacedata->idParking}}> Supprimer </button>
+    @break
+</td>
+@else
+<form action="DeletePlace" method="post">
+    @csrf
+    <input type="hidden" name="id" value={{$_POST['id']}}>
+    <td>
+        <button type="submit" name="idParking" class="btn btn-danger btn-block" value={{$listeplacedata->idParking}}> Supprimer </button>
+    </td>
+</form>
+@break
+@endif --}}
