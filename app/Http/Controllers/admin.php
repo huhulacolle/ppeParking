@@ -108,18 +108,14 @@ class admin extends Controller
 
     public function listeplace()
     {
-        $i = 0;
         $placeprise = reservation::join('parkings', 'parkings.idParking', '=',  'reservations.numeroPlace')->select('parkings.numeroPlace AS numeroPlace')->distinct()->get();
         $listeplace = parking::select('*')->get();
         foreach ($listeplace as $listeplacedata) {
             $alert[$listeplacedata->numeroPlace] = false;
             foreach ($placeprise as $placeprisedata) {
-                $bool[$i] = false;
                 if ($listeplacedata->numeroPlace == $placeprisedata->numeroPlace) {
-                    $bool[$i] = true;
                     $alert[$listeplacedata->numeroPlace] = true;
                 }
-                $i++;
             }
         }
         return view('admin.listeplace', compact('listeplace', 'placeprise', 'alert'));
