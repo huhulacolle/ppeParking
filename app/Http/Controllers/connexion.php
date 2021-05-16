@@ -17,36 +17,100 @@ class connexion extends Controller
 
     public function test()
     {
-
+        $enattente = count(reservation::select('*')->whereNull('dateFin')->get());
+        $notein = reservation::select('parkings.numeroPlace AS numeroPlace')->join('utilisateurs', 'reservations.utilisateur', '=', 'idUtilisateur')->join('parkings', 'parkings.idParking', '=', 'reservations.numeroPlace')->where('dateFin', '>', date('Y-m-d'))->where('etatReservation', '=', 0)->get()->toArray();
+        $placesLibres = parking::select('idParking')->whereNotIn('idParking', $notein)->get();
+        $nbPlacesLibres = count($placesLibres);
+        if ($enattente > 0) {
+            if ($nbPlacesLibres > 0) {
+                for ($i=1; $i <= $enattente; $i++) {
+                    if ($i == 1) {
+                        foreach ($placesLibres as $placesLibresdata) {
+                            $numeroPlace = $placesLibresdata -> idParking;
+                        }
+                        // echo 'le mec à la place ', $i, ' à une place pour le parking ', $numeroPlace, ' ';
+                        reservation::where('positionFileAttente', '=', $i)->update([
+                            'positionFileAttente' => null,
+                            'numeroPlace' => $numeroPlace,
+                            'etatReservation' => 0,
+                            'dateDebut' => date('Y-m-d'),
+                            'dateFin' => date('Y-m-d', strtotime('+1 month')),
+                        ]);
+                    }
+                    else {
+                        $fileattente = $i - 1;
+                        // echo ' le mec qui était en ', $i, ' est maintenant en', $fileattente, ' ';
+                        reservation::where('positionFileAttente', '=', $i)->update([
+                            'positionFileAttente' => $fileattente,
+                        ]);
+                    }
+                }
+            }
+        }
     }
 
     public function verification()
     {
-        $reservation = reservation::select('idReservation', 'dateFin', 'numeroPlace')->where('etatReservation', '=', 0)->where('dateFin', '>=', date('Y-m-d'))->get();
-        $enattente = reservation::select('*')->whereNull('dateFin')->get();
-        $nbenattente = count($enattente);
+        $enattente = count(reservation::select('*')->whereNull('dateFin')->get());
         $notein = reservation::select('parkings.numeroPlace AS numeroPlace')->join('utilisateurs', 'reservations.utilisateur', '=', 'idUtilisateur')->join('parkings', 'parkings.idParking', '=', 'reservations.numeroPlace')->where('dateFin', '>', date('Y-m-d'))->where('etatReservation', '=', 0)->get()->toArray();
         $placesLibres = parking::select('idParking')->whereNotIn('idParking', $notein)->get();
         $nbPlacesLibres = count($placesLibres);
-        if ($nbenattente > 0) {
-            foreach ($reservation as $reservationdata) {
-                while ($reservationdata -> dateFin == date('Y-m-d') && $nbPlacesLibres > 0) {
-                    foreach ($placesLibres as $placesLibresdata) {
-                        $numeroPlace = $placesLibresdata -> idParking;
+        if ($enattente > 0) {
+            if ($nbPlacesLibres > 0) {
+                for ($i=1; $i <= $enattente; $i++) {
+                    if ($i == 1) {
+                        foreach ($placesLibres as $placesLibresdata) {
+                            $numeroPlace = $placesLibresdata -> idParking;
+                        }
+                        // echo 'le mec à la place ', $i, ' à une place pour le parking ', $numeroPlace, ' ';
+                        reservation::where('positionFileAttente', '=', $i)->update([
+                            'positionFileAttente' => null,
+                            'numeroPlace' => $numeroPlace,
+                            'etatReservation' => 0,
+                            'dateDebut' => date('Y-m-d'),
+                            'dateFin' => date('Y-m-d', strtotime('+1 month')),
+                        ]);
                     }
-                    reservation::where('positionFileAttente', '=', 1)->update([
-                        'positionFileAttente' => null,
-                        'numeroPlace' => $numeroPlace,
-                        'etatReservation' => 0,
-                        'dateDebut' => date('Y-m-d'),
-                        'dateFin' => date('Y-m-d', strtotime('+1 month')),
-                    ]);
+                    else {
+                        $fileattente = $i - 1;
+                        // echo ' le mec qui était en ', $i, ' est maintenant en', $fileattente, ' ';
+                        reservation::where('positionFileAttente', '=', $i)->update([
+                            'positionFileAttente' => $fileattente,
+                        ]);
+                    }
                 }
             }
         }
         return view('pageconnexion');
-
     }
+
+    // public function verification()
+    // {
+    //     $reservation = reservation::select('idReservation', 'dateFin', 'numeroPlace')->where('etatReservation', '=', 0)->where('dateFin', '>=', date('Y-m-d'))->get();
+    //     $enattente = reservation::select('*')->whereNull('dateFin')->get();
+    //     $nbenattente = count($enattente);
+    //     $notein = reservation::select('parkings.numeroPlace AS numeroPlace')->join('utilisateurs', 'reservations.utilisateur', '=', 'idUtilisateur')->join('parkings', 'parkings.idParking', '=', 'reservations.numeroPlace')->where('dateFin', '>', date('Y-m-d'))->where('etatReservation', '=', 0)->get()->toArray();
+    //     $placesLibres = parking::select('idParking')->whereNotIn('idParking', $notein)->get();
+    //     $nbPlacesLibres = count($placesLibres);
+    //     if ($nbenattente > 0) {
+    //         foreach ($reservation as $reservationdata) {
+    //             while ($reservationdata -> dateFin == date('Y-m-d') && $nbPlacesLibres > 0) {
+    //                 foreach ($placesLibres as $placesLibresdata) {
+    //                     $numeroPlace = $placesLibresdata -> idParking;
+    //                 }
+    //                 reservation::where('positionFileAttente', '=', 1)->update([
+    //                     'positionFileAttente' => null,
+    //                     'numeroPlace' => $numeroPlace,
+    //                     'etatReservation' => 0,
+    //                     'dateDebut' => date('Y-m-d'),
+    //                     'dateFin' => date('Y-m-d', strtotime('+1 month')),
+    //                 ]);
+    //             }
+    //         }
+    //     }
+    //     return view('pageconnexion');
+
+    // }
 
     public function connexion()
     {

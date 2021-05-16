@@ -33,7 +33,7 @@
                         </form>
                     </tr>
                 @endforeach
-                <tr style="text-align: center">
+                {{-- <tr style="text-align: center">
                     <form action="Debug" method="post">
                         @csrf
                         <input type="hidden" name="id" value={{$_POST['id']}}>
@@ -48,7 +48,7 @@
                             <input type="submit" class="btn btn-primary" value="Ajouter">
                         </td>
                     </form>
-                </tr>
+                </tr> --}}
             </tbody>
         </table>
     @endif
