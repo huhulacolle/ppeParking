@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
         ));
         utilisateur::insert(array(
             array(
-                'idUtilisateur' => 1, 'nomUtilisateur' =>'HugoA','nom' =>'Araujo', 'Prenom' => 'Hugo','mail'=>'araujohugo@msn.com', 'motDePasseUtilisateur' => Hash::make('hugoContreInjections'), 'estInscrit' => true, 'isAdministrateur' => true ,
+                'idUtilisateur' => 1, 'nomUtilisateur' =>'HugoA','nom' =>'Araujo', 'Prenom' => 'Hugo','mail'=>'araujohugo@msn.com', 'motDePasseUtilisateur' => Hash::make('root'), 'estInscrit' => true, 'isAdministrateur' => true ,
             ),
             array(
                 'idUtilisateur' => 2, 'nomUtilisateur' => 'GianniB','nom' =>'Bosio', 'Prenom' => 'Gianni','mail'=>'gianni.bosio@hotmail.com', 'motDePasseUtilisateur' => Hash::make('gianniBosioEn'), 'estInscrit' => false, 'isAdministrateur' => false ,

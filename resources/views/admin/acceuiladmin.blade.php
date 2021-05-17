@@ -37,11 +37,13 @@
         text-align: center;
     }
 </style>
+{{-- Chargement qui sert à la redirection de l'admin vers les différents pages --}}
 <div class="loader">
     <div class="spinner-border text-primary" role="status">
         <span class="sr-only">Loading...</span>
     </div>
 </div>
+{{-- la variable $action contient une valeur int qui permettra d'acceder aux différents fichier --}}
 @switch($action)
     @case(1)
     <form action="/ListeAttente" name="form" method="post">

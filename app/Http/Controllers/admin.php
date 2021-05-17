@@ -61,6 +61,7 @@ class admin extends Controller
 
     public function debug()
     {
+        // sert pour l'ajout d'une reservation depuis la page listeplace pour le debug
         $action = 3;
         $id = $_POST['id'];
         $idUtilisateur = $_POST['idUtilisateur'];

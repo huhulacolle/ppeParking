@@ -84,34 +84,6 @@ class connexion extends Controller
         return view('pageconnexion');
     }
 
-    // public function verification()
-    // {
-    //     $reservation = reservation::select('idReservation', 'dateFin', 'numeroPlace')->where('etatReservation', '=', 0)->where('dateFin', '>=', date('Y-m-d'))->get();
-    //     $enattente = reservation::select('*')->whereNull('dateFin')->get();
-    //     $nbenattente = count($enattente);
-    //     $notein = reservation::select('parkings.numeroPlace AS numeroPlace')->join('utilisateurs', 'reservations.utilisateur', '=', 'idUtilisateur')->join('parkings', 'parkings.idParking', '=', 'reservations.numeroPlace')->where('dateFin', '>', date('Y-m-d'))->where('etatReservation', '=', 0)->get()->toArray();
-    //     $placesLibres = parking::select('idParking')->whereNotIn('idParking', $notein)->get();
-    //     $nbPlacesLibres = count($placesLibres);
-    //     if ($nbenattente > 0) {
-    //         foreach ($reservation as $reservationdata) {
-    //             while ($reservationdata -> dateFin == date('Y-m-d') && $nbPlacesLibres > 0) {
-    //                 foreach ($placesLibres as $placesLibresdata) {
-    //                     $numeroPlace = $placesLibresdata -> idParking;
-    //                 }
-    //                 reservation::where('positionFileAttente', '=', 1)->update([
-    //                     'positionFileAttente' => null,
-    //                     'numeroPlace' => $numeroPlace,
-    //                     'etatReservation' => 0,
-    //                     'dateDebut' => date('Y-m-d'),
-    //                     'dateFin' => date('Y-m-d', strtotime('+1 month')),
-    //                 ]);
-    //             }
-    //         }
-    //     }
-    //     return view('pageconnexion');
-
-    // }
-
     public function connexion()
     {
         $utilisateur = null;

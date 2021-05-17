@@ -34,13 +34,13 @@
         margin: 10px;
     }
 </style>
-
+{{-- Chargement qui sert à la redirection du user vers les différents pages --}}
 <div class="loader">
     <div class="spinner-border text-primary" role="status">
         <span class="sr-only">Loading...</span>
     </div>
 </div>
-
+{{-- la variable $action contient une valeur int qui permettra d'acceder aux différents fichier --}}
 @switch($action)
     @case(1)
     <form action="VosReservation" name="form" method="post">
