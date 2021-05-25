@@ -22,8 +22,8 @@
                     <tr style="text-align: center">
                         <td>{{$listeHistoReservationdata->nomUtilisateur}}</td>
                         <td>{{$listeHistoReservationdata->numeroPlace}}</td>
-                        <td>{{$listeHistoReservationdata->dateDebut}}</td>
-                        <td>{{$listeHistoReservationdata->dateFin}}</td>
+                        <td>{{implode('/',array_reverse  (explode('-',$listeHistoReservationdata->dateDebut)))}}</td>
+                        <td>{{implode('/',array_reverse  (explode('-',$listeHistoReservationdata->dateFin)))}}</td>
                         <form action="AnnuleReservation" method="post">
                             @csrf
                             <input type="hidden" name="id" value={{$_POST['id']}}>

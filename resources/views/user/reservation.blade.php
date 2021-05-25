@@ -40,10 +40,10 @@ $valide = 0;
                     {{$reservdata -> numeroPlace}}
                 </td>
                 <td>
-                    {{$reservdata -> dateDebut}}
+                    {{implode('/',array_reverse  (explode('-',$reservdata->dateDebut)))}}
                 </td>
                 <td>
-                    {{$reservdata -> dateFin}}
+                    {{implode('/',array_reverse  (explode('-',$reservdata->dateFin)))}}
                 </td>
                 <td>
                     @if ($reservdata -> etatReservation == 1)

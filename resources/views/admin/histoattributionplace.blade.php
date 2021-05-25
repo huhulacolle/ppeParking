@@ -29,8 +29,8 @@
                     @endif
                 </td>
                 <td>{{$listeHistoReservationdata->numeroPlace}}</td>
-                <td>{{$listeHistoReservationdata->dateDebut}}</td>
-                <td>{{$listeHistoReservationdata->dateFin}}</td>
+                <td>{{implode('/',array_reverse  (explode('-',$listeHistoReservationdata->dateDebut)))}}</td>
+                <td>{{implode('/',array_reverse  (explode('-',$listeHistoReservationdata->dateFin)))}}</td>
             </tr>
             @endforeach
         </tbody>
